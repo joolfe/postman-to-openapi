@@ -1,0 +1,33 @@
+{
+  "name": "postman-to-openapi",
+  "version": "1.0.0",
+  "description": "Convert postman collection to OpenAPI spec",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joolfe/postman-to-openapi.git"
+  },
+  "keywords": [
+    "swagger",
+    "OpenAPI",
+    "postman",
+    "collection",
+    "convert",
+    "converter",
+    "trsnaform",
+    "specification",
+    "yml"
+  ],
+  "author": "joolfe04@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joolfe/postman-to-openapi/issues"
+  },
+  "homepage": "https://github.com/joolfe/postman-to-openapi#readme",
+  "devDependencies": {
+    "standard": "^14.3.4"
+  }
+}
