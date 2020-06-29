@@ -4,8 +4,8 @@
   "description": "Convert postman collection to OpenAPI spec",
   "main": "lib/index.js",
   "scripts": {
-    "lint": "eslint **/*.js",
-    "lint:fix": "eslint **/*.js --fix",
+    "lint": "standard **/*.js",
+    "lint:fix": "standard **/*.js --fix",
     "test:unit": "mocha",
     "test:unit-no-only": "npm run test:unit -- --forbid-only",
     "test": "nyc npm run test:unit-no-only",
