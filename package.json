@@ -2,9 +2,13 @@
   "name": "postman-to-openapi",
   "version": "1.0.0",
   "description": "Convert postman collection to OpenAPI spec",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint **/*.js",
+    "lint:fix": "eslint **/*.js --fix",
+    "test:unit": "mocha",
+    "test:unit-no-only": "npm run test:unit -- --forbid-only",
+    "test": "nyc npm run test:unit-no-only",
     "changelog:all": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
@@ -19,7 +23,7 @@
     "collection",
     "convert",
     "converter",
-    "trsnaform",
+    "transform",
     "specification",
     "yml"
   ],
@@ -43,5 +47,23 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "lib/**/*.js",
+      "test/**/*.js"
+    ],
+    "exclude": [],
+    "reporter": [
+      "lcovonly",
+      "html",
+      "text"
+    ],
+    "lines": 90,
+    "statements": 90,
+    "functions": 90,
+    "branches": 90,
+    "check-coverage": true
   }
 }
