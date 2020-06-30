@@ -13,6 +13,6 @@ describe('First test', function () {
 
   it('should work when no save', async function () {
     const input = path.join(__dirname, '/resources/PostmantoOpenAPI.postman_collection.json')
-    const result = await postmanToOpenApi(input, '', { save: false })
+    await postmanToOpenApi(input, '', { save: false })
   })
 })
