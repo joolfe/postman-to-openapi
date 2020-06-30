@@ -1,0 +1,17 @@
+openapi: 3.0.0
+info:
+  title: Postman to OpenAPI
+  description: 'Mi super test collection from postman '
+  version: 1.0.0
+paths:
+  /hola:
+    post:
+      summary: Post example 2
+      requestBody:
+        content:
+          text/plain: {}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

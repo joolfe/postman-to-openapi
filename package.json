@@ -65,5 +65,8 @@
     "functions": 90,
     "branches": 90,
     "check-coverage": true
+  },
+  "dependencies": {
+    "js-yaml": "^3.14.0"
   }
 }

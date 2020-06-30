@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "2a45baa5-352f-4831-8483-1a0fcbc7da37",
 		"name": "Postman to OpenAPI",
+		"description": "Mi super test collection from postman ",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -20,16 +21,70 @@
 					}
 				},
 				"url": {
-					"raw": "https://www.google.es",
+					"raw": "https://www.google.es/hola",
 					"protocol": "https",
 					"host": [
 						"www",
 						"google",
 						"es"
+					],
+					"path": [
+						"hola"
 					]
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Post example 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {},
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.google.es/hola",
+					"protocol": "https",
+					"host": [
+						"www",
+						"google",
+						"es"
+					],
+					"path": [
+						"hola"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ef248fcc-2944-4cba-837f-680b10a45b30",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8e7453aa-5712-4a90-bc32-965c7d47906a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"protocolProfileBehavior": {}
