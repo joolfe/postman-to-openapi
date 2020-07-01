@@ -2,9 +2,15 @@
   "name": "postman-to-openapi",
   "version": "1.0.0",
   "description": "Convert postman collection to OpenAPI spec",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "standard **/*.js",
+    "lint:fix": "standard **/*.js --fix",
+    "test:unit": "mocha",
+    "test:unit-no-only": "npm run test:unit -- --forbid-only",
+    "test": "nyc npm run test:unit-no-only",
+    "changelog:all": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "repository": {
     "type": "git",
@@ -17,7 +23,7 @@
     "collection",
     "convert",
     "converter",
-    "trsnaform",
+    "transform",
     "specification",
     "yml"
   ],
@@ -30,13 +36,37 @@
   "devDependencies": {
     "@commitlint/cli": "^9.0.1",
     "@commitlint/config-conventional": "^9.0.1",
+    "conventional-changelog-cli": "^2.0.34",
     "eslint": "^7.3.1",
     "husky": "^4.2.5",
+    "mocha": "^8.0.1",
+    "nyc": "^15.1.0",
     "standard": "^14.3.4"
   },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "lib/**/*.js",
+      "test/**/*.js"
+    ],
+    "exclude": [],
+    "reporter": [
+      "lcovonly",
+      "html",
+      "text"
+    ],
+    "lines": 90,
+    "statements": 90,
+    "functions": 90,
+    "branches": 90,
+    "check-coverage": true
+  },
+  "dependencies": {
+    "js-yaml": "^3.14.0"
   }
 }
