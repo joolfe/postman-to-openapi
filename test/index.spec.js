@@ -1,18 +1,31 @@
 'use strict'
 
-const { describe, it } = require('mocha')
+const { describe, it, afterEach } = require('mocha')
 const postmanToOpenApi = require('../lib')
 const path = require('path')
+const { equal, ok } = require('assert').strict
+const { readFileSync, existsSync, unlinkSync } = require('fs')
+
+const OUTPUT_PATH = path.join(__dirname, '/openAPIRes.yml')
+
+const COLLECTION_BASIC = path.join(__dirname, '/resources/input/PostmantoOpenAPI.postman_collection.json')
+const EXPECTED_BASIC = readFileSync(path.join(__dirname, './resources/output/Basic.yml'), 'utf8')
 
 describe('First test', function () {
+  afterEach('remove file', function () {
+    if (existsSync(OUTPUT_PATH)) {
+      unlinkSync(OUTPUT_PATH)
+    }
+  })
+
   it('should work with a basic transform', async function () {
-    const input = path.join(__dirname, '/resources/PostmantoOpenAPI.postman_collection.json')
-    const output = path.join(__dirname, '/openAPIRes.yml')
-    await postmanToOpenApi(input, output, {})
+    const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {})
+
+    equal(EXPECTED_BASIC, result.slice(0, -1))
+    ok(existsSync(OUTPUT_PATH))
   })
 
   it('should work when no save', async function () {
-    const input = path.join(__dirname, '/resources/PostmantoOpenAPI.postman_collection.json')
-    await postmanToOpenApi(input, '', { save: false })
+    await postmanToOpenApi(COLLECTION_BASIC, '', { save: false })
   })
 })
