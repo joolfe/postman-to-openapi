@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Post example",
+			"name": "Create a user",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -21,22 +21,22 @@
 					}
 				},
 				"url": {
-					"raw": "https://www.google.es/hola",
+					"raw": "https://api.io/users",
 					"protocol": "https",
 					"host": [
-						"www",
-						"google",
-						"es"
+						"api",
+						"io"
 					],
 					"path": [
-						"hola"
+						"users"
 					]
-				}
+				},
+				"description": "This is a post request with json body"
 			},
 			"response": []
 		},
 		{
-			"name": "Post example 2",
+			"name": "Create a post",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -50,15 +50,14 @@
 					}
 				},
 				"url": {
-					"raw": "https://www.google.es/hola",
+					"raw": "https://api.io/posts",
 					"protocol": "https",
 					"host": [
-						"www",
-						"google",
-						"es"
+						"api",
+						"io"
 					],
 					"path": [
-						"hola"
+						"posts"
 					]
 				}
 			},
@@ -85,6 +84,13 @@
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"id": "cfcda50b-827a-4a48-8059-1344d044cba7",
+			"key": "version",
+			"value": "1.1.0"
 		}
 	],
 	"protocolProfileBehavior": {}

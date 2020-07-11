@@ -16,6 +16,3 @@
 ### Reverts
 
 * Revert "Testing commit lint" ([bd7d8c5](https://github.com/joolfe/postman-to-openapi/commit/bd7d8c5d42c83a0ba76907aeb6315461db763b34))
-
-
-

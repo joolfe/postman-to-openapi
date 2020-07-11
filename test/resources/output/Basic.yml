@@ -2,11 +2,30 @@ openapi: 3.0.0
 info:
   title: Postman to OpenAPI
   description: 'Mi super test collection from postman '
-  version: 1.0.0
+  version: 1.1.0
 paths:
-  /hola:
+  /users:
     post:
-      summary: Post example 2
+      summary: Create a user
+      description: This is a post request with json body
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                example: field
+                other:
+                  data1: 'yes'
+                  data2: 'no'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /posts:
+    post:
+      summary: Create a post
       requestBody:
         content:
           text/plain: {}

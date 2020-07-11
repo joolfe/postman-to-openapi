@@ -9,6 +9,9 @@ Or in other words, transform [this specification](https://schema.getpostman.com/
 - Postman Collection v2.1
 - OpenApi 3.0
 
+- POST request with JSON body.
+- Allow extract the api version from a collection general `variable`.
+
 ## Development
 
 This project use for development:
