@@ -8,8 +8,10 @@ const { readFileSync, existsSync, unlinkSync } = require('fs')
 
 const OUTPUT_PATH = path.join(__dirname, '/openAPIRes.yml')
 
-const COLLECTION_BASIC = path.join(__dirname, '/resources/input/PostmantoOpenAPI.postman_collection.json')
-const EXPECTED_BASIC = readFileSync(path.join(__dirname, './resources/output/Basic.yml'), 'utf8')
+const COLLECTION_BASIC = './test/resources/input/PostmantoOpenAPI.postman_collection.json'
+const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
+const COLLECTION_SIMPLE = './test/resources/input/SimplePost.json'
+const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -20,11 +22,23 @@ describe('Library specs', function () {
 
   it('should work with a basic transform', async function () {
     const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {})
-    equal(EXPECTED_BASIC, result.slice(0, -1))
+    equal(EXPECTED_BASIC, result)
     ok(existsSync(OUTPUT_PATH))
   })
 
   it('should work when no save', async function () {
     await postmanToOpenApi(COLLECTION_BASIC, '', { save: false })
+  })
+
+  it('should work if info is passed as parameter', async function () {
+    const result = await postmanToOpenApi(COLLECTION_SIMPLE, OUTPUT_PATH, {
+      info: {
+        title: 'Options title',
+        version: '6.0.7-beta',
+        description: 'Description from options',
+        termsOfService: 'http://tos.myweb.com'
+      }
+    })
+    equal(EXPECTED_INFO_OPTS, result)
   })
 })

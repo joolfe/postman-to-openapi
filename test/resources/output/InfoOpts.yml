@@ -1,13 +1,14 @@
 openapi: 3.0.0
 info:
-  title: Postman to OpenAPI
-  description: 'Mi super test collection from postman '
-  version: 1.1.0
+  title: Options title
+  description: Description from options
+  version: 6.0.7-beta
+  termsOfService: 'http://tos.myweb.com'
 paths:
   /users:
     post:
-      summary: Create a user
-      description: This is a post request with json body
+      summary: Create new User
+      description: Create a new user into your amazing API
       requestBody:
         content:
           application/json:
@@ -18,17 +19,6 @@ paths:
                 other:
                   data1: 'yes'
                   data2: 'no'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /posts:
-    post:
-      summary: Create a post
-      requestBody:
-        content:
-          text/plain: {}
       responses:
         '200':
           description: Successful response

@@ -1,0 +1,47 @@
+{
+	"info": {
+		"_postman_id": "3ad7e1b4-f3a1-4a8f-8bd0-56ff18f53339",
+		"name": "Simple Post",
+		"description": "Just a simple collection for test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create new User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"example\": \"field\",\n    \"other\": {\n        \"data1\": \"yes\",\n        \"data2\": \"no\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.io/users",
+					"protocol": "https",
+					"host": [
+						"api",
+						"io"
+					],
+					"path": [
+						"users"
+					]
+				},
+				"description": "Create a new user into your amazing API"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "a1b68638-d65e-4ee8-9a91-4d5749e9c2f2",
+			"key": "version",
+			"value": "2.3.0"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
