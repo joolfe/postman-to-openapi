@@ -9,9 +9,12 @@ const { readFileSync, existsSync, unlinkSync } = require('fs')
 const OUTPUT_PATH = path.join(__dirname, '/openAPIRes.yml')
 
 const COLLECTION_BASIC = './test/resources/input/PostmantoOpenAPI.postman_collection.json'
-const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
 const COLLECTION_SIMPLE = './test/resources/input/SimplePost.json'
+const COLLECTION_NO_VERSION = './test/resources/input/NoVersion.json'
+
+const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
 const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
+const EXPECTED_NO_VERSION = readFileSync('./test/resources/output/NoVersion.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -40,5 +43,10 @@ describe('Library specs', function () {
       }
     })
     equal(EXPECTED_INFO_OPTS, result)
+  })
+
+  it('should use default version if not informed and not in postman variables', async function () {
+    const result = await postmanToOpenApi(COLLECTION_NO_VERSION, OUTPUT_PATH, {})
+    equal(EXPECTED_NO_VERSION, result)
   })
 })
