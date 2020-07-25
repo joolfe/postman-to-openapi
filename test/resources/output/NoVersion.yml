@@ -6,6 +6,8 @@ info:
 paths:
   /users:
     post:
+      tags:
+        - default
       summary: Create new User
       description: Create a new user into your amazing API
       requestBody:

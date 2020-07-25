@@ -6,6 +6,8 @@ info:
 paths:
   /users:
     post:
+      tags:
+        - default
       summary: Create a user
       description: This is a post request with json body
       requestBody:
@@ -25,6 +27,8 @@ paths:
             application/json: {}
   /posts:
     post:
+      tags:
+        - default
       summary: Create a post
       requestBody:
         content:

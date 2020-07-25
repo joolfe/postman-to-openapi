@@ -15,6 +15,7 @@ const COLLECTION_NO_VERSION = './test/resources/input/NoVersion.json'
 const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
 const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
 const EXPECTED_NO_VERSION = readFileSync('./test/resources/output/NoVersion.yml', 'utf8')
+const EXPECTED_CUSTOM_TAG = readFileSync('./test/resources/output/CustomTag.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -48,5 +49,10 @@ describe('Library specs', function () {
   it('should use default version if not informed and not in postman variables', async function () {
     const result = await postmanToOpenApi(COLLECTION_NO_VERSION, OUTPUT_PATH, {})
     equal(EXPECTED_NO_VERSION, result)
+  })
+
+  it('should use "defaultTag" provided by config', async function () {
+    const result = await postmanToOpenApi(COLLECTION_SIMPLE, OUTPUT_PATH, { defaultTag: 'Custom Tag' })
+    equal(EXPECTED_CUSTOM_TAG, result)
   })
 })
