@@ -11,11 +11,13 @@ const OUTPUT_PATH = path.join(__dirname, '/openAPIRes.yml')
 const COLLECTION_BASIC = './test/resources/input/PostmantoOpenAPI.postman_collection.json'
 const COLLECTION_SIMPLE = './test/resources/input/SimplePost.json'
 const COLLECTION_NO_VERSION = './test/resources/input/NoVersion.json'
+const COLLECTION_FOLDERS = './test/resources/input/FolderCollection.json'
 
 const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
 const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
 const EXPECTED_NO_VERSION = readFileSync('./test/resources/output/NoVersion.yml', 'utf8')
 const EXPECTED_CUSTOM_TAG = readFileSync('./test/resources/output/CustomTag.yml', 'utf8')
+const EXPECTED_FOLDERS = readFileSync('./test/resources/output/Folders.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -54,5 +56,10 @@ describe('Library specs', function () {
   it('should use "defaultTag" provided by config', async function () {
     const result = await postmanToOpenApi(COLLECTION_SIMPLE, OUTPUT_PATH, { defaultTag: 'Custom Tag' })
     equal(EXPECTED_CUSTOM_TAG, result)
+  })
+
+  it('should work with folders and use as tags', async function () {
+    const result = await postmanToOpenApi(COLLECTION_FOLDERS, OUTPUT_PATH)
+    equal(EXPECTED_FOLDERS, result)
   })
 })
