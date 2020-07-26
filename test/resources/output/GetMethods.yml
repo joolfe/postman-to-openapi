@@ -14,7 +14,7 @@ paths:
         - name: age
           in: query
           schema:
-            type: string
+            type: integer
           description: Filter by age
           example: '45'
         - name: name
@@ -26,9 +26,15 @@ paths:
         - name: review
           in: query
           schema:
-            type: string
+            type: boolean
           description: Indicate if should be reviewed or not
           example: 'true'
+        - name: number
+          in: query
+          schema:
+            type: number
+          description: This is a number
+          example: '23.56'
       responses:
         '200':
           description: Successful response

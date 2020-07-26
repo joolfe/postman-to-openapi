@@ -11,6 +11,9 @@ Or in other words, transform [this specification](https://schema.getpostman.com/
 
 - POST request with JSON body.
 - Allow extract the api version from a collection general `variable`.
+- Customize general API information.
+- Transform query and headers parameters.
+- Automatic infer types from query and headers parameters. 
 
 ## Development
 

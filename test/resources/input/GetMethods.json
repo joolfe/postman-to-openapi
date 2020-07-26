@@ -12,7 +12,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://api.io/users?age=45&name=Jhon&review=true",
+					"raw": "https://api.io/users?age=45&name=Jhon&review=true&number=23.56",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -36,6 +36,11 @@
 							"key": "review",
 							"value": "true",
 							"description": "Indicate if should be reviewed or not"
+						},
+						{
+							"key": "number",
+							"value": "23.56",
+							"description": "This is a number"
 						}
 					]
 				},
