@@ -16,26 +16,41 @@ paths:
           schema:
             type: string
           description: Custom header
+          example: hudjilksns78jsijns090
         - name: X-Other
           in: header
           schema:
             type: string
           description: Another header
+          example: other
+        - name: No-description
+          in: header
+          schema:
+            type: string
+          example: header without description
+        - name: No-value
+          in: header
+          schema:
+            type: string
+          description: header without value
         - name: age
           in: query
           schema:
             type: string
           description: Filter by age
+          example: '45'
         - name: name
           in: query
           schema:
             type: string
           description: Filter by name
+          example: Jhon
         - name: review
           in: query
           schema:
             type: string
           description: Indicate if should be reviewed or not
+          example: 'true'
       responses:
         '200':
           description: Successful response
@@ -62,11 +77,13 @@ paths:
           schema:
             type: string
           description: Indicate the type of body sent by client
+          example: application/json
         - name: X-My-Header
           in: header
           schema:
             type: string
           description: Custom header
+          example: hudjilksns78jsijns090
       responses:
         '200':
           description: Successful response

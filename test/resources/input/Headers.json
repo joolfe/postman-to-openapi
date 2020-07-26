@@ -22,6 +22,17 @@
 						"value": "other",
 						"description": "Another header",
 						"type": "text"
+					},
+					{
+						"key": "No-description",
+						"value": "header without description",
+						"type": "text"
+					},
+					{
+						"key": "No-value",
+						"value": "",
+						"description": "header without value",
+						"type": "text"
 					}
 				],
 				"url": {

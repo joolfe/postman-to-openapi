@@ -16,16 +16,19 @@ paths:
           schema:
             type: string
           description: Filter by age
+          example: '45'
         - name: name
           in: query
           schema:
             type: string
           description: Filter by name
+          example: Jhon
         - name: review
           in: query
           schema:
             type: string
           description: Indicate if should be reviewed or not
+          example: 'true'
       responses:
         '200':
           description: Successful response
