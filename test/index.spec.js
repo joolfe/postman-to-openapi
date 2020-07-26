@@ -13,6 +13,7 @@ const COLLECTION_SIMPLE = './test/resources/input/SimplePost.json'
 const COLLECTION_NO_VERSION = './test/resources/input/NoVersion.json'
 const COLLECTION_FOLDERS = './test/resources/input/FolderCollection.json'
 const COLLECTION_GET = './test/resources/input/GetMethods.json'
+const COLLECTION_HEADERS = './test/resources/input/Headers.json'
 
 const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
 const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
@@ -20,6 +21,7 @@ const EXPECTED_NO_VERSION = readFileSync('./test/resources/output/NoVersion.yml'
 const EXPECTED_CUSTOM_TAG = readFileSync('./test/resources/output/CustomTag.yml', 'utf8')
 const EXPECTED_FOLDERS = readFileSync('./test/resources/output/Folders.yml', 'utf8')
 const EXPECTED_GET_METHODS = readFileSync('./test/resources/output/GetMethods.yml', 'utf8')
+const EXPECTED_HEADERS = readFileSync('./test/resources/output/Headers.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -68,6 +70,11 @@ describe('Library specs', function () {
   it('should parse GET methods with query string', async function () {
     const result = await postmanToOpenApi(COLLECTION_GET, OUTPUT_PATH)
     equal(EXPECTED_GET_METHODS, result)
+  })
+
+  it('should parse HEADERS parameters', async function () {
+    const result = await postmanToOpenApi(COLLECTION_HEADERS, OUTPUT_PATH)
+    equal(EXPECTED_HEADERS, result)
   })
 
   // other types of params
