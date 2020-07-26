@@ -2,12 +2,12 @@
 	"info": {
 		"_postman_id": "2a45baa5-352f-4831-8483-1a0fcbc7da37",
 		"name": "Postman to OpenAPI",
-		"description": "Mi super test collection from postman ",
+		"description": "Mi super test collection from postman",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Create a user",
+			"name": "Create new User",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -31,7 +31,7 @@
 						"users"
 					]
 				},
-				"description": "This is a post request with json body"
+				"description": "Create a new user into your amazing API"
 			},
 			"response": []
 		},
@@ -62,6 +62,35 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Create a note",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "This is an example Note",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.io/note",
+					"protocol": "https",
+					"host": [
+						"api",
+						"io"
+					],
+					"path": [
+						"note"
+					]
+				},
+				"description": "Just an example of text raw body"
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -88,7 +117,7 @@
 	],
 	"variable": [
 		{
-			"id": "cfcda50b-827a-4a48-8059-1344d044cba7",
+			"id": "d04439bd-c604-4758-bde2-3c873140f38c",
 			"key": "version",
 			"value": "1.1.0"
 		}
