@@ -26,7 +26,7 @@ const EXPECTED_GET_METHODS = readFileSync('./test/resources/output/GetMethods.ym
 const EXPECTED_HEADERS = readFileSync('./test/resources/output/Headers.yml', 'utf8')
 const EXPECTED_AUTH_BEARER = readFileSync('./test/resources/output/AuthBearer.yml', 'utf8')
 const EXPECTED_AUTH_BASIC = readFileSync('./test/resources/output/AuthBasic.yml', 'utf8')
-const EXPECTED_BASIC_WITH_AUTH = readFileSync('./test/resources/output/BasicWIthAuth.yml', 'utf8')
+const EXPECTED_BASIC_WITH_AUTH = readFileSync('./test/resources/output/BasicWithAuth.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
