@@ -26,6 +26,7 @@ const EXPECTED_GET_METHODS = readFileSync('./test/resources/output/GetMethods.ym
 const EXPECTED_HEADERS = readFileSync('./test/resources/output/Headers.yml', 'utf8')
 const EXPECTED_AUTH_BEARER = readFileSync('./test/resources/output/AuthBearer.yml', 'utf8')
 const EXPECTED_AUTH_BASIC = readFileSync('./test/resources/output/AuthBasic.yml', 'utf8')
+const EXPECTED_BASIC_WITH_AUTH = readFileSync('./test/resources/output/BasicWIthAuth.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -89,5 +90,23 @@ describe('Library specs', function () {
   it('should parse global authorization (Basic)', async function () {
     const result = await postmanToOpenApi(COLLECTION_AUTH_BASIC, OUTPUT_PATH)
     equal(EXPECTED_AUTH_BASIC, result)
+  })
+
+  it('should use global authorization by configuration', async function () {
+    const authDefinition = {
+      myCustomAuth: {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'A resource owner JWT',
+        description: 'My awesome authentication using bearer'
+      },
+      myCustomAuth2: {
+        type: 'http',
+        scheme: 'basic',
+        description: 'My awesome authentication using user and password'
+      }
+    }
+    const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, { auth: authDefinition })
+    equal(EXPECTED_BASIC_WITH_AUTH, result)
   })
 })
