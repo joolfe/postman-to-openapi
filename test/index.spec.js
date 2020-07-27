@@ -14,6 +14,8 @@ const COLLECTION_NO_VERSION = './test/resources/input/NoVersion.json'
 const COLLECTION_FOLDERS = './test/resources/input/FolderCollection.json'
 const COLLECTION_GET = './test/resources/input/GetMethods.json'
 const COLLECTION_HEADERS = './test/resources/input/Headers.json'
+const COLLECTION_AUTH_BEARER = './test/resources/input/AuthBearer.json'
+const COLLECTION_AUTH_BASIC = './test/resources/input/AuthBasic.json'
 
 const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
 const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
@@ -22,6 +24,8 @@ const EXPECTED_CUSTOM_TAG = readFileSync('./test/resources/output/CustomTag.yml'
 const EXPECTED_FOLDERS = readFileSync('./test/resources/output/Folders.yml', 'utf8')
 const EXPECTED_GET_METHODS = readFileSync('./test/resources/output/GetMethods.yml', 'utf8')
 const EXPECTED_HEADERS = readFileSync('./test/resources/output/Headers.yml', 'utf8')
+const EXPECTED_AUTH_BEARER = readFileSync('./test/resources/output/AuthBearer.yml', 'utf8')
+const EXPECTED_AUTH_BASIC = readFileSync('./test/resources/output/AuthBasic.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -77,6 +81,13 @@ describe('Library specs', function () {
     equal(EXPECTED_HEADERS, result)
   })
 
-  // other types of params
-  // do something about mandatory params?
+  it('should parse global authorization (Bearer)', async function () {
+    const result = await postmanToOpenApi(COLLECTION_AUTH_BEARER, OUTPUT_PATH)
+    equal(EXPECTED_AUTH_BEARER, result)
+  })
+
+  it('should parse global authorization (Basic)', async function () {
+    const result = await postmanToOpenApi(COLLECTION_AUTH_BASIC, OUTPUT_PATH)
+    equal(EXPECTED_AUTH_BASIC, result)
+  })
 })

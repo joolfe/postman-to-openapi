@@ -13,7 +13,12 @@ Or in other words, transform [this specification](https://schema.getpostman.com/
 - Allow extract the api version from a collection general `variable`.
 - Customize general API information.
 - Transform query and headers parameters.
-- Automatic infer types from query and headers parameters. 
+- Automatic infer types from query and headers parameters.
+- Support Json and Text body formats.
+- Global Authentication and Authorization parse
+  - Basic
+  - Bearer
+- Global Authentication and Authorization by configuration
 
 ## Development
 
