@@ -16,6 +16,7 @@ const COLLECTION_GET = './test/resources/input/GetMethods.json'
 const COLLECTION_HEADERS = './test/resources/input/Headers.json'
 const COLLECTION_AUTH_BEARER = './test/resources/input/AuthBearer.json'
 const COLLECTION_AUTH_BASIC = './test/resources/input/AuthBasic.json'
+const COLLECTION_PATH_PARAMS = './test/resources/input/PathParams.json'
 
 const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
 const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
@@ -27,6 +28,7 @@ const EXPECTED_HEADERS = readFileSync('./test/resources/output/Headers.yml', 'ut
 const EXPECTED_AUTH_BEARER = readFileSync('./test/resources/output/AuthBearer.yml', 'utf8')
 const EXPECTED_AUTH_BASIC = readFileSync('./test/resources/output/AuthBasic.yml', 'utf8')
 const EXPECTED_BASIC_WITH_AUTH = readFileSync('./test/resources/output/BasicWithAuth.yml', 'utf8')
+const EXPECTED_PATH_PARAMS = readFileSync('./test/resources/output/PathParams.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -108,5 +110,10 @@ describe('Library specs', function () {
     }
     const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, { auth: authDefinition })
     equal(EXPECTED_BASIC_WITH_AUTH, result)
+  })
+
+  it('should parse path params', async function () {
+    const result = await postmanToOpenApi(COLLECTION_PATH_PARAMS, OUTPUT_PATH)
+    equal(EXPECTED_PATH_PARAMS, result)
   })
 })
