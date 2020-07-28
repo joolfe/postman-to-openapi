@@ -1,6 +1,6 @@
 {
   "name": "postman-to-openapi",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Convert postman collection to OpenAPI spec",
   "main": "lib/index.js",
   "scripts": {
