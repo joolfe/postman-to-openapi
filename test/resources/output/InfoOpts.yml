@@ -1,0 +1,28 @@
+openapi: 3.0.0
+info:
+  title: Options title
+  description: Description from options
+  version: 6.0.7-beta
+  termsOfService: 'http://tos.myweb.com'
+paths:
+  /users:
+    post:
+      tags:
+        - default
+      summary: Create new User
+      description: Create a new user into your amazing API
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                example: field
+                other:
+                  data1: 'yes'
+                  data2: 'no'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

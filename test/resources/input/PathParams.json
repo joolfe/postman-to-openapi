@@ -1,0 +1,54 @@
+{
+	"info": {
+		"_postman_id": "74fffb64-a73a-445f-aafc-3021f381a886",
+		"name": "Path Params",
+		"description": "Collection to test path parameters",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get one users info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.io/users/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"io"
+					],
+					"path": [
+						"users",
+						"{{user_id}}"
+					]
+				},
+				"description": "Obtain a list of users that fullfill the conditions of the filters"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ce24dfe2-b234-4cb3-9930-ab0992f07671",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "749d3a75-8078-44bf-bd5e-4b0c7dc6125c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

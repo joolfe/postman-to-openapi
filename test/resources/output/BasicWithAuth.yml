@@ -3,6 +3,20 @@ info:
   title: Postman to OpenAPI
   description: Mi super test collection from postman
   version: 1.1.0
+components:
+  securitySchemes:
+    myCustomAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: A resource owner JWT
+      description: My awesome authentication using bearer
+    myCustomAuth2:
+      type: http
+      scheme: basic
+      description: My awesome authentication using user and password
+security:
+  - myCustomAuth: []
+  - myCustomAuth2: []
 paths:
   /users:
     post:

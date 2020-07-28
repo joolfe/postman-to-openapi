@@ -2,12 +2,12 @@
 	"info": {
 		"_postman_id": "2a45baa5-352f-4831-8483-1a0fcbc7da37",
 		"name": "Postman to OpenAPI",
-		"description": "Mi super test collection from postman ",
+		"description": "Mi super test collection from postman",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Post example",
+			"name": "Create new User",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -21,22 +21,22 @@
 					}
 				},
 				"url": {
-					"raw": "https://www.google.es/hola",
+					"raw": "https://api.io/users",
 					"protocol": "https",
 					"host": [
-						"www",
-						"google",
-						"es"
+						"api",
+						"io"
 					],
 					"path": [
-						"hola"
+						"users"
 					]
-				}
+				},
+				"description": "Create a new user into your amazing API"
 			},
 			"response": []
 		},
 		{
-			"name": "Post example 2",
+			"name": "Create a post",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -50,17 +50,45 @@
 					}
 				},
 				"url": {
-					"raw": "https://www.google.es/hola",
+					"raw": "https://api.io/posts",
 					"protocol": "https",
 					"host": [
-						"www",
-						"google",
-						"es"
+						"api",
+						"io"
 					],
 					"path": [
-						"hola"
+						"posts"
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a note",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "This is an example Note",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.io/note",
+					"protocol": "https",
+					"host": [
+						"api",
+						"io"
+					],
+					"path": [
+						"note"
+					]
+				},
+				"description": "Just an example of text raw body"
 			},
 			"response": []
 		}
@@ -85,6 +113,13 @@
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"id": "d04439bd-c604-4758-bde2-3c873140f38c",
+			"key": "version",
+			"value": "1.1.0"
 		}
 	],
 	"protocolProfileBehavior": {}

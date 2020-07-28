@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "e73be420-bb04-4dd6-bc29-296a80feec7c",
+		"name": "Headers",
+		"description": "API with headers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get list of users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-My-Header",
+						"value": "hudjilksns78jsijns090",
+						"description": "Custom header",
+						"type": "text"
+					},
+					{
+						"key": "X-Other",
+						"value": "other",
+						"description": "Another header",
+						"type": "text"
+					},
+					{
+						"key": "No-description",
+						"value": "header without description",
+						"type": "text"
+					},
+					{
+						"key": "No-value",
+						"value": "",
+						"description": "header without value",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.io/users?name=Jhon&review=true",
+					"protocol": "https",
+					"host": [
+						"api",
+						"io"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "age",
+							"value": "45",
+							"description": "Filter by age",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "Jhon",
+							"description": "Filter by name"
+						},
+						{
+							"key": "review",
+							"value": "true",
+							"description": "Indicate if should be reviewed or not"
+						}
+					]
+				},
+				"description": "Obtain a list of users that fullfill the conditions of the filters"
+			},
+			"response": []
+		},
+		{
+			"name": "Create new User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "Indicate the type of body sent by client",
+						"type": "text"
+					},
+					{
+						"key": "X-My-Header",
+						"value": "hudjilksns78jsijns090",
+						"description": "Custom header",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"example\": \"field\",\n    \"other\": {\n        \"data1\": \"yes\",\n        \"data2\": \"no\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.io/users",
+					"protocol": "https",
+					"host": [
+						"api",
+						"io"
+					],
+					"path": [
+						"users"
+					]
+				},
+				"description": "Create a new user into your amazing API"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "442a1ec6-72b9-416f-abb3-d2477ca14c0e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "127cb01a-be4f-4a62-97f9-d779d318a9a1",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
