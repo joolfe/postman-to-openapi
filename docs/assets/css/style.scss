@@ -1,0 +1,99 @@
+---
+---
+
+$header-bg-color: #ff6b37 !default;
+$header-bg-color-secondary: #5f5278 !default;
+
+$body-link-color: #3b95ef !default;
+$section-headings-color: #ff6b37 !default;
+
+@import "{{ site.theme }}";
+
+strong {
+    color: #788286;
+}
+
+.main-content {
+  
+    @include large {
+        max-width: 100%;
+        padding: 0px;
+        font-size: 1.1rem;
+    }
+
+    @include medium {
+        padding: 0px;
+        font-size: 1.1rem;
+    }
+
+    @include small {
+        padding: 0px;
+        font-size: 1rem;
+    }
+
+    .tilted-section {
+        background-color: #fff;
+        -webkit-clip-path: polygon(0 0, 100% 4vw, 100% 100%, 100%);
+        clip-path: polygon(0 0, 100% 4vw, 100% 100%, 0 100%);
+        margin-top: -4vw;
+
+        @include large {
+            -webkit-clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 100%);
+            padding: 4rem 0em;
+            margin-top: -3vw;
+        }
+
+        @include medium {
+            padding: 4rem 0em;
+        }
+    
+        @include small {
+            padding: 4rem 0em;
+        }
+        
+        > div {
+            @include large {
+                max-width: 64rem;
+                margin: 0 auto;
+                padding: 0rem 6rem;
+            }
+
+            @include medium {
+                padding: 0rem 4rem;
+            }
+        
+            @include small {
+                padding: 0rem 1rem;
+            }
+        }
+    }
+
+    .tilted-section:nth-of-type(even) {
+        background-color: #f1f1f3 !important
+    }
+
+    .site-footer {
+        color: #fff;
+        background-color: #1C272B;
+        margin-top: 0rem;
+        padding-top: 0em;
+
+        > div {
+            @include large {
+                max-width: 64rem;
+                margin: 0 auto;
+                padding: 2rem 6rem;
+            }
+    
+            @include medium {
+                padding: 2rem 4rem;
+            }
+        
+            @include small {
+                padding: 2rem 1rem;
+            }
+        }
+    }
+    
+}

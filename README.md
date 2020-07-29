@@ -1,8 +1,12 @@
+![logo](./docs/assets/img/logo.png)
+
 # postman-to-openapi
 
 🛸 Convert postman collection to OpenAPI specification.
 
 Or in other words, transform [this specification](https://schema.getpostman.com/json/collection/v2.1.0/collection.json) to [this one](https://swagger.io/specification/)
+
+[![build](https://github.com/joolfe/postman-to-openapi/workflows/Node.js%20CI/badge.svg)](https://github.com/joolfe/postman-to-openapi/actions)
 
 ## Features
 
