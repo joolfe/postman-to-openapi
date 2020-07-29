@@ -19,14 +19,14 @@ jobs:
     - run: npm ci
     - run: npm run lint
     - run: npm test
-  - name: Upload coverage to Codecov  
-    uses: codecov/codecov-action@v1
-    with:
-      token: ${{ secrets.CODECOV_TOKEN }}
-      file: ./coverage/lcov.info
-      flags: unittests
-      name: codecov-upload
-      fail_ci_if_error: true
+    - name: Upload coverage to Codecov  
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./coverage/lcov.info
+        flags: unittests
+        name: codecov-upload
+        fail_ci_if_error: true
   publish:
     if: ${{ github.ref == 'refs/heads/master' }}
     needs: build
