@@ -1,6 +1,6 @@
 ![logo](./docs/assets/img/logo.png)
 
-# postman-to-openapi
+# [postman-to-openapi](https://joolfe.github.io/postman-to-openapi/)
 
 🛸 Convert postman collection to OpenAPI specification.
 
@@ -8,7 +8,6 @@ Or in other words, transform [this specification](https://schema.getpostman.com/
 
 [![build](https://github.com/joolfe/postman-to-openapi/workflows/Node.js%20CI/badge.svg)](https://github.com/joolfe/postman-to-openapi/actions)
 [![codecov](https://codecov.io/gh/joolfe/postman-to-openapi/branch/master/graph/badge.svg)](https://codecov.io/gh/joolfe/postman-to-openapi)
-
 
 ## Documentation
 

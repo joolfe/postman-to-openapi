@@ -38,10 +38,38 @@ To use as a cli coming soon...
 
 # Usage
 
+Use the library is as easy as use a single method `async postmanToOpenApi(inputPath, outputPath, options)`, the parameters are:
+
+| Param | Description |
+|-|-|
+| `inputPath` | String. Path of the Postman collection file. |
+| `outputPath` | String. Path of the output file where the OpenAPi will be stored. |
+| `options` | Object. Optional configuration, see [options](#Options) section for a detailed description.|
+
+An example of usage:
+
 ```
 const postmanToOpenApi = require('postman-to-openapi')
 
-const result = await postmanToOpenApi('./path/to/postman/collection.json', './api/collection.yml', { save: true })
+const postmanCollection = './path/to/postman/collection.json'
+const outputFile = './api/collection.yml'
+
+// Async/await
+try {
+    const result = await postmanToOpenApi(postmanCollection, outputFile, { save: true })
+    console.log(`OpenAPI specs: ${result}`)
+} catch (err) {
+    console.log(err)
+}
+
+// Promise callback style
+postmanToOpenApi(postmanCollection, outputFile, { save: true })
+    .then(result => {
+        console.log(`OpenAPI specs: ${result}`)
+    })
+    .catch(err => {
+        console.log(err)
+    })
 ```
 
 ## Options
