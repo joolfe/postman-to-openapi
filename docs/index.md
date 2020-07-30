@@ -7,27 +7,25 @@
 [![build](https://github.com/joolfe/postman-to-openapi/workflows/Node.js%20CI/badge.svg)](https://github.com/joolfe/postman-to-openapi/actions)
 [![codecov](https://codecov.io/gh/joolfe/postman-to-openapi/branch/master/graph/badge.svg)](https://codecov.io/gh/joolfe/postman-to-openapi)
 
-## Features
+## Features at a glance
 
 - Postman Collection v2.1
 - OpenApi 3.0
-- Basic method conversion (GET, POST, PUT...)
-- Customize general API information.
-- Extract the api version from a collection general `variable`.
+- Basic info API from Postman info or customizable.
+- Basic method conversion (GET, POST, PUT...).
+- Support Postman folders as tags.
 - Transform query, headers and path parameters.
-- Postman variables in as Path parameters.
+- Postman variables as Path parameters.
 - Automatic infer types from query and headers parameters.
 - Support Json and Text body formats.
-- Global Authentication and Authorization parse (Basic and Bearer).
-- Global Authentication and Authorization by configuration.
-- Support Postman folders as tags.
+- Global Authorization parse or by configuration (Basic and Bearer).
 
 </div></div>
 <div class="tilted-section"><div markdown="1">
 
 # Install
 
-```
+```bash
 npm i postman-to-openapi --save
 ```
 
@@ -40,15 +38,15 @@ To use as a cli coming soon...
 
 Use the library is as easy as use a single method `async postmanToOpenApi(inputPath, outputPath, options)`, the parameters are:
 
-| Param | Description |
-|-|-|
-| `inputPath` | String. Path of the Postman collection file. |
-| `outputPath` | String. Path of the output file where the OpenAPi will be stored. |
-| `options` | Object. Optional configuration, see [options](#Options) section for a detailed description.|
+| Param        | Description                                                                                 |
+|--------------|---------------------------------------------------------------------------------------------|
+| `options`    | Object. Optional configuration, see [options](#options) section for a detailed description. |
+| `inputPath`  | String. Path of the Postman collection file.                                                |
+| `outputPath` | String. Path of the output file where the OpenAPi will be stored.                           |
 
 An example of usage:
 
-```
+```js
 const postmanToOpenApi = require('postman-to-openapi')
 
 const postmanCollection = './path/to/postman/collection.json'
@@ -74,14 +72,96 @@ postmanToOpenApi(postmanCollection, outputFile, { save: true })
 
 ## Options
 
+The third parameter used in the library method is an `options` object containing the optional parameters for the transformation, the allowed parameters are:
+
+### info (Object)
+
+The basic information of the API is obtained from Postman collection as described in section [default info](#basic-api-info), but you can customize this parameters using the `info` options that can contain the next parameters:
+
+| Param            | Description                                                                        |
+|------------------|------------------------------------------------------------------------------------|
+| `title`          | String. The title of the API.                                                      |
+| `version`        | String. The version of the OpenAPI document.                                       |
+| `description`    | String. A short description of the API.                                            |
+| `termsOfService` | String. A URL to the Terms of Service for the API. MUST be in the format of a URL. |
+
+Basically this are the required and relevant parameters defined in OpenAPI spec [info object](https://swagger.io/specification/#info-object), an example of the option will be:
+
+```js
+{
+    info: {
+        title: 'Options title',
+        version: '6.0.7-beta',
+        description: 'Description from options',
+        termsOfService: 'http://tos.myweb.com'
+    }
+}
+```
+
+### defaultTag (String)
+
+By default the [tag value](https://swagger.io/specification/#tag-object) "default" is added to all the operations during transformation, unless this operations are inside a folder as described in section [folder as tags](#folders-as-tags).
+
+If you want to customize the default tag use the options `defaultTag` to indicate the desired value.
+
+```js
+const result = await postmanToOpenApi(postmanCollection, outputFile, { defaultTag: 'API' })
+```
+
+### auth (Object)
+
+The global authorization info can be parse from the Postman collection as described in [Global authorization](#global-authorization) section, but you can customize this info using the `auth` option, this param is a Object that follow the structure of OpenAPI [Security Scheme](https://swagger.io/specification/#security-scheme-object), in this moment only type `http` is supported and schemes `basic` and `bearer`, as an example of this option:
+
+```js
+{
+    myCustomAuth: {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'A resource owner JWT',
+        description: 'My awesome authentication using bearer'
+    },
+    myCustomAuth2: {
+        type: 'http',
+        scheme: 'basic',
+        description: 'My awesome authentication using user and password'
+    }
+}
+```
+
 </div></div>
 <div class="tilted-section"><div markdown="1">
 
 # Features
 
+## Basic API info
+
+For fill the OpenAPI [info object](https://swagger.io/specification/#info-object) this library use the information defined in Postman [collection](https://learning.postman.com/docs/sending-requests/intro-to-collections/#creating-collections) level as "name" and "description".
+
+Postman don't have any field at collection level that feat with OpenAPI "version" field (is a required field in OpenAPI specification), so this library look for a variable with name `version` in Postman [collection variables](https://learning.postman.com/docs/sending-requests/variables/#defining-collection-variables) or if variable is not defined then will use the default value `1.0.0`.
+
+You can customize all this information with the [Info option](#info-(object)).
+
+Have a look to the [SimplePost collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/SimplePost.json) file for an example of how to use this feature.
+
+## Folders as tags
+
+In postman you can add [folders](https://learning.postman.com/docs/sending-requests/intro-to-collections/) inside your collection to group requests and keep the collection clean, in OpenAPI there are no folders but exist the concept of [tags](https://swagger.io/specification/#tag-object) that has the same approximate meaning, this library automatically detect folders and use the name of the folder as tag name in the transformation. Right now is not possible to have more than one tag value for each operation.
+
+Have a look to the [FolderCollection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/FolderCollection.json) file for an example of how to use this feature.
+
+## Global authorization
+
+The OpenAPI root [security]https://swagger.io/specification/#openapi-object) definition is filled using the authorization method defined at Postman Collection [authorization config](https://learning.postman.com/docs/sending-requests/authorization/#inheriting-auth).
+
+Only types 'Basic Auth' and 'Bearer Token' are supported now and not operation individual definition is supported.
+
+You can customize the global authorization definition using the [Auth option](#auth-(object)).
+
+Have a look to the collections [AuthBasic](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/AuthBasic.json) and [AuthBearer](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/AuthBearer.json) for examples of how to use this feature.
+
 </div></div>
 <div class="tilted-section"><div markdown="1">
 
-# Postman collections
+# Postman collection examples
 
 </div></div>
