@@ -20,6 +20,8 @@
 - Support Json and Text body formats.
 - Global Authorization parse or by configuration (Basic and Bearer).
 
+See [Features](#features) section for more details about how to use each of this features.
+
 </div></div>
 <div class="tilted-section"><div markdown="1">
 
@@ -133,6 +135,12 @@ The global authorization info can be parse from the Postman collection as descri
 
 # Features
 
+## Basic conversion
+
+This library support the transformation from Postman collection to all the basic HTTP method as GET, POST, PUT... and also parse the body request of type raw `Json` or `Text` type. [Query parameters](#parameters-parsing) are also supported.
+
+Have a look to the [PostmantoOpenAPI collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/PostmantoOpenAPI.json) file for an example of how to use this feature.
+
 ## Basic API info
 
 For fill the OpenAPI [info object](https://swagger.io/specification/#info-object) this library use the information defined in Postman [collection](https://learning.postman.com/docs/sending-requests/intro-to-collections/#creating-collections) level as "name" and "description".
@@ -148,6 +156,16 @@ Have a look to the [SimplePost collection](https://github.com/joolfe/postman-to-
 In postman you can add [folders](https://learning.postman.com/docs/sending-requests/intro-to-collections/) inside your collection to group requests and keep the collection clean, in OpenAPI there are no folders but exist the concept of [tags](https://swagger.io/specification/#tag-object) that has the same approximate meaning, this library automatically detect folders and use the name of the folder as tag name in the transformation. Right now is not possible to have more than one tag value for each operation.
 
 Have a look to the [FolderCollection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/FolderCollection.json) file for an example of how to use this feature.
+
+## Parameters parsing
+
+This library automatically transform query and headers parameters from Postman operations tp OpenAPI specification, the populated info is the name, description and use the value of the parameter as an example.
+
+The default schema used for parameters is `string` but the library try to infer the type of the parameters based on the value using regular expressions, the detected types are `integer`, `number`, `boolean` and `string`, if you find any problem in the inference process please open an issue.
+
+Path parameters are also automatically detected, this library look for [Postman variables](https://learning.postman.com/docs/sending-requests/variables/) in the url as `{{variable}}` and transform to a single curly brace expression as `{variable}` as supported by OpenAPI, also create the parameter definition using the variable name.
+
+Have a look to the [GetMethods collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/GetMethods.json), [Headers collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/Headers.json) and [PathParams collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/PathParams.json) files for examples of how to use this features.
 
 ## Global authorization
 
