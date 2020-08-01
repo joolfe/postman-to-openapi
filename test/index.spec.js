@@ -17,6 +17,7 @@ const COLLECTION_HEADERS = './test/resources/input/Headers.json'
 const COLLECTION_AUTH_BEARER = './test/resources/input/AuthBearer.json'
 const COLLECTION_AUTH_BASIC = './test/resources/input/AuthBasic.json'
 const COLLECTION_PATH_PARAMS = './test/resources/input/PathParams.json'
+const COLLECTION_MULTIPLE_SERVERS = './test/resources/input/MultipleServers.json'
 
 const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
 const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
@@ -29,6 +30,7 @@ const EXPECTED_AUTH_BEARER = readFileSync('./test/resources/output/AuthBearer.ym
 const EXPECTED_AUTH_BASIC = readFileSync('./test/resources/output/AuthBasic.yml', 'utf8')
 const EXPECTED_BASIC_WITH_AUTH = readFileSync('./test/resources/output/BasicWithAuth.yml', 'utf8')
 const EXPECTED_PATH_PARAMS = readFileSync('./test/resources/output/PathParams.yml', 'utf8')
+const EXPECTED_MULTIPLE_SERVERS = readFileSync('./test/resources/output/MultipleServers.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -115,5 +117,10 @@ describe('Library specs', function () {
   it('should parse path params', async function () {
     const result = await postmanToOpenApi(COLLECTION_PATH_PARAMS, OUTPUT_PATH)
     equal(EXPECTED_PATH_PARAMS, result)
+  })
+
+  it('should parse servers from existing host in postman collection', async function () {
+    const result = await postmanToOpenApi(COLLECTION_MULTIPLE_SERVERS, OUTPUT_PATH)
+    equal(EXPECTED_MULTIPLE_SERVERS, result)
   })
 })

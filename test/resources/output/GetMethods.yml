@@ -3,6 +3,8 @@ info:
   title: Get Methods
   description: API to manage GET methods
   version: 1.0.0
+servers:
+  - url: 'https://api.io'
 paths:
   /users:
     get:

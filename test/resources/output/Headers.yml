@@ -3,6 +3,8 @@ info:
   title: Headers
   description: API with headers
   version: 1.0.0
+servers:
+  - url: 'https://api.io'
 paths:
   /users:
     get:

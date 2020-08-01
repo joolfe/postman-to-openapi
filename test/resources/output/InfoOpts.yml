@@ -4,6 +4,8 @@ info:
   description: Description from options
   version: 6.0.7-beta
   termsOfService: 'http://tos.myweb.com'
+servers:
+  - url: 'https://api.io'
 paths:
   /users:
     post:
