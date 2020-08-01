@@ -8,7 +8,9 @@ Or in other words, transform [this specification](https://schema.getpostman.com/
 
 [![build](https://github.com/joolfe/postman-to-openapi/workflows/Node.js%20CI/badge.svg)](https://github.com/joolfe/postman-to-openapi/actions)
 [![codecov](https://codecov.io/gh/joolfe/postman-to-openapi/branch/master/graph/badge.svg)](https://codecov.io/gh/joolfe/postman-to-openapi)
-[![npm version](https://badge.fury.io/js/postman-to-openapi.svg)](https://www.npmjs.com/package/postman-to-openapi)
+[![npm version](https://img.shields.io/npm/v/postman-to-openapi
+)](https://www.npmjs.com/package/postman-to-openapi)
+[![dcos](https://img.shields.io/badge/docs-here-yellow)](https://joolfe.github.io/postman-to-openapi/)
 
 ## Documentation
 
