@@ -110,6 +110,11 @@ describe('Library specs', function () {
         type: 'http',
         scheme: 'basic',
         description: 'My awesome authentication using user and password'
+      },
+      notSupported: {
+        type: 'http',
+        scheme: 'digest',
+        description: 'Not supported security'
       }
     }
     const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, { auth: authDefinition })
