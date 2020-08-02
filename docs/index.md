@@ -131,6 +131,25 @@ The global authorization info can be parse from the Postman collection as descri
 }
 ```
 
+### servers (Array)
+
+The global servers list can be parse from the Postman collection as described in [Global servers configuration](#global-servers-configuration) section, but you can customize this info using the `servers` option, this param is an array of objects that follow the structure of OpenAPI [Server Objects](https://swagger.io/specification/#server-object), only `url` and `description` field are supported in this moment, as an example of how to use this option:
+
+```js
+{
+    servers: [
+    {
+        url: 'https://awesome.api.sandbox.io',
+        description: 'Sandbox environment server'
+    },
+    {
+        url: 'https://awesome.api.io',
+        description: 'Production environment server'
+    }
+    ]
+}
+```
+
 </div></div>
 <div class="tilted-section"><div markdown="1">
 
@@ -177,6 +196,18 @@ Only types 'Basic Auth' and 'Bearer Token' are supported now and not operation i
 You can customize the global authorization definition using the [Auth option](#auth-(object)).
 
 Have a look to the collections [AuthBasic](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/AuthBasic.json) and [AuthBearer](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/AuthBearer.json) for examples of how to use this feature.
+
+## Global servers configuration
+
+The OpenAPI root [servers](https://swagger.io/specification/#openapi-object) definition is filled parsing the urls used in the Postman collections requests, the library use all the different urls for create an array of server (removing duplicated), but normally this is not to usefully as Postman collection only will have one environment url, for this reason you can customize the global servers definition using the [server option](#servers-(array))
+
+If you don't want to include a `servers` array in your OpenAPI spec file you just need to pass an empty array as server option, as for example:
+
+```js
+const result = await postmanToOpenApi(postmanCollection, outputFile, { servers: [] })
+```
+
+This will remove the `servers` field from the yml specification result.
 
 </div></div>
 <div class="tilted-section"><div markdown="1">
