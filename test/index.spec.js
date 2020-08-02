@@ -48,7 +48,7 @@ describe('Library specs', function () {
   })
 
   it('should work when no save', async function () {
-    await postmanToOpenApi(COLLECTION_BASIC, '', { save: false })
+    await postmanToOpenApi(COLLECTION_BASIC, null)
   })
 
   it('should work if info is passed as parameter', async function () {

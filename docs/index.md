@@ -43,9 +43,11 @@ Use the library is as easy as use a single method `async postmanToOpenApi(inputP
 
 | Param        | Description                                                                                 |
 |--------------|---------------------------------------------------------------------------------------------|
-| `options`    | Object. Optional configuration, see [options](#options) section for a detailed description. |
 | `inputPath`  | String. Path of the Postman collection file.                                                |
-| `outputPath` | String. Path of the output file where the OpenAPi will be stored.                           |
+| `outputPath` | String. Path of the output file where the OpenAPi will be stored. This param is optional if not provided (`undefined` or `null`) no file will be saved. |
+| `options`    | Object. Optional configuration, see [options](#options) section for a detailed description. |
+
+The method return a promise string that contain the yml OpenAPI specification, only is saved to a file if the `outputPath` parameter is provided.
 
 An example of usage:
 
@@ -58,6 +60,8 @@ const outputFile = './api/collection.yml'
 // Async/await
 try {
     const result = await postmanToOpenApi(postmanCollection, outputFile, { save: true })
+    // Without save the result in a file
+    const result2 = await postmanToOpenApi(postmanCollection, null, { save: true })
     console.log(`OpenAPI specs: ${result}`)
 } catch (err) {
     console.log(err)
