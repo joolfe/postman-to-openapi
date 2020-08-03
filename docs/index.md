@@ -20,6 +20,7 @@
 - Automatic infer types from query and headers parameters.
 - Support Json and Text body formats.
 - Global Authorization parse or by configuration (Basic and Bearer).
+- Contact and License from variables or by configuration.
 
 See [Features](#features) section for more details about how to use each of this features.
 
@@ -87,10 +88,12 @@ The basic information of the API is obtained from Postman collection as describe
 
 | Param            | Description                                                                        |
 |------------------|------------------------------------------------------------------------------------|
-| `title`          | String. The title of the API.                                                      |
-| `version`        | String. The version of the OpenAPI document.                                       |
+| `title`          | String. The title of the API. |
+| `version`        | String. The version of the OpenAPI document. |
 | `description`    | String. A short description of the API.                                            |
 | `termsOfService` | String. A URL to the Terms of Service for the API. MUST be in the format of a URL. |
+| `contact`        | Object. The contact information for the exposed API. See details in [License and Contact configuration](#license-and-contact-configuration) section.                             |
+| `license`        | Object. The license information for the exposed API.See details in [License and Contact configuration](#license-and-contact-configuration) section. |
 
 Basically this are the required and relevant parameters defined in OpenAPI spec [info object](https://swagger.io/specification/#info-object), an example of the option will be:
 
@@ -100,7 +103,16 @@ Basically this are the required and relevant parameters defined in OpenAPI spec 
         title: 'Options title',
         version: '6.0.7-beta',
         description: 'Description from options',
-        termsOfService: 'http://tos.myweb.com'
+        termsOfService: 'http://tos.myweb.com',
+        license: {
+            name: 'MIT',
+            url: 'https://es.wikipedia.org/wiki/Licencia_MIT'
+        },
+        contact: {
+            name: 'My Support',
+            url: 'http://www.api.com/support',
+            email: 'support@api.com'
+        }
     }
 }
 ```
@@ -173,6 +185,8 @@ Postman don't have any field at collection level that feat with OpenAPI "version
 
 You can customize all this information with the [Info option](#info-(object)).
 
+For info about how to setup the `contact` and `license` properties have a look to section [License and Contact configuration](#license-and-contact-configuration).
+
 Have a look to the [SimplePost collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/SimplePost.json) file for an example of how to use this feature.
 
 ## Folders as tags
@@ -212,6 +226,18 @@ const result = await postmanToOpenApi(postmanCollection, outputFile, { servers: 
 ```
 
 This will remove the `servers` field from the yml specification result.
+
+## License and Contact configuration
+
+Inside the [info object](https://swagger.io/specification/#info-object) of OpenAPI definition exist two Object fields called `contact` and `license`, this fields are very useful for provide information to developers, but inside a Postman collection not exist any "standard" way to save this information, for this reason we use [Postman collection variables](https://learning.postman.com/docs/sending-requests/variables/) to define this options.
+
+Is as easy as define the values in the "Edit Collection" form page inside the tab "Variables", as showed in the next image:
+
+![contact and license variables](images/variables.png)
+
+The variables names will be in dot notation, for example for `contact` fields will be as `contact.name`, `contact.url`... Take into account that some of this fields are required as described in OpenAPI specs if not provided all the section will be ignored.
+
+You can also customize this information using the [Info option](#info-(object)), note that info provided by options will overwrite the variables inside the Postman collection (has more priority) but values will be merged from both sources (postman variables and options).
 
 </div></div>
 <div class="tilted-section"><div markdown="1">

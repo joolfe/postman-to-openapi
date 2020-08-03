@@ -18,6 +18,7 @@ const COLLECTION_AUTH_BEARER = './test/resources/input/AuthBearer.json'
 const COLLECTION_AUTH_BASIC = './test/resources/input/AuthBasic.json'
 const COLLECTION_PATH_PARAMS = './test/resources/input/PathParams.json'
 const COLLECTION_MULTIPLE_SERVERS = './test/resources/input/MultipleServers.json'
+const COLLECTION_LICENSE_CONTACT = './test/resources/input/LicenseContact.json'
 
 const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
 const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
@@ -33,6 +34,8 @@ const EXPECTED_PATH_PARAMS = readFileSync('./test/resources/output/PathParams.ym
 const EXPECTED_MULTIPLE_SERVERS = readFileSync('./test/resources/output/MultipleServers.yml', 'utf8')
 const EXPECTED_SERVERS_OPTIONS = readFileSync('./test/resources/output/ServersOpts.yml', 'utf8')
 const EXPECTED_NO_SERVERS = readFileSync('./test/resources/output/NoServers.yml', 'utf8')
+const EXPECTED_LICENSE_CONTACT = readFileSync('./test/resources/output/LicenseContact.yml', 'utf8')
+const EXPECTED_LICENSE_CONTACT_OPT = readFileSync('./test/resources/output/LicenseContactOpts.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -150,5 +153,28 @@ describe('Library specs', function () {
   it('should allow empty servers from options', async function () {
     const result = await postmanToOpenApi(COLLECTION_MULTIPLE_SERVERS, OUTPUT_PATH, { servers: [] })
     equal(result, EXPECTED_NO_SERVERS)
+  })
+
+  it('should parse license and contact from variables', async function () {
+    const result = await postmanToOpenApi(COLLECTION_LICENSE_CONTACT, OUTPUT_PATH)
+    equal(result, EXPECTED_LICENSE_CONTACT)
+  })
+
+  it('should use license from options', async function () {
+    const result = await postmanToOpenApi(COLLECTION_LICENSE_CONTACT, OUTPUT_PATH,
+      {
+        info: {
+          license: {
+            name: 'MIT',
+            url: 'https://es.wikipedia.org/wiki/Licencia_MIT'
+          },
+          contact: {
+            name: 'My Support',
+            url: 'http://www.api.com/support',
+            email: 'support@api.com'
+          }
+        }
+      })
+    equal(result, EXPECTED_LICENSE_CONTACT_OPT)
   })
 })
