@@ -3,6 +3,8 @@ info:
   title: Path Params
   description: Collection to test path parameters
   version: 1.0.0
+servers:
+  - url: 'https://api.io'
 paths:
   '/users/{user_id}':
     get:

@@ -1,3 +1,37 @@
+## [1.2.0](https://github.com/joolfe/postman-to-openapi/compare/1.1.0...1.2.0) (2020-08-03)
+
+
+### Features
+
+* add codecov to pipeline ([c34d5ce](https://github.com/joolfe/postman-to-openapi/commit/c34d5ce89f02a2251f4b58886e000d1505e0f305))
+* Servers cfg [#10](https://github.com/joolfe/postman-to-openapi/issues/10) AUTO ([07e68df](https://github.com/joolfe/postman-to-openapi/commit/07e68df413198705e45d55069a71208f0fe378e9))
+* Servers cfg [#10](https://github.com/joolfe/postman-to-openapi/issues/10) CONFIG ([0ed6a0a](https://github.com/joolfe/postman-to-openapi/commit/0ed6a0a5037bc69b137e2e42e7706349f0607319))
+
+
+### Bug Fixes
+
+* codecov step fixes ([d7ffb4e](https://github.com/joolfe/postman-to-openapi/commit/d7ffb4e919f944e9ae8220ea04e80114704a9700))
+* security reps updates ([8c7da53](https://github.com/joolfe/postman-to-openapi/commit/8c7da5350d853df32481c238c64e09baf3d6a67c))
+
+
+### Documentation
+
+* add codecov and badges ([78d2acc](https://github.com/joolfe/postman-to-openapi/commit/78d2accccef63c296db4a1c27811bdfdb473320a)), closes [#49](https://github.com/joolfe/postman-to-openapi/issues/49)
+* add docs badged ([5dc9654](https://github.com/joolfe/postman-to-openapi/commit/5dc9654d919ecc6f00786a1cd0aa7be287a15ca2))
+* add nom badge ([1f5f407](https://github.com/joolfe/postman-to-openapi/commit/1f5f407f8eefcc18911522af5ee5e1b11f165426))
+* added logo to the project ([60ef3cd](https://github.com/joolfe/postman-to-openapi/commit/60ef3cddd0e966a1f5d543aa92ffc9f9ddc12ab0))
+* Features documentations [#52](https://github.com/joolfe/postman-to-openapi/issues/52) ([f91f60b](https://github.com/joolfe/postman-to-openapi/commit/f91f60b1bb5cb732490871e2becc937f84cb22fb))
+* first structure ([505a03c](https://github.com/joolfe/postman-to-openapi/commit/505a03c854512cecb1af375d4bd5fea78cc2faa5))
+* getting started ([dcb1cf7](https://github.com/joolfe/postman-to-openapi/commit/dcb1cf7885c9c40b4cc6a9da11563a87d24417ec)), closes [#47](https://github.com/joolfe/postman-to-openapi/issues/47)
+* library options documented. ([3f60d9a](https://github.com/joolfe/postman-to-openapi/commit/3f60d9afc4b4a87b7b3b90e53689f055ec74bb04))
+
+
+### Code Refactoring
+
+* Improve test coverage [#56](https://github.com/joolfe/postman-to-openapi/issues/56) ([6769c0d](https://github.com/joolfe/postman-to-openapi/commit/6769c0d0d529b8182e7e4557d6625df6f56dfcd8))
+* Remove save opts [#54](https://github.com/joolfe/postman-to-openapi/issues/54) ([f6c3148](https://github.com/joolfe/postman-to-openapi/commit/f6c314895e233c2e2b342f50f5e502054e3c7ea9))
+* rename workflow ([3c6460e](https://github.com/joolfe/postman-to-openapi/commit/3c6460e0c5c67cf7a2d07de2689beee758f86c92))
+
 # [1.1.0](https://github.com/joolfe/postman-to-openapi/compare/1.0.0...1.1.0) (2020-07-28)
 
 

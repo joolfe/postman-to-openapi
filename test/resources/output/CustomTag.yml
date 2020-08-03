@@ -3,6 +3,8 @@ info:
   title: Simple Post
   description: Just a simple collection for test
   version: 2.3.0
+servers:
+  - url: 'https://api.io'
 paths:
   /users:
     post:

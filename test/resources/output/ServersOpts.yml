@@ -1,17 +1,20 @@
 openapi: 3.0.0
 info:
-  title: Folder Collection
-  description: Just a simple collection for test
-  version: 2.3.0
+  title: MultipleServers
+  description: Collection to test multiples server parsing.
+  version: 1.1.0
 servers:
-  - url: 'https://api.io'
+  - url: 'https://awesome.api.sandbox.io'
+    description: Sandbox environment server
+  - url: 'https://awesome.api.io'
+    description: Production env
 paths:
   /users:
     post:
       tags:
-        - Users
-      summary: Create a user
-      description: This is a post request with json body
+        - default
+      summary: Create new User
+      description: Create a new user into your amazing API
       requestBody:
         content:
           application/json:
@@ -27,12 +30,11 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /customer:
-    post:
+    put:
       tags:
-        - Users
-      summary: Create a customer
-      description: This is a post request with json body for create a customer
+        - default
+      summary: Update User
+      description: Update an existing user
       requestBody:
         content:
           application/json:
@@ -51,7 +53,7 @@ paths:
   /posts:
     post:
       tags:
-        - Posts
+        - default
       summary: Create a post
       requestBody:
         content:
@@ -61,18 +63,18 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /info:
+  /note:
     post:
       tags:
         - default
-      summary: Create a info
+      summary: Create a note
+      description: Just an example of text raw body
       requestBody:
         content:
           application/json:
             schema:
-              type: object
-              example:
-                test: here
+              type: string
+              example: This is an example Note
       responses:
         '200':
           description: Successful response
