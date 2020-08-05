@@ -36,6 +36,8 @@ const EXPECTED_SERVERS_OPTIONS = readFileSync('./test/resources/output/ServersOp
 const EXPECTED_NO_SERVERS = readFileSync('./test/resources/output/NoServers.yml', 'utf8')
 const EXPECTED_LICENSE_CONTACT = readFileSync('./test/resources/output/LicenseContact.yml', 'utf8')
 const EXPECTED_LICENSE_CONTACT_OPT = readFileSync('./test/resources/output/LicenseContactOpts.yml', 'utf8')
+const EXPECTED_LICENSE_CONTACT_PARTIAL = readFileSync('./test/resources/output/LicenseContactPartial.yml', 'utf8')
+const EXPECTED_LICENSE_CONTACT_PARTIAL_2 = readFileSync('./test/resources/output/LicenseContactPartial2.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -160,7 +162,7 @@ describe('Library specs', function () {
     equal(result, EXPECTED_LICENSE_CONTACT)
   })
 
-  it('should use license from options', async function () {
+  it('should use license and contact from options', async function () {
     const result = await postmanToOpenApi(COLLECTION_LICENSE_CONTACT, OUTPUT_PATH,
       {
         info: {
@@ -176,5 +178,35 @@ describe('Library specs', function () {
         }
       })
     equal(result, EXPECTED_LICENSE_CONTACT_OPT)
+  })
+
+  it('should support optional params in license and contact options', async function () {
+    const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH,
+      {
+        info: {
+          license: {
+            name: 'MIT'
+          },
+          contact: {
+            name: 'My Support'
+          }
+        }
+      })
+    equal(result, EXPECTED_LICENSE_CONTACT_PARTIAL)
+  })
+
+  it('should support optional params in license and contact options (2)', async function () {
+    const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH,
+      {
+        info: {
+          license: {
+            name: 'MIT'
+          },
+          contact: {
+            url: 'http://www.api.com/support'
+          }
+        }
+      })
+    equal(result, EXPECTED_LICENSE_CONTACT_PARTIAL_2)
   })
 })

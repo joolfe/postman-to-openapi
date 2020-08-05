@@ -235,7 +235,7 @@ Is as easy as define the values in the "Edit Collection" form page inside the ta
 
 ![contact and license variables](images/variables.png)
 
-The variables names will be in dot notation, for example for `contact` fields will be as `contact.name`, `contact.url`... Take into account that some of this fields are required as described in OpenAPI specs if not provided all the section will be ignored.
+The variables names will be in dot notation, for example for `contact` fields will be as `contact.name`, `contact.url`... Take into account that fields that are required by OpenAPI specs, as `contact.name`, if not provided then all the section will be ignored.
 
 You can also customize this information using the [Info option](#info-(object)), note that info provided by options will overwrite the variables inside the Postman collection (has more priority) but values will be merged from both sources (postman variables and options).
 
