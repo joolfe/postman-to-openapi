@@ -17,12 +17,14 @@ paths:
           in: query
           schema:
             type: integer
+          required: true
           description: Filter by age
           example: '45'
         - name: name
           in: query
           schema:
             type: string
+          required: true
           description: Filter by name
           example: Jhon
         - name: review
@@ -37,6 +39,13 @@ paths:
             type: number
           description: This is a number
           example: '23.56'
+        - name: required
+          in: query
+          schema:
+            type: string
+          required: true
+          description: mandatory paraemeter
+          example: my value
       responses:
         '200':
           description: Successful response

@@ -17,12 +17,14 @@ paths:
           in: header
           schema:
             type: string
+          required: true
           description: Custom header
           example: hudjilksns78jsijns090
         - name: X-Other
           in: header
           schema:
             type: string
+          required: true
           description: Another header
           example: other
         - name: No-description

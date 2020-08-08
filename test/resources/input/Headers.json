@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e73be420-bb04-4dd6-bc29-296a80feec7c",
+		"_postman_id": "d2298b96-8188-42ae-a927-0246cb933ed9",
 		"name": "Headers",
 		"description": "API with headers",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -14,13 +14,13 @@
 					{
 						"key": "X-My-Header",
 						"value": "hudjilksns78jsijns090",
-						"description": "Custom header",
+						"description": "Custom header [required]",
 						"type": "text"
 					},
 					{
 						"key": "X-Other",
 						"value": "other",
-						"description": "Another header",
+						"description": "Another header [REQUIRED]",
 						"type": "text"
 					},
 					{
@@ -115,7 +115,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "442a1ec6-72b9-416f-abb3-d2477ca14c0e",
+				"id": "b666269b-e186-4f62-989b-f3b4c08eaab7",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -125,7 +125,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "127cb01a-be4f-4a62-97f9-d779d318a9a1",
+				"id": "b2980011-49b5-4d4c-8e2d-3913e868b486",
 				"type": "text/javascript",
 				"exec": [
 					""

@@ -15,7 +15,7 @@
 - Basic info API from Postman info or customizable.
 - Basic method conversion (GET, POST, PUT...).
 - Support Postman folders as tags.
-- Transform query, headers and path parameters.
+- Transform query, headers and path parameters (description, required...).
 - Postman variables as Path parameters.
 - Automatic infer types from query and headers parameters.
 - Support Json and Text body formats.
@@ -202,6 +202,8 @@ This library automatically transform query and headers parameters from Postman o
 The default schema used for parameters is `string` but the library try to infer the type of the parameters based on the value using regular expressions, the detected types are `integer`, `number`, `boolean` and `string`, if you find any problem in the inference process please open an issue.
 
 Path parameters are also automatically detected, this library look for [Postman variables](https://learning.postman.com/docs/sending-requests/variables/) in the url as `{{variable}}` and transform to a single curly brace expression as `{variable}` as supported by OpenAPI, also create the parameter definition using the variable name.
+
+For headers and query fields you can indicate that this parameter is mandatory/required adding into the description the literal `[required]`. The library use a case insensitive regexp so all variations are supported (`[REQUIRED]`, `[Required]`...) and never mind the location inside the description (at the beginning, at the end...).
 
 Have a look to the [GetMethods collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/GetMethods.json), [Headers collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/Headers.json) and [PathParams collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/PathParams.json) files for examples of how to use this features.
 
