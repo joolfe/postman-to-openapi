@@ -5,6 +5,11 @@ info:
   version: 2.3.0
 servers:
   - url: 'https://api.io'
+tags:
+  - name: Users
+    description: Operations at User level
+  - name: Posts
+    description: Operations for Post items
 paths:
   /users:
     post:

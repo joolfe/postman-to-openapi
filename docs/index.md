@@ -193,6 +193,8 @@ Have a look to the [SimplePost collection](https://github.com/joolfe/postman-to-
 
 In postman you can add [folders](https://learning.postman.com/docs/sending-requests/intro-to-collections/) inside your collection to group requests and keep the collection clean, in OpenAPI there are no folders but exist the concept of [tags](https://swagger.io/specification/#tag-object) that has the same approximate meaning, this library automatically detect folders and use the name of the folder as tag name in the transformation. Right now is not possible to have more than one tag value for each operation.
 
+As part of the implementation we now support `description` for [tags](https://swagger.io/specification/#tag-object), just add a description into the Postman Collection folder and automatically the `tags` section will be filled in the he OpenApi spec.
+
 Have a look to the [FolderCollection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/FolderCollection.json) file for an example of how to use this feature.
 
 ## Parameters parsing
