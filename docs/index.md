@@ -24,6 +24,9 @@
 
 See [Features](#features) section for more details about how to use each of this features.
 
+* TOC
+{:toc}
+
 </div></div>
 <div class="tilted-section"><div markdown="1">
 
@@ -247,5 +250,9 @@ You can also customize this information using the [Info option](#info-(object)),
 <div class="tilted-section"><div markdown="1">
 
 # Postman collection examples
+
+All the featured described in this doc are unit tested using real postman collections files as examples, we encourage you to use this collections files as an example of your own implementation.
+
+You can found the examples collections inside the github repo in [postman-to-openapi/test/resources/input/](https://github.com/joolfe/postman-to-openapi/tree/master/test/resources/input) folder, names of the files are self-descriptive.
 
 </div></div>
