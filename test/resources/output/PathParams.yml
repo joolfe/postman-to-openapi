@@ -23,3 +23,22 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  '/desc/{user_id}':
+    get:
+      tags:
+        - default
+      summary: Get one users with description
+      description: Obtain a list of users descriptions
+      parameters:
+        - name: user_id
+          in: path
+          schema:
+            type: number
+          required: true
+          description: This is just a user identifier
+          example: '476587598'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

@@ -128,6 +128,7 @@ describe('Library specs', function () {
 
   it('should parse path params', async function () {
     const result = await postmanToOpenApi(COLLECTION_PATH_PARAMS, OUTPUT_PATH)
+    console.log(result)
     equal(result, EXPECTED_PATH_PARAMS)
   })
 
@@ -209,4 +210,8 @@ describe('Library specs', function () {
       })
     equal(result, EXPECTED_LICENSE_CONTACT_PARTIAL_2)
   })
+
+  it('should work with multiple params in path')
+
+  it('should work with multiple paths')
 })

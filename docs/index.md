@@ -21,6 +21,7 @@
 - Support Json and Text body formats.
 - Global Authorization parse or by configuration (Basic and Bearer).
 - Contact and License from variables or by configuration.
+- Provide meta-information as a markdown table.
 
 See [Features](#features) section for more details about how to use each of this features.
 
@@ -206,7 +207,7 @@ This library automatically transform query and headers parameters from Postman o
 
 The default schema used for parameters is `string` but the library try to infer the type of the parameters based on the value using regular expressions, the detected types are `integer`, `number`, `boolean` and `string`, if you find any problem in the inference process please open an issue.
 
-Path parameters are also automatically detected, this library look for [Postman variables](https://learning.postman.com/docs/sending-requests/variables/) in the url as `{{variable}}` and transform to a single curly brace expression as `{variable}` as supported by OpenAPI, also create the parameter definition using the variable name.
+Path parameters are also automatically detected, this library look for [Postman variables](https://learning.postman.com/docs/sending-requests/variables/) in the url as `{{variable}}` and transform to a single curly brace expression as `{variable}` as supported by OpenAPI, also create the parameter definition using the variable name. To provide additional information about a path parameter you can [Pass Meta-information as markdown](#pass-meta-information-as-markdown).
 
 For headers and query fields you can indicate that this parameter is mandatory/required adding into the description the literal `[required]`. The library use a case insensitive regexp so all variations are supported (`[REQUIRED]`, `[Required]`...) and never mind the location inside the description (at the beginning, at the end...).
 
@@ -245,6 +246,29 @@ Is as easy as define the values in the "Edit Collection" form page inside the ta
 The variables names will be in dot notation, for example for `contact` fields will be as `contact.name`, `contact.url`... Take into account that fields that are required by OpenAPI specs, as `contact.name`, if not provided then all the section will be ignored.
 
 You can also customize this information using the [Info option](#info-(object)), note that info provided by options will overwrite the variables inside the Postman collection (has more priority) but values will be merged from both sources (postman variables and options).
+
+## Pass Meta-information as markdown
+
+As Postman don't provide a free way to pass meta information in all the sections, for example you cannot describe a Path parameter in Postman, the easy way we have found is to provide this information in the `options` parameter when calling the library, although this solution is not a bad solution, and give lot of freedom about where you store the info, we think that have all the info about the API in the Postman Collection is the best solution as you only have a source of information for document your APIs.
+
+That's the reason why API `version` can be defined as a postman collection variable, as described in [Basic API Info](#basic-api-info) section, but for some other information as for example describing a Path parameter where you should indicate multiples values as the description, if it is required, an example, schema type.... the solution of use collection variables don't fit too well, for this reason we have add support for provide Meta-Information as a markdown table.
+
+Taking advantage that Postman support markdown in description fields we have defined a especial section delimited with a md header `# postman-to-openapi`, where you can define a markdown table for provide Meta-Information. As an example:
+
+```markdown
+# postman-to-openapi
+
+| object | name     | description                    | required | type   | example   |
+|--------|----------|--------------------------------|----------|--------|-----------|
+| path   | user_id  | This is just a user identifier | true     | number | 476587598 |
+| path   | group_id | Group of the user              | true     | string | RETAIL    |
+```
+
+This table is providing additional information about a Path parameter, the supported field in this moment are the column thats appear in the example. This way of provide Meta-information is supported in the Postman request description in this moment.
+
+Take into account that `postman-to-openapi` remove from the description all the content after the key header `# postman-to-openapi`, so the meta-information table should be the last content of the description field.
+
+Have a look to the collections [PathParams](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/PathParams.json) for examples of how to use this feature.
 
 </div></div>
 <div class="tilted-section"><div markdown="1">
