@@ -19,6 +19,7 @@ const COLLECTION_AUTH_BASIC = './test/resources/input/AuthBasic.json'
 const COLLECTION_PATH_PARAMS = './test/resources/input/PathParams.json'
 const COLLECTION_MULTIPLE_SERVERS = './test/resources/input/MultipleServers.json'
 const COLLECTION_LICENSE_CONTACT = './test/resources/input/LicenseContact.json'
+const COLLECTION_DEPTH_PATH_PARAMS = './test/resources/input/DepthPathParams.json'
 
 const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
 const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
@@ -38,6 +39,7 @@ const EXPECTED_LICENSE_CONTACT = readFileSync('./test/resources/output/LicenseCo
 const EXPECTED_LICENSE_CONTACT_OPT = readFileSync('./test/resources/output/LicenseContactOpts.yml', 'utf8')
 const EXPECTED_LICENSE_CONTACT_PARTIAL = readFileSync('./test/resources/output/LicenseContactPartial.yml', 'utf8')
 const EXPECTED_LICENSE_CONTACT_PARTIAL_2 = readFileSync('./test/resources/output/LicenseContactPartial2.yml', 'utf8')
+const EXPECTED_DEPTH_PATH_PARAMS = readFileSync('./test/resources/output/DepthPathParams.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -128,7 +130,6 @@ describe('Library specs', function () {
 
   it('should parse path params', async function () {
     const result = await postmanToOpenApi(COLLECTION_PATH_PARAMS, OUTPUT_PATH)
-    console.log(result)
     equal(result, EXPECTED_PATH_PARAMS)
   })
 
@@ -211,7 +212,9 @@ describe('Library specs', function () {
     equal(result, EXPECTED_LICENSE_CONTACT_PARTIAL_2)
   })
 
-  it('should work with multiple params in path')
-
-  it('should work with multiple paths')
+  it('should use depth configuration for parse paths', async function () {
+    const result = await postmanToOpenApi(COLLECTION_DEPTH_PATH_PARAMS, OUTPUT_PATH, { pathDepth: 1 })
+    console.log(result)
+    equal(result, EXPECTED_DEPTH_PATH_PARAMS)
+  })
 })

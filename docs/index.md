@@ -22,6 +22,7 @@
 - Global Authorization parse or by configuration (Basic and Bearer).
 - Contact and License from variables or by configuration.
 - Provide meta-information as a markdown table.
+- Path depth configuration.
 
 See [Features](#features) section for more details about how to use each of this features.
 
@@ -130,6 +131,22 @@ If you want to customize the default tag use the options `defaultTag` to indicat
 ```js
 const result = await postmanToOpenApi(postmanCollection, outputFile, { defaultTag: 'API' })
 ```
+
+### pathDepth (number)
+
+Sometimes the URL of an API depends of environments prefix or accounts id that are not part of the resource path, as for example `http://api.io/dev/users`, `http://api.io/acc/235647467/users` or `http://api.io/v2/users`, by default this will results in Paths as `/dev/users`, `/acc/235647467/users` and `/v2/users`.
+
+To indicate the library that you want to avoid this prefixes to be part of the OpenAPI operation path you can use the `pathDepth` option, this option is a integer value that indicates how many paths/prefixs should be jump in the parse from the domain, as an example:
+
+```js
+// Having a postman request with the url "http://api.io/dev/users"
+const result = await postmanToOpenApi(postmanCollection, outputFile, { pathDepth: 1 })
+// Will result in a path of "/users"
+const result = await postmanToOpenApi(postmanCollection, outputFile, { pathDepth: 0 })
+// Will result in a path of "/dev/users"
+```
+
+The default value is `0`, so all prefix will be added to Open APi operations Paths.
 
 ### auth (Object)
 
