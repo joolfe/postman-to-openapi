@@ -23,6 +23,7 @@
 - Contact and License from variables or by configuration.
 - Provide meta-information as a markdown table.
 - Path depth configuration.
+- Response status code parse from test.
 
 See [Features](#features) section for more details about how to use each of this features.
 
@@ -286,6 +287,18 @@ This table is providing additional information about a Path parameter, the suppo
 Take into account that `postman-to-openapi` remove from the description all the content after the key header `# postman-to-openapi`, so the meta-information table should be the last content of the description field.
 
 Have a look to the collections [PathParams](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/PathParams.json) for examples of how to use this feature.
+
+## Response status code parse from Test
+
+By default the library use the value `200` as the response status code in all the operations, but this can be customize from Postman test "Test" script, if you operation contain a status check in the tests tab as:
+
+```js
+pm.response.to.have.status(201)
+// or
+pm.expect(pm.response.code).to.eql(202)
+```
+
+The status code will be automatically parsed and used in the OpenAPI specification.
 
 </div></div>
 <div class="tilted-section"><div markdown="1">

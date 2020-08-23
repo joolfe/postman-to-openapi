@@ -20,6 +20,7 @@ const COLLECTION_PATH_PARAMS = './test/resources/input/PathParams.json'
 const COLLECTION_MULTIPLE_SERVERS = './test/resources/input/MultipleServers.json'
 const COLLECTION_LICENSE_CONTACT = './test/resources/input/LicenseContact.json'
 const COLLECTION_DEPTH_PATH_PARAMS = './test/resources/input/DepthPathParams.json'
+const COLLECTION_PARSE_STATUS_CODE = './test/resources/input/ParseStatusCode.json'
 
 const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
 const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
@@ -40,6 +41,7 @@ const EXPECTED_LICENSE_CONTACT_OPT = readFileSync('./test/resources/output/Licen
 const EXPECTED_LICENSE_CONTACT_PARTIAL = readFileSync('./test/resources/output/LicenseContactPartial.yml', 'utf8')
 const EXPECTED_LICENSE_CONTACT_PARTIAL_2 = readFileSync('./test/resources/output/LicenseContactPartial2.yml', 'utf8')
 const EXPECTED_DEPTH_PATH_PARAMS = readFileSync('./test/resources/output/DepthPathParams.yml', 'utf8')
+const EXPECTED_PARSE_STATUS_CODE = readFileSync('./test/resources/output/ParseStatus.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -214,7 +216,11 @@ describe('Library specs', function () {
 
   it('should use depth configuration for parse paths', async function () {
     const result = await postmanToOpenApi(COLLECTION_DEPTH_PATH_PARAMS, OUTPUT_PATH, { pathDepth: 1 })
-    console.log(result)
     equal(result, EXPECTED_DEPTH_PATH_PARAMS)
+  })
+
+  it('should parse status codes from test', async function () {
+    const result = await postmanToOpenApi(COLLECTION_PARSE_STATUS_CODE)
+    equal(result, EXPECTED_PARSE_STATUS_CODE)
   })
 })
