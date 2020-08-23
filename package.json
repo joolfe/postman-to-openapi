@@ -35,7 +35,6 @@
   "homepage": "https://github.com/joolfe/postman-to-openapi#readme",
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
-    "@commitlint/config-angular": "^9.1.1",
     "conventional-changelog-cli": "^2.0.34",
     "eslint": "^7.3.1",
     "husky": "^4.2.5",
@@ -45,7 +44,7 @@
   },
   "commitlint": {
     "extends": [
-      "@commitlint/config-angular"
+      "@commitlint/config-conventional"
     ]
   },
   "husky": {
@@ -72,6 +71,7 @@
     "check-coverage": true
   },
   "dependencies": {
+    "@commitlint/config-conventional": "^10.0.0",
     "js-yaml": "^3.14.0",
     "marked": "^1.1.1"
   }

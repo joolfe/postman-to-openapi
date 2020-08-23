@@ -1,3 +1,39 @@
+## [1.3.0](https://github.com/joolfe/postman-to-openapi/compare/1.2.0...1.3.0) (2020-08-23)
+
+
+### Features
+
+* Add support for contact and license [#35](https://github.com/joolfe/postman-to-openapi/issues/35) ([40785f4](https://github.com/joolfe/postman-to-openapi/commit/40785f4e8faf1082f19a9cec29ed4c578a43a7c1))
+* Mandatory params/headers [#41](https://github.com/joolfe/postman-to-openapi/issues/41) ([78fe141](https://github.com/joolfe/postman-to-openapi/commit/78fe141faa56ede975fb0b68b069d83c3cb5aee4))
+* path parameters enhancement [#43](https://github.com/joolfe/postman-to-openapi/issues/43) ([a90c4a1](https://github.com/joolfe/postman-to-openapi/commit/a90c4a13f3caa01de891a1eecee8a6c8f655ff50))
+* paths deep by cfg [#8](https://github.com/joolfe/postman-to-openapi/issues/8) ([0110b59](https://github.com/joolfe/postman-to-openapi/commit/0110b59939b58369dcb0a0f68debb69dfd15c103))
+* response status from test [#7](https://github.com/joolfe/postman-to-openapi/issues/7) ([e2afc12](https://github.com/joolfe/postman-to-openapi/commit/e2afc1247cb5e57972dbb966b3ee1312d4c85462))
+* Use desc from folders for tags [#53](https://github.com/joolfe/postman-to-openapi/issues/53) ([96d02a7](https://github.com/joolfe/postman-to-openapi/commit/96d02a75ebb99171e02cbf45aaf4408c5bd85890))
+
+
+### Bug Fixes
+
+* badge url for build fixed ([2f14a29](https://github.com/joolfe/postman-to-openapi/commit/2f14a29b4bd04269be42ee83eaf129989b47946d))
+* dependabot alert serialize-javascript ([be35516](https://github.com/joolfe/postman-to-openapi/commit/be35516c53d88f092deb40ddbcb8be700cecf16b))
+* vulnerability fixed ([0771a2e](https://github.com/joolfe/postman-to-openapi/commit/0771a2ead99274cfb53bc0939dd27b31a76094b6))
+
+
+### Tests
+
+* improve coverage of license and contact ([a5662e3](https://github.com/joolfe/postman-to-openapi/commit/a5662e3ca097923442b8ed3be44bbf744d35ede0))
+
+
+### Documentation
+
+* complete section "Postman collection examples" [#58](https://github.com/joolfe/postman-to-openapi/issues/58) ([016a749](https://github.com/joolfe/postman-to-openapi/commit/016a7492671ecdb25aa1da71ea6d4f1c20821445))
+* fix documentation code examples ([8efbdda](https://github.com/joolfe/postman-to-openapi/commit/8efbdda96f5cb0b9a47ec2d0f4e28835b743bc48))
+
+
+### Build System
+
+* add .editorconfig file ([1a59529](https://github.com/joolfe/postman-to-openapi/commit/1a59529fde195f3f620561e35a2deeb00adaf30d))
+* update version ([3a99d7e](https://github.com/joolfe/postman-to-openapi/commit/3a99d7e18ce64043aa881fb200db55ddbe8ea717))
+
 ## [1.2.0](https://github.com/joolfe/postman-to-openapi/compare/1.1.0...1.2.0) (2020-08-03)
 
 
