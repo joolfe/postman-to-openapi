@@ -4,7 +4,7 @@
 
 🛸 Convert postman collection to OpenAPI specification, or in other words, transform [this specification](https://schema.getpostman.com/json/collection/v2.1.0/collection.json) to [this one](https://swagger.io/specification/)
 
-[![build](https://github.com/joolfe/postman-to-openapi/workflows/Node.js%20CI/badge.svg)](https://github.com/joolfe/postman-to-openapi/actions)
+[![build]((https://github.com/joolfe/postman-to-openapi/workflows/Build/badge.svg)](https://github.com/joolfe/postman-to-openapi/actions)
 [![codecov](https://codecov.io/gh/joolfe/postman-to-openapi/branch/master/graph/badge.svg)](https://codecov.io/gh/joolfe/postman-to-openapi)
 [![npm version](https://badge.fury.io/js/postman-to-openapi.svg)](https://www.npmjs.com/package/postman-to-openapi)
 
@@ -15,13 +15,20 @@
 - Basic info API from Postman info or customizable.
 - Basic method conversion (GET, POST, PUT...).
 - Support Postman folders as tags.
-- Transform query, headers and path parameters.
+- Transform query, headers and path parameters (description, required...).
 - Postman variables as Path parameters.
 - Automatic infer types from query and headers parameters.
 - Support Json and Text body formats.
 - Global Authorization parse or by configuration (Basic and Bearer).
+- Contact and License from variables or by configuration.
+- Provide meta-information as a markdown table.
+- Path depth configuration.
+- Response status code parse from test.
 
 See [Features](#features) section for more details about how to use each of this features.
+
+* TOC
+{:toc}
 
 </div></div>
 <div class="tilted-section"><div markdown="1">
@@ -59,16 +66,16 @@ const outputFile = './api/collection.yml'
 
 // Async/await
 try {
-    const result = await postmanToOpenApi(postmanCollection, outputFile, { save: true })
+    const result = await postmanToOpenApi(postmanCollection, outputFile, { defaultTag: 'General' })
     // Without save the result in a file
-    const result2 = await postmanToOpenApi(postmanCollection, null, { save: true })
+    const result2 = await postmanToOpenApi(postmanCollection, null, { defaultTag: 'General' })
     console.log(`OpenAPI specs: ${result}`)
 } catch (err) {
     console.log(err)
 }
 
 // Promise callback style
-postmanToOpenApi(postmanCollection, outputFile, { save: true })
+postmanToOpenApi(postmanCollection, outputFile, { defaultTag: 'General' })
     .then(result => {
         console.log(`OpenAPI specs: ${result}`)
     })
@@ -87,10 +94,12 @@ The basic information of the API is obtained from Postman collection as describe
 
 | Param            | Description                                                                        |
 |------------------|------------------------------------------------------------------------------------|
-| `title`          | String. The title of the API.                                                      |
-| `version`        | String. The version of the OpenAPI document.                                       |
+| `title`          | String. The title of the API. |
+| `version`        | String. The version of the OpenAPI document. |
 | `description`    | String. A short description of the API.                                            |
 | `termsOfService` | String. A URL to the Terms of Service for the API. MUST be in the format of a URL. |
+| `contact`        | Object. The contact information for the exposed API. See details in [License and Contact configuration](#license-and-contact-configuration) section.                             |
+| `license`        | Object. The license information for the exposed API.See details in [License and Contact configuration](#license-and-contact-configuration) section. |
 
 Basically this are the required and relevant parameters defined in OpenAPI spec [info object](https://swagger.io/specification/#info-object), an example of the option will be:
 
@@ -100,7 +109,16 @@ Basically this are the required and relevant parameters defined in OpenAPI spec 
         title: 'Options title',
         version: '6.0.7-beta',
         description: 'Description from options',
-        termsOfService: 'http://tos.myweb.com'
+        termsOfService: 'http://tos.myweb.com',
+        license: {
+            name: 'MIT',
+            url: 'https://es.wikipedia.org/wiki/Licencia_MIT'
+        },
+        contact: {
+            name: 'My Support',
+            url: 'http://www.api.com/support',
+            email: 'support@api.com'
+        }
     }
 }
 ```
@@ -114,6 +132,22 @@ If you want to customize the default tag use the options `defaultTag` to indicat
 ```js
 const result = await postmanToOpenApi(postmanCollection, outputFile, { defaultTag: 'API' })
 ```
+
+### pathDepth (number)
+
+Sometimes the URL of an API depends of environments prefix or accounts id that are not part of the resource path, as for example `http://api.io/dev/users`, `http://api.io/acc/235647467/users` or `http://api.io/v2/users`, by default this will results in Paths as `/dev/users`, `/acc/235647467/users` and `/v2/users`.
+
+To indicate the library that you want to avoid this prefixes to be part of the OpenAPI operation path you can use the `pathDepth` option, this option is a integer value that indicates how many paths/prefixs should be jump in the parse from the domain, as an example:
+
+```js
+// Having a postman request with the url "http://api.io/dev/users"
+const result = await postmanToOpenApi(postmanCollection, outputFile, { pathDepth: 1 })
+// Will result in a path of "/users"
+const result = await postmanToOpenApi(postmanCollection, outputFile, { pathDepth: 0 })
+// Will result in a path of "/dev/users"
+```
+
+The default value is `0`, so all prefix will be added to Open APi operations Paths.
 
 ### auth (Object)
 
@@ -173,11 +207,15 @@ Postman don't have any field at collection level that feat with OpenAPI "version
 
 You can customize all this information with the [Info option](#info-(object)).
 
+For info about how to setup the `contact` and `license` properties have a look to section [License and Contact configuration](#license-and-contact-configuration).
+
 Have a look to the [SimplePost collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/SimplePost.json) file for an example of how to use this feature.
 
 ## Folders as tags
 
 In postman you can add [folders](https://learning.postman.com/docs/sending-requests/intro-to-collections/) inside your collection to group requests and keep the collection clean, in OpenAPI there are no folders but exist the concept of [tags](https://swagger.io/specification/#tag-object) that has the same approximate meaning, this library automatically detect folders and use the name of the folder as tag name in the transformation. Right now is not possible to have more than one tag value for each operation.
+
+As part of the implementation we now support `description` for [tags](https://swagger.io/specification/#tag-object), just add a description into the Postman Collection folder and automatically the `tags` section will be filled in the he OpenApi spec.
 
 Have a look to the [FolderCollection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/FolderCollection.json) file for an example of how to use this feature.
 
@@ -187,7 +225,9 @@ This library automatically transform query and headers parameters from Postman o
 
 The default schema used for parameters is `string` but the library try to infer the type of the parameters based on the value using regular expressions, the detected types are `integer`, `number`, `boolean` and `string`, if you find any problem in the inference process please open an issue.
 
-Path parameters are also automatically detected, this library look for [Postman variables](https://learning.postman.com/docs/sending-requests/variables/) in the url as `{{variable}}` and transform to a single curly brace expression as `{variable}` as supported by OpenAPI, also create the parameter definition using the variable name.
+Path parameters are also automatically detected, this library look for [Postman variables](https://learning.postman.com/docs/sending-requests/variables/) in the url as `{{variable}}` and transform to a single curly brace expression as `{variable}` as supported by OpenAPI, also create the parameter definition using the variable name. To provide additional information about a path parameter you can [Pass Meta-information as markdown](#pass-meta-information-as-markdown).
+
+For headers and query fields you can indicate that this parameter is mandatory/required adding into the description the literal `[required]`. The library use a case insensitive regexp so all variations are supported (`[REQUIRED]`, `[Required]`...) and never mind the location inside the description (at the beginning, at the end...).
 
 Have a look to the [GetMethods collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/GetMethods.json), [Headers collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/Headers.json) and [PathParams collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/PathParams.json) files for examples of how to use this features.
 
@@ -213,9 +253,60 @@ const result = await postmanToOpenApi(postmanCollection, outputFile, { servers: 
 
 This will remove the `servers` field from the yml specification result.
 
+## License and Contact configuration
+
+Inside the [info object](https://swagger.io/specification/#info-object) of OpenAPI definition exist two Object fields called `contact` and `license`, this fields are very useful for provide information to developers, but inside a Postman collection not exist any "standard" way to save this information, for this reason we use [Postman collection variables](https://learning.postman.com/docs/sending-requests/variables/) to define this options.
+
+Is as easy as define the values in the "Edit Collection" form page inside the tab "Variables", as showed in the next image:
+
+![contact and license variables](images/variables.png)
+
+The variables names will be in dot notation, for example for `contact` fields will be as `contact.name`, `contact.url`... Take into account that fields that are required by OpenAPI specs, as `contact.name`, if not provided then all the section will be ignored.
+
+You can also customize this information using the [Info option](#info-(object)), note that info provided by options will overwrite the variables inside the Postman collection (has more priority) but values will be merged from both sources (postman variables and options).
+
+## Pass Meta-information as markdown
+
+As Postman don't provide a free way to pass meta information in all the sections, for example you cannot describe a Path parameter in Postman, the easy way we have found is to provide this information in the `options` parameter when calling the library, although this solution is not a bad solution, and give lot of freedom about where you store the info, we think that have all the info about the API in the Postman Collection is the best solution as you only have a source of information for document your APIs.
+
+That's the reason why API `version` can be defined as a postman collection variable, as described in [Basic API Info](#basic-api-info) section, but for some other information as for example describing a Path parameter where you should indicate multiples values as the description, if it is required, an example, schema type.... the solution of use collection variables don't fit too well, for this reason we have add support for provide Meta-Information as a markdown table.
+
+Taking advantage that Postman support markdown in description fields we have defined a especial section delimited with a md header `# postman-to-openapi`, where you can define a markdown table for provide Meta-Information. As an example:
+
+```markdown
+# postman-to-openapi
+
+| object | name     | description                    | required | type   | example   |
+|--------|----------|--------------------------------|----------|--------|-----------|
+| path   | user_id  | This is just a user identifier | true     | number | 476587598 |
+| path   | group_id | Group of the user              | true     | string | RETAIL    |
+```
+
+This table is providing additional information about a Path parameter, the supported field in this moment are the column thats appear in the example. This way of provide Meta-information is supported in the Postman request description in this moment.
+
+Take into account that `postman-to-openapi` remove from the description all the content after the key header `# postman-to-openapi`, so the meta-information table should be the last content of the description field.
+
+Have a look to the collections [PathParams](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/PathParams.json) for examples of how to use this feature.
+
+## Response status code parse from Test
+
+By default the library use the value `200` as the response status code in all the operations, but this can be customize from Postman test "Test" script, if you operation contain a status check in the tests tab as:
+
+```js
+pm.response.to.have.status(201)
+// or
+pm.expect(pm.response.code).to.eql(202)
+```
+
+The status code will be automatically parsed and used in the OpenAPI specification.
+
 </div></div>
 <div class="tilted-section"><div markdown="1">
 
 # Postman collection examples
+
+All the featured described in this doc are unit tested using real postman collections files as examples, we encourage you to use this collections files as an example of your own implementation.
+
+You can found the examples collections inside the github repo in [postman-to-openapi/test/resources/input/](https://github.com/joolfe/postman-to-openapi/tree/master/test/resources/input) folder, names of the files are self-descriptive.
 
 </div></div>

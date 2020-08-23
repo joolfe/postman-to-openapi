@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3ad7e1b4-f3a1-4a8f-8bd0-56ff18f53339",
+		"_postman_id": "769a0782-149c-40f1-9532-74e2c116bb04",
 		"name": "Folder Collection",
 		"description": "Just a simple collection for test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -68,6 +68,29 @@
 					"response": []
 				}
 			],
+			"description": "Operations at User level",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c69515db-ca18-4c49-b50f-421608912d3c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d69a3a2c-1074-4318-9768-fdc958e03038",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
@@ -100,6 +123,29 @@
 						}
 					},
 					"response": []
+				}
+			],
+			"description": "Operations for Post items",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5d11f381-af50-45b2-8614-6a5bccfdb6d6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7eed3e03-a385-45c2-9979-eeeba859623b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			],
 			"protocolProfileBehavior": {}

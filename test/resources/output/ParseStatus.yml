@@ -1,22 +1,17 @@
 openapi: 3.0.0
 info:
-  title: Folder Collection
-  description: Just a simple collection for test
+  title: Parse Status Code
+  description: Just a simple collection for test status parsing
   version: 2.3.0
 servers:
   - url: 'https://api.io'
-tags:
-  - name: Users
-    description: Operations at User level
-  - name: Posts
-    description: Operations for Post items
 paths:
   /users:
     post:
       tags:
-        - Users
-      summary: Create a user
-      description: This is a post request with json body
+        - default
+      summary: Create new User 201
+      description: Example of a 201 response
       requestBody:
         content:
           application/json:
@@ -28,56 +23,47 @@ paths:
                   data1: 'yes'
                   data2: 'no'
       responses:
-        '200':
+        '201':
           description: Successful response
           content:
             application/json: {}
-  /customer:
-    post:
-      tags:
-        - Users
-      summary: Create a customer
-      description: This is a post request with json body for create a customer
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                example: field
-                other:
-                  data1: 'yes'
-                  data2: 'no'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /posts:
-    post:
-      tags:
-        - Posts
-      summary: Create a post
-      requestBody:
-        content:
-          text/plain: {}
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /info:
+  /users/active:
     post:
       tags:
         - default
-      summary: Create a info
+      summary: Create new User 202
+      description: Example of a 202 response
       requestBody:
         content:
           application/json:
             schema:
               type: object
               example:
-                test: here
+                example: field
+                other:
+                  data1: 'yes'
+                  data2: 'no'
+      responses:
+        '202':
+          description: Successful response
+          content:
+            application/json: {}
+  /users/group:
+    post:
+      tags:
+        - default
+      summary: Deafult 200
+      description: Example of a 202 response
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                example: field
+                other:
+                  data1: 'yes'
+                  data2: 'no'
       responses:
         '200':
           description: Successful response

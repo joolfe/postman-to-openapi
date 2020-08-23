@@ -1,3 +1,4 @@
 theme: jekyll-theme-cayman
+markdown: kramdown
 plugins:
   - jemoji

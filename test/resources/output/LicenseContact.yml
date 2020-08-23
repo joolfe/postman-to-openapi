@@ -1,8 +1,15 @@
 openapi: 3.0.0
 info:
-  title: Get Methods
-  description: API to manage GET methods
+  title: License and Contact
+  description: Collection to test license as variable
   version: 1.0.0
+  contact:
+    name: API Support
+    url: 'http://www.example.com/support'
+    email: support@example.com
+  license:
+    name: Apache 2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
 servers:
   - url: 'https://api.io'
 paths:
@@ -17,14 +24,12 @@ paths:
           in: query
           schema:
             type: integer
-          required: true
           description: Filter by age
           example: '45'
         - name: name
           in: query
           schema:
             type: string
-          required: true
           description: Filter by name
           example: Jhon
         - name: review
@@ -39,13 +44,6 @@ paths:
             type: number
           description: This is a number
           example: '23.56'
-        - name: required
-          in: query
-          schema:
-            type: string
-          required: true
-          description: mandatory paraemeter
-          example: my value
       responses:
         '200':
           description: Successful response

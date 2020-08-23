@@ -18,6 +18,9 @@ const COLLECTION_AUTH_BEARER = './test/resources/input/AuthBearer.json'
 const COLLECTION_AUTH_BASIC = './test/resources/input/AuthBasic.json'
 const COLLECTION_PATH_PARAMS = './test/resources/input/PathParams.json'
 const COLLECTION_MULTIPLE_SERVERS = './test/resources/input/MultipleServers.json'
+const COLLECTION_LICENSE_CONTACT = './test/resources/input/LicenseContact.json'
+const COLLECTION_DEPTH_PATH_PARAMS = './test/resources/input/DepthPathParams.json'
+const COLLECTION_PARSE_STATUS_CODE = './test/resources/input/ParseStatusCode.json'
 
 const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
 const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
@@ -33,6 +36,12 @@ const EXPECTED_PATH_PARAMS = readFileSync('./test/resources/output/PathParams.ym
 const EXPECTED_MULTIPLE_SERVERS = readFileSync('./test/resources/output/MultipleServers.yml', 'utf8')
 const EXPECTED_SERVERS_OPTIONS = readFileSync('./test/resources/output/ServersOpts.yml', 'utf8')
 const EXPECTED_NO_SERVERS = readFileSync('./test/resources/output/NoServers.yml', 'utf8')
+const EXPECTED_LICENSE_CONTACT = readFileSync('./test/resources/output/LicenseContact.yml', 'utf8')
+const EXPECTED_LICENSE_CONTACT_OPT = readFileSync('./test/resources/output/LicenseContactOpts.yml', 'utf8')
+const EXPECTED_LICENSE_CONTACT_PARTIAL = readFileSync('./test/resources/output/LicenseContactPartial.yml', 'utf8')
+const EXPECTED_LICENSE_CONTACT_PARTIAL_2 = readFileSync('./test/resources/output/LicenseContactPartial2.yml', 'utf8')
+const EXPECTED_DEPTH_PATH_PARAMS = readFileSync('./test/resources/output/DepthPathParams.yml', 'utf8')
+const EXPECTED_PARSE_STATUS_CODE = readFileSync('./test/resources/output/ParseStatus.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -150,5 +159,68 @@ describe('Library specs', function () {
   it('should allow empty servers from options', async function () {
     const result = await postmanToOpenApi(COLLECTION_MULTIPLE_SERVERS, OUTPUT_PATH, { servers: [] })
     equal(result, EXPECTED_NO_SERVERS)
+  })
+
+  it('should parse license and contact from variables', async function () {
+    const result = await postmanToOpenApi(COLLECTION_LICENSE_CONTACT, OUTPUT_PATH)
+    equal(result, EXPECTED_LICENSE_CONTACT)
+  })
+
+  it('should use license and contact from options', async function () {
+    const result = await postmanToOpenApi(COLLECTION_LICENSE_CONTACT, OUTPUT_PATH,
+      {
+        info: {
+          license: {
+            name: 'MIT',
+            url: 'https://es.wikipedia.org/wiki/Licencia_MIT'
+          },
+          contact: {
+            name: 'My Support',
+            url: 'http://www.api.com/support',
+            email: 'support@api.com'
+          }
+        }
+      })
+    equal(result, EXPECTED_LICENSE_CONTACT_OPT)
+  })
+
+  it('should support optional params in license and contact options', async function () {
+    const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH,
+      {
+        info: {
+          license: {
+            name: 'MIT'
+          },
+          contact: {
+            name: 'My Support'
+          }
+        }
+      })
+    equal(result, EXPECTED_LICENSE_CONTACT_PARTIAL)
+  })
+
+  it('should support optional params in license and contact options (2)', async function () {
+    const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH,
+      {
+        info: {
+          license: {
+            name: 'MIT'
+          },
+          contact: {
+            url: 'http://www.api.com/support'
+          }
+        }
+      })
+    equal(result, EXPECTED_LICENSE_CONTACT_PARTIAL_2)
+  })
+
+  it('should use depth configuration for parse paths', async function () {
+    const result = await postmanToOpenApi(COLLECTION_DEPTH_PATH_PARAMS, OUTPUT_PATH, { pathDepth: 1 })
+    equal(result, EXPECTED_DEPTH_PATH_PARAMS)
+  })
+
+  it('should parse status codes from test', async function () {
+    const result = await postmanToOpenApi(COLLECTION_PARSE_STATUS_CODE)
+    equal(result, EXPECTED_PARSE_STATUS_CODE)
   })
 })

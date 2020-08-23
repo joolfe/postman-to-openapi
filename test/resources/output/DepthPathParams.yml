@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Path Params
+  title: Large Path Params
   description: Collection to test path parameters
   version: 1.0.0
 servers:
@@ -23,11 +23,11 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  '/desc/{user_id}':
+  '/user/{user_id}/desc/':
     get:
       tags:
         - default
-      summary: Get one users with description
+      summary: Get descriptions of a user
       description: Obtain a list of users descriptions
       parameters:
         - name: user_id
@@ -37,6 +37,32 @@ paths:
           required: true
           description: This is just a user identifier
           example: '476587598'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  '/user/{user_id}/desc/{desc_id}':
+    get:
+      tags:
+        - default
+      summary: Get a description from an user
+      description: Obtain a list of users descriptions
+      parameters:
+        - name: user_id
+          in: path
+          schema:
+            type: number
+          required: true
+          description: This is just a user identifier
+          example: '476587598'
+        - name: desc_id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Description id
+          example: ALMT
       responses:
         '200':
           description: Successful response
