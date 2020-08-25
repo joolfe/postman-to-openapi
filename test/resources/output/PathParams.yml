@@ -23,6 +23,23 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  '/customer/{customer-id}':
+    get:
+      tags:
+        - default
+      summary: Get one customer
+      description: Obtain one customer info
+      parameters:
+        - name: customer-id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   '/desc/{user_id}':
     get:
       tags:
