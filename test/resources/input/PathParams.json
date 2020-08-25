@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c2a620d9-979e-4f39-b6bc-22282ce4b21a",
+		"_postman_id": "da50fa53-6326-4c7c-bfd8-6041a2c625d9",
 		"name": "Path Params",
 		"description": "Collection to test path parameters",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -24,6 +24,27 @@
 					]
 				},
 				"description": "Obtain a list of users that fullfill the conditions of the filters"
+			},
+			"response": []
+		},
+		{
+			"name": "Get one customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.io/customer/{{customer-id}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"io"
+					],
+					"path": [
+						"customer",
+						"{{customer-id}}"
+					]
+				},
+				"description": "Obtain one customer info"
 			},
 			"response": []
 		},
@@ -53,7 +74,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "3d4c9432-87d0-46d1-8e0a-7bf78b95838f",
+				"id": "8d6ddd6c-f1a8-4a68-91e0-07ab38f881a8",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -63,7 +84,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "bfa95668-f3ba-423f-93d3-152fbba765af",
+				"id": "e9cb3ab3-f140-42b3-8c12-17667c92c907",
 				"type": "text/javascript",
 				"exec": [
 					""

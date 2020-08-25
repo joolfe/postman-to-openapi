@@ -1,3 +1,17 @@
+## [1.4.0](https://github.com/joolfe/postman-to-openapi/compare/1.3.0...1.4.0) (2020-08-25)
+
+
+### Features
+
+* support DELETE operations [#66](https://github.com/joolfe/postman-to-openapi/issues/66) ([38eb357](https://github.com/joolfe/postman-to-openapi/commit/38eb3570a7afababd725b3dfe266ac98565d6e20))
+* support hyphen character in path variables [#65](https://github.com/joolfe/postman-to-openapi/issues/65) ([ea1671e](https://github.com/joolfe/postman-to-openapi/commit/ea1671e355e17816664455c4807c3b75c056017d))
+
+
+### Bug Fixes
+
+* error when no "options" in body [#64](https://github.com/joolfe/postman-to-openapi/issues/64) ([a4e8af4](https://github.com/joolfe/postman-to-openapi/commit/a4e8af4e10b4bd568adaa2612693155aeda52f68))
+* should support root paths [#63](https://github.com/joolfe/postman-to-openapi/issues/63) ([aff566b](https://github.com/joolfe/postman-to-openapi/commit/aff566b27b3d87884dd66d2aac7aa030aff2da1c))
+
 ## [1.3.0](https://github.com/joolfe/postman-to-openapi/compare/1.2.0...1.3.0) (2020-08-23)
 
 
