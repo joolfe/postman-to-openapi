@@ -22,6 +22,7 @@ const COLLECTION_LICENSE_CONTACT = './test/resources/input/LicenseContact.json'
 const COLLECTION_DEPTH_PATH_PARAMS = './test/resources/input/DepthPathParams.json'
 const COLLECTION_PARSE_STATUS_CODE = './test/resources/input/ParseStatusCode.json'
 const COLLECTION_NO_PATH = './test/resources/input/NoPath.json'
+const COLLECTION_NO_OPTIONS = './test/resources/input/NoOptionsInBody.json'
 
 const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
 const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
@@ -226,8 +227,13 @@ describe('Library specs', function () {
     equal(result, EXPECTED_PARSE_STATUS_CODE)
   })
 
-  it.only('should parse operation when no path (only domain)', async function () {
+  it('should parse operation when no path (only domain)', async function () {
     const result = await postmanToOpenApi(COLLECTION_NO_PATH)
     equal(result, EXPECTED_NO_PATH)
+  })
+
+  it('should work if no options in request body', async function () {
+    const result = await postmanToOpenApi(COLLECTION_NO_OPTIONS, OUTPUT_PATH, {})
+    equal(result, EXPECTED_BASIC)
   })
 })
