@@ -23,6 +23,7 @@ const COLLECTION_DEPTH_PATH_PARAMS = './test/resources/input/DepthPathParams.jso
 const COLLECTION_PARSE_STATUS_CODE = './test/resources/input/ParseStatusCode.json'
 const COLLECTION_NO_PATH = './test/resources/input/NoPath.json'
 const COLLECTION_NO_OPTIONS = './test/resources/input/NoOptionsInBody.json'
+const COLLECTION_DELETE = './test/resources/input/DeleteOperation.json'
 
 const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
 const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
@@ -45,6 +46,7 @@ const EXPECTED_LICENSE_CONTACT_PARTIAL_2 = readFileSync('./test/resources/output
 const EXPECTED_DEPTH_PATH_PARAMS = readFileSync('./test/resources/output/DepthPathParams.yml', 'utf8')
 const EXPECTED_PARSE_STATUS_CODE = readFileSync('./test/resources/output/ParseStatus.yml', 'utf8')
 const EXPECTED_NO_PATH = readFileSync('./test/resources/output/NoPath.yml', 'utf8')
+const EXPECTED_DELETE = readFileSync('./test/resources/output/DeleteOperation.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -235,5 +237,10 @@ describe('Library specs', function () {
   it('should work if no options in request body', async function () {
     const result = await postmanToOpenApi(COLLECTION_NO_OPTIONS, OUTPUT_PATH, {})
     equal(result, EXPECTED_BASIC)
+  })
+
+  it('should support "DELETE" operations', async function () {
+    const result = await postmanToOpenApi(COLLECTION_DELETE)
+    equal(result, EXPECTED_DELETE)
   })
 })
