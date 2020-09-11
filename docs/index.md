@@ -2,7 +2,7 @@
 
 # Postman collection to OpenAPI specs
 
-🛸 Convert postman collection to OpenAPI specification, or in other words, transform [this specification](https://schema.getpostman.com/json/collection/v2.1.0/collection.json) to [this one](https://swagger.io/specification/)
+🛸 Convert Postman Collection v2.1 to OpenAPI v3.0, or in other words, transform [this specification](https://schema.getpostman.com/json/collection/v2.1.0/collection.json) to [this one](http://spec.openapis.org/oas/v3.0.3.html)
 
 [![build](https://github.com/joolfe/postman-to-openapi/workflows/Build/badge.svg)](https://github.com/joolfe/postman-to-openapi/actions)
 [![codecov](https://codecov.io/gh/joolfe/postman-to-openapi/branch/master/graph/badge.svg)](https://codecov.io/gh/joolfe/postman-to-openapi)
@@ -103,7 +103,7 @@ The basic information of the API is obtained from Postman collection as describe
 | `contact`        | Object. The contact information for the exposed API. See details in [License and Contact configuration](#license-and-contact-configuration) section.                             |
 | `license`        | Object. The license information for the exposed API.See details in [License and Contact configuration](#license-and-contact-configuration) section. |
 
-Basically this are the required and relevant parameters defined in OpenAPI spec [info object](https://swagger.io/specification/#info-object), an example of the option will be:
+Basically this are the required and relevant parameters defined in OpenAPI spec [info object](http://spec.openapis.org/oas/v3.0.3.html#info-object), an example of the option will be:
 
 ```js
 {
@@ -127,7 +127,7 @@ Basically this are the required and relevant parameters defined in OpenAPI spec 
 
 ### defaultTag (String)
 
-By default the [tag value](https://swagger.io/specification/#tag-object) "default" is added to all the operations during transformation, unless this operations are inside a folder as described in section [folder as tags](#folders-as-tags).
+By default the [tag value](http://spec.openapis.org/oas/v3.0.3.html#tag-object) "default" is added to all the operations during transformation, unless this operations are inside a folder as described in section [folder as tags](#folders-as-tags).
 
 If you want to customize the default tag use the options `defaultTag` to indicate the desired value.
 
@@ -153,7 +153,7 @@ The default value is `0`, so all prefix will be added to Open APi operations Pat
 
 ### auth (Object)
 
-The global authorization info can be parse from the Postman collection as described in [Global authorization](#global-authorization) section, but you can customize this info using the `auth` option, this param is a Object that follow the structure of OpenAPI [Security Scheme](https://swagger.io/specification/#security-scheme-object), in this moment only type `http` is supported and schemes `basic` and `bearer`, as an example of this option:
+The global authorization info can be parse from the Postman collection as described in [Global authorization](#global-authorization) section, but you can customize this info using the `auth` option, this param is a Object that follow the structure of OpenAPI [Security Scheme](http://spec.openapis.org/oas/v3.0.3.html#security-scheme-object), in this moment only type `http` is supported and schemes `basic` and `bearer`, as an example of this option:
 
 ```js
 {
@@ -173,7 +173,7 @@ The global authorization info can be parse from the Postman collection as descri
 
 ### servers (Array)
 
-The global servers list can be parse from the Postman collection as described in [Global servers configuration](#global-servers-configuration) section, but you can customize this info using the `servers` option, this param is an array of objects that follow the structure of OpenAPI [Server Objects](https://swagger.io/specification/#server-object), only `url` and `description` field are supported in this moment, as an example of how to use this option:
+The global servers list can be parse from the Postman collection as described in [Global servers configuration](#global-servers-configuration) section, but you can customize this info using the `servers` option, this param is an array of objects that follow the structure of OpenAPI [Server Objects](http://spec.openapis.org/oas/v3.0.3.html#server-object), only `url` and `description` field are supported in this moment, as an example of how to use this option:
 
 ```js
 {
@@ -203,7 +203,7 @@ Have a look to the [PostmantoOpenAPI collection](https://github.com/joolfe/postm
 
 ## Basic API info
 
-For fill the OpenAPI [info object](https://swagger.io/specification/#info-object) this library use the information defined in Postman [collection](https://learning.postman.com/docs/sending-requests/intro-to-collections/#creating-collections) level as "name" and "description".
+For fill the OpenAPI [info object](http://spec.openapis.org/oas/v3.0.3.html#info-object) this library use the information defined in Postman [collection](https://learning.postman.com/docs/sending-requests/intro-to-collections/#creating-collections) level as "name" and "description".
 
 Postman don't have any field at collection level that feat with OpenAPI "version" field (is a required field in OpenAPI specification), so this library look for a variable with name `version` in Postman [collection variables](https://learning.postman.com/docs/sending-requests/variables/#defining-collection-variables) or if variable is not defined then will use the default value `1.0.0`.
 
@@ -215,9 +215,9 @@ Have a look to the [SimplePost collection](https://github.com/joolfe/postman-to-
 
 ## Folders as tags
 
-In postman you can add [folders](https://learning.postman.com/docs/sending-requests/intro-to-collections/) inside your collection to group requests and keep the collection clean, in OpenAPI there are no folders but exist the concept of [tags](https://swagger.io/specification/#tag-object) that has the same approximate meaning, this library automatically detect folders and use the name of the folder as tag name in the transformation. Right now is not possible to have more than one tag value for each operation.
+In postman you can add [folders](https://learning.postman.com/docs/sending-requests/intro-to-collections/) inside your collection to group requests and keep the collection clean, in OpenAPI there are no folders but exist the concept of [tags](http://spec.openapis.org/oas/v3.0.3.html#tag-object) that has the same approximate meaning, this library automatically detect folders and use the name of the folder as tag name in the transformation. Right now is not possible to have more than one tag value for each operation.
 
-As part of the implementation we now support `description` for [tags](https://swagger.io/specification/#tag-object), just add a description into the Postman Collection folder and automatically the `tags` section will be filled in the he OpenApi spec.
+As part of the implementation we now support `description` for [tags](http://spec.openapis.org/oas/v3.0.3.html#tag-object), just add a description into the Postman Collection folder and automatically the `tags` section will be filled in the he OpenApi spec.
 
 Have a look to the [FolderCollection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/FolderCollection.json) file for an example of how to use this feature.
 
@@ -235,7 +235,7 @@ Have a look to the [GetMethods collection](https://github.com/joolfe/postman-to-
 
 ## Global authorization
 
-The OpenAPI root [security]https://swagger.io/specification/#openapi-object) definition is filled using the authorization method defined at Postman Collection [authorization config](https://learning.postman.com/docs/sending-requests/authorization/#inheriting-auth).
+The OpenAPI root [security]http://spec.openapis.org/oas/v3.0.3.html#openapi-object) definition is filled using the authorization method defined at Postman Collection [authorization config](https://learning.postman.com/docs/sending-requests/authorization/#inheriting-auth).
 
 Only types 'Basic Auth' and 'Bearer Token' are supported now and not operation individual definition is supported.
 
@@ -245,7 +245,7 @@ Have a look to the collections [AuthBasic](https://github.com/joolfe/postman-to-
 
 ## Global servers configuration
 
-The OpenAPI root [servers](https://swagger.io/specification/#openapi-object) definition is filled parsing the urls used in the Postman collections requests, the library use all the different urls for create an array of server (removing duplicated), but normally this is not to usefully as Postman collection only will have one environment url, for this reason you can customize the global servers definition using the [server option](#servers-(array))
+The OpenAPI root [servers](http://spec.openapis.org/oas/v3.0.3.html#openapi-object) definition is filled parsing the urls used in the Postman collections requests, the library use all the different urls for create an array of server (removing duplicated), but normally this is not to usefully as Postman collection only will have one environment url, for this reason you can customize the global servers definition using the [server option](#servers-(array))
 
 If you don't want to include a `servers` array in your OpenAPI spec file you just need to pass an empty array as server option, as for example:
 
@@ -257,7 +257,7 @@ This will remove the `servers` field from the yml specification result.
 
 ## License and Contact configuration
 
-Inside the [info object](https://swagger.io/specification/#info-object) of OpenAPI definition exist two Object fields called `contact` and `license`, this fields are very useful for provide information to developers, but inside a Postman collection not exist any "standard" way to save this information, for this reason we use [Postman collection variables](https://learning.postman.com/docs/sending-requests/variables/) to define this options.
+Inside the [info object](http://spec.openapis.org/oas/v3.0.3.html#info-object) of OpenAPI definition exist two Object fields called `contact` and `license`, this fields are very useful for provide information to developers, but inside a Postman collection not exist any "standard" way to save this information, for this reason we use [Postman collection variables](https://learning.postman.com/docs/sending-requests/variables/) to define this options.
 
 Is as easy as define the values in the "Edit Collection" form page inside the tab "Variables", as showed in the next image:
 
