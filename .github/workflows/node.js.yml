@@ -41,3 +41,23 @@ jobs:
     - run: npm publish --access public
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Generate changelog
+      id: changelog
+      uses: metcalfc/changelog-generator@v0.4.3
+      with:
+        myToken: ${{ secrets.GITHUB_TOKEN }}
+    - name: Get package version
+      id: package-version
+      uses: martinbeentjes/npm-get-version-action@master
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@latest
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.package-version.outputs.current-version }}
+        release_name: Release ${{ steps.package-version.outputs.current-version }}
+        body: |
+          ${{ steps.changelog.outputs.changelog }}
+        draft: false
+        prerelease: false
