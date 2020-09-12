@@ -1,3 +1,10 @@
+### [1.4.1](https://github.com/joolfe/postman-to-openapi/compare/1.4.0...1.4.1) (2020-09-12)
+
+
+### Documentation
+
+* update links to OpenAPI specification ([2b66366](https://github.com/joolfe/postman-to-openapi/commit/2b66366285e8d87b5e42a35d1677cc7854760501))
+
 ## [1.4.0](https://github.com/joolfe/postman-to-openapi/compare/1.3.0...1.4.0) (2020-08-25)
 
 
