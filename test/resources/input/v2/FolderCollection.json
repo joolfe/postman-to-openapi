@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "d56d78d2-cf20-4779-ad84-d9e578ab9d5a",
+		"name": "Folder Collection",
+		"description": "Just a simple collection for test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create a user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"example\": \"field\",\n    \"other\": {\n        \"data1\": \"yes\",\n        \"data2\": \"no\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://api.io/users",
+						"description": "This is a post request with json body"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"example\": \"field\",\n    \"other\": {\n        \"data1\": \"yes\",\n        \"data2\": \"no\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://api.io/customer",
+						"description": "This is a post request with json body for create a customer"
+					},
+					"response": []
+				}
+			],
+			"description": "Operations at User level",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "686448f3-5f27-4ab0-be72-f5751d40d587",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "be665e36-6d0b-402d-9577-03aa4601d721",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "Create a post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "file",
+							"file": {},
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": "https://api.io/posts"
+					},
+					"response": []
+				}
+			],
+			"description": "Operations for Post items",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "090c5815-9bf7-42ad-aee7-4e0b6949064e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b57c9340-3e13-4e3a-8a20-38cd0ee3c4b4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Create a info",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"test\":\"here\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://api.io/info"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "e4619cfa-c046-413a-9e69-f40a20248a4d",
+			"key": "version",
+			"value": "2.3.0"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
