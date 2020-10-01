@@ -1,3 +1,15 @@
+### [1.5.1](https://github.com/joolfe/postman-to-openapi/compare/1.5.0...1.5.1) (2020-10-01)
+
+
+### Documentation
+
+* update docs about postman collection version ([7ab3ef5](https://github.com/joolfe/postman-to-openapi/commit/7ab3ef5576f54a409a267c85d731f368f0ea12a9))
+
+
+### Build System
+
+* version to 1.5.1 ([84ff20f](https://github.com/joolfe/postman-to-openapi/commit/84ff20f408b14df279148d7e1a669299c5eee8ad))
+
 ## [1.5.0](https://github.com/joolfe/postman-to-openapi/compare/1.4.1...1.5.0) (2020-10-01)
 
 
