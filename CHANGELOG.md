@@ -1,3 +1,20 @@
+## [1.5.0](https://github.com/joolfe/postman-to-openapi/compare/1.4.1...1.5.0) (2020-10-01)
+
+
+### Features
+
+* support postman collection v2 ([1d9da47](https://github.com/joolfe/postman-to-openapi/commit/1d9da470d428b3053761464b7965b294c833e70b)), closes [#20](https://github.com/joolfe/postman-to-openapi/issues/20)
+
+
+### Continuous Integration
+
+* added autorelease steps ([c3b297c](https://github.com/joolfe/postman-to-openapi/commit/c3b297cb4a85cf0028bdcc98c13c8ad2459e20f0)), closes [#71](https://github.com/joolfe/postman-to-openapi/issues/71)
+
+
+### Build System
+
+* update version to 1.5.0 ([c3267a8](https://github.com/joolfe/postman-to-openapi/commit/c3267a847327c371cc347f615de1e5bfd5ac55d2))
+
 ### [1.4.1](https://github.com/joolfe/postman-to-openapi/compare/1.4.0...1.4.1) (2020-09-12)
 
 
