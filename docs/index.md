@@ -2,7 +2,7 @@
 
 # Postman collection to OpenAPI specs
 
-🛸 Convert Postman Collection v2.1 to OpenAPI v3.0, or in other words, transform [this specification](https://schema.getpostman.com/json/collection/v2.1.0/collection.json) to [this one](http://spec.openapis.org/oas/v3.0.3.html)
+🛸 Convert Postman Collection v2.1 and v2.0 to OpenAPI v3.0, or in other words, transform [this specification](https://schema.getpostman.com/json/collection/v2.1.0/collection.json) and also [this one](https://schema.getpostman.com/json/collection/v2.0.0/collection.json) to [this one](http://spec.openapis.org/oas/v3.0.3.html)
 
 [![build](https://github.com/joolfe/postman-to-openapi/workflows/Build/badge.svg)](https://github.com/joolfe/postman-to-openapi/actions)
 [![codecov](https://codecov.io/gh/joolfe/postman-to-openapi/branch/master/graph/badge.svg)](https://codecov.io/gh/joolfe/postman-to-openapi)
@@ -15,7 +15,7 @@
 
 ## Features at a glance
 
-- Postman Collection v2.1
+- Postman Collection v2.1 and v2.0
 - OpenApi 3.0
 - Basic info API from Postman info or customizable.
 - Basic method conversion (GET, POST, PUT...).
