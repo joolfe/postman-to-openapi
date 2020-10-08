@@ -235,7 +235,7 @@ Have a look to the [GetMethods collection](https://github.com/joolfe/postman-to-
 
 ## Global authorization
 
-The OpenAPI root [security]http://spec.openapis.org/oas/v3.0.3.html#openapi-object) definition is filled using the authorization method defined at Postman Collection [authorization config](https://learning.postman.com/docs/sending-requests/authorization/#inheriting-auth).
+The OpenAPI root [security](http://spec.openapis.org/oas/v3.0.3.html#openapi-object) definition is filled using the authorization method defined at Postman Collection [authorization config](https://learning.postman.com/docs/sending-requests/authorization/#inheriting-auth).
 
 Only types 'Basic Auth' and 'Bearer Token' are supported now and not operation individual definition is supported.
 
