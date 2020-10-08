@@ -227,7 +227,7 @@ This library automatically transform query and headers parameters from Postman o
 
 The default schema used for parameters is `string` but the library try to infer the type of the parameters based on the value using regular expressions, the detected types are `integer`, `number`, `boolean` and `string`, if you find any problem in the inference process please open an issue.
 
-Path parameters are also automatically detected, this library look for [Postman variables](https://learning.postman.com/docs/sending-requests/variables/) in the url as `{{variable}}` and transform to a single curly brace expression as `{variable}` as supported by OpenAPI, also create the parameter definition using the variable name. To provide additional information about a path parameter you can [Pass Meta-information as markdown](#pass-meta-information-as-markdown).
+Path parameters are also automatically detected, this library look for [Postman variables](https://learning.postman.com/docs/sending-requests/variables/) in the url as `{{{variable}}}` and transform to a single curly brace expression as `{variable}` as supported by OpenAPI, also create the parameter definition using the variable name. To provide additional information about a path parameter you can [Pass Meta-information as markdown](#pass-meta-information-as-markdown).
 
 For headers and query fields you can indicate that this parameter is mandatory/required adding into the description the literal `[required]`. The library use a case insensitive regexp so all variations are supported (`[REQUIRED]`, `[Required]`...) and never mind the location inside the description (at the beginning, at the end...).
 
@@ -245,7 +245,7 @@ Have a look to the collections [AuthBasic](https://github.com/joolfe/postman-to-
 
 ## Global servers configuration
 
-The OpenAPI root [servers](http://spec.openapis.org/oas/v3.0.3.html#openapi-object) definition is filled parsing the urls used in the Postman collections requests, the library use all the different urls for create an array of server (removing duplicated), but normally this is not to usefully as Postman collection only will have one environment url, for this reason you can customize the global servers definition using the [server option](#servers-(array))
+The OpenAPI root [servers](http://spec.openapis.org/oas/v3.0.3.html#openapi-object) definition is filled parsing the urls used in the Postman collections requests, the library use all the different urls for create an array of server (removing duplicated), but normally this is not to usefully as Postman collection only will have one environment url, for this reason you can customize the global servers definition using the [server option](#servers-array)
 
 If you don't want to include a `servers` array in your OpenAPI spec file you just need to pass an empty array as server option, as for example:
 
