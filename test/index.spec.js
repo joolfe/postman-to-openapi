@@ -34,6 +34,9 @@ const EXPECTED_PARSE_STATUS_CODE = readFileSync('./test/resources/output/ParseSt
 const EXPECTED_NO_PATH = readFileSync('./test/resources/output/NoPath.yml', 'utf8')
 const EXPECTED_DELETE = readFileSync('./test/resources/output/DeleteOperation.yml', 'utf8')
 const EXPECTED_URL_WITH_PORT = readFileSync('./test/resources/output/UrlWithPort.yml', 'utf8')
+const EXPECTED_EXTERNAL_DOCS = readFileSync('./test/resources/output/ExternalDocs.yml', 'utf8')
+const EXPECTED_EXTERNAL_DOCS_OPTS = readFileSync('./test/resources/output/ExternalDocsOpts.yml', 'utf8')
+const EXPECTED_EXTERNAL_DOCS_OPTS_PARTIAL = readFileSync('./test/resources/output/ExternalDocsOptsPartial.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -62,6 +65,7 @@ describe('Library specs', function () {
       const COLLECTION_AUTH_BEARER = `./test/resources/input/${version}/AuthBearer.json`
       const COLLECTION_AUTH_BASIC = `./test/resources/input/${version}/AuthBasic.json`
       const COLLECTION_URL_WITH_PORT = `./test/resources/input/${version}/UrlWithPort.json`
+      const COLLECTION_EXTERNAL_DOCS = `./test/resources/input/${version}/ExternalDocs.json`
 
       it('should work with a basic transform', async function () {
         const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {})
@@ -146,7 +150,7 @@ describe('Library specs', function () {
         equal(result, EXPECTED_LICENSE_CONTACT)
       })
 
-      it('should use license and contact from options', async function () {
+      it('should use "additional info" from options', async function () {
         const result = await postmanToOpenApi(COLLECTION_LICENSE_CONTACT, OUTPUT_PATH,
           {
             info: {
@@ -250,6 +254,32 @@ describe('Library specs', function () {
       it('should parse url with port', async function () {
         const result = await postmanToOpenApi(COLLECTION_URL_WITH_PORT, OUTPUT_PATH)
         equal(result, EXPECTED_URL_WITH_PORT)
+      })
+
+      it('should parse external docs info from variables', async function () {
+        const result = await postmanToOpenApi(COLLECTION_EXTERNAL_DOCS, OUTPUT_PATH)
+        equal(result, EXPECTED_EXTERNAL_DOCS)
+      })
+
+      it('should parse external docs info from variables', async function () {
+        const result = await postmanToOpenApi(COLLECTION_EXTERNAL_DOCS, OUTPUT_PATH,
+          {
+            externalDocs: {
+              url: 'https://docs2.example.com',
+              description: 'Find more info here or there'
+            }
+          })
+        equal(result, EXPECTED_EXTERNAL_DOCS_OPTS)
+      })
+
+      it('should parse external docs info from variables', async function () {
+        const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH,
+          {
+            externalDocs: {
+              url: 'https://docs2.example.com'
+            }
+          })
+        equal(result, EXPECTED_EXTERNAL_DOCS_OPTS_PARTIAL)
       })
     })
   })

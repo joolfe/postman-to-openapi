@@ -190,6 +190,21 @@ The global servers list can be parse from the Postman collection as described in
 }
 ```
 
+### externalDocs (Object)
+
+The info about the API external documentation, as described in OpenAPI spec [External Docs Object](https://swagger.io/specification/#external-documentation-object), as an example of how to use this option:
+
+```js
+{
+    externalDocs: {
+        url: 'https://docs.example.com',
+        description: 'Find more info here or there'
+    }
+}
+```
+
+This info can be provided as collection variables in the same way as described in section [License and Contact configuration](#license-and-contact-configuration), you can setup the variables `externalDocs.url` and `externalDocs.description` for provide the information.
+
 </div></div>
 <div class="tilted-section"><div markdown="1">
 
