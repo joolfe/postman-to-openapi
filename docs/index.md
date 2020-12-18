@@ -190,6 +190,21 @@ The global servers list can be parse from the Postman collection as described in
 }
 ```
 
+### externalDocs (Object)
+
+The info about the API external documentation, as described in OpenAPI spec [External Docs Object](https://swagger.io/specification/#external-documentation-object), as an example of how to use this option:
+
+```js
+{
+    externalDocs: {
+        url: 'https://docs.example.com',
+        description: 'Find more info here or there'
+    }
+}
+```
+
+This info can be provided as collection variables in the same way as described in section [License and Contact configuration](#license-and-contact-configuration), you can setup the variables `externalDocs.url` and `externalDocs.description` for provide the information.
+
 </div></div>
 <div class="tilted-section"><div markdown="1">
 
@@ -199,7 +214,7 @@ The global servers list can be parse from the Postman collection as described in
 
 This library support the transformation from Postman collection to all the basic HTTP method as GET, POST, PUT... and also parse the body request of type raw `Json` or `Text` type. [Query parameters](#parameters-parsing) are also supported.
 
-Have a look to the [PostmantoOpenAPI collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/PostmantoOpenAPI.json) file for an example of how to use this feature.
+Have a look to the [PostmantoOpenAPI collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/PostmantoOpenAPI.json) file for an example of how to use this feature.
 
 ## Basic API info
 
@@ -211,7 +226,7 @@ You can customize all this information with the [Info option](#info-(object)).
 
 For info about how to setup the `contact` and `license` properties have a look to section [License and Contact configuration](#license-and-contact-configuration).
 
-Have a look to the [SimplePost collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/SimplePost.json) file for an example of how to use this feature.
+Have a look to the [SimplePost collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/v21/SimplePost.json) file for an example of how to use this feature.
 
 ## Folders as tags
 
@@ -219,7 +234,7 @@ In postman you can add [folders](https://learning.postman.com/docs/sending-reque
 
 As part of the implementation we now support `description` for [tags](http://spec.openapis.org/oas/v3.0.3.html#tag-object), just add a description into the Postman Collection folder and automatically the `tags` section will be filled in the he OpenApi spec.
 
-Have a look to the [FolderCollection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/FolderCollection.json) file for an example of how to use this feature.
+Have a look to the [FolderCollection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/FolderCollection.json) file for an example of how to use this feature.
 
 ## Parameters parsing
 
@@ -227,25 +242,25 @@ This library automatically transform query and headers parameters from Postman o
 
 The default schema used for parameters is `string` but the library try to infer the type of the parameters based on the value using regular expressions, the detected types are `integer`, `number`, `boolean` and `string`, if you find any problem in the inference process please open an issue.
 
-Path parameters are also automatically detected, this library look for [Postman variables](https://learning.postman.com/docs/sending-requests/variables/) in the url as `{{variable}}` and transform to a single curly brace expression as `{variable}` as supported by OpenAPI, also create the parameter definition using the variable name. To provide additional information about a path parameter you can [Pass Meta-information as markdown](#pass-meta-information-as-markdown).
+Path parameters are also automatically detected, this library look for [Postman variables](https://learning.postman.com/docs/sending-requests/variables/) in the url as `{{{variable}}}` and transform to a single curly brace expression as `{variable}` as supported by OpenAPI, also create the parameter definition using the variable name. To provide additional information about a path parameter you can [Pass Meta-information as markdown](#pass-meta-information-as-markdown).
 
 For headers and query fields you can indicate that this parameter is mandatory/required adding into the description the literal `[required]`. The library use a case insensitive regexp so all variations are supported (`[REQUIRED]`, `[Required]`...) and never mind the location inside the description (at the beginning, at the end...).
 
-Have a look to the [GetMethods collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/GetMethods.json), [Headers collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/Headers.json) and [PathParams collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/PathParams.json) files for examples of how to use this features.
+Have a look to the [GetMethods collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/GetMethods.json), [Headers collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/Headers.json) and [PathParams collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/PathParams.json) files for examples of how to use this features.
 
 ## Global authorization
 
-The OpenAPI root [security]http://spec.openapis.org/oas/v3.0.3.html#openapi-object) definition is filled using the authorization method defined at Postman Collection [authorization config](https://learning.postman.com/docs/sending-requests/authorization/#inheriting-auth).
+The OpenAPI root [security](http://spec.openapis.org/oas/v3.0.3.html#openapi-object) definition is filled using the authorization method defined at Postman Collection [authorization config](https://learning.postman.com/docs/sending-requests/authorization/#inheriting-auth).
 
 Only types 'Basic Auth' and 'Bearer Token' are supported now and not operation individual definition is supported.
 
 You can customize the global authorization definition using the [Auth option](#auth-(object)).
 
-Have a look to the collections [AuthBasic](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/AuthBasic.json) and [AuthBearer](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/AuthBearer.json) for examples of how to use this feature.
+Have a look to the collections [AuthBasic](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/AuthBasic.json) and [AuthBearer](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/AuthBearer.json) for examples of how to use this feature.
 
 ## Global servers configuration
 
-The OpenAPI root [servers](http://spec.openapis.org/oas/v3.0.3.html#openapi-object) definition is filled parsing the urls used in the Postman collections requests, the library use all the different urls for create an array of server (removing duplicated), but normally this is not to usefully as Postman collection only will have one environment url, for this reason you can customize the global servers definition using the [server option](#servers-(array))
+The OpenAPI root [servers](http://spec.openapis.org/oas/v3.0.3.html#openapi-object) definition is filled parsing the urls used in the Postman collections requests, the library use all the different urls for create an array of server (removing duplicated), but normally this is not to usefully as Postman collection only will have one environment url, for this reason you can customize the global servers definition using the [server option](#servers-array)
 
 If you don't want to include a `servers` array in your OpenAPI spec file you just need to pass an empty array as server option, as for example:
 
@@ -288,7 +303,7 @@ This table is providing additional information about a Path parameter, the suppo
 
 Take into account that `postman-to-openapi` remove from the description all the content after the key header `# postman-to-openapi`, so the meta-information table should be the last content of the description field.
 
-Have a look to the collections [PathParams](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/PathParams.json) for examples of how to use this feature.
+Have a look to the collections [PathParams](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/PathParams.json) for examples of how to use this feature.
 
 ## Response status code parse from Test
 
