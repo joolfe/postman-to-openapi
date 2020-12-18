@@ -5,6 +5,7 @@ const postmanToOpenApi = require('../lib')
 const path = require('path')
 const { equal, ok } = require('assert').strict
 const { readFileSync, existsSync, unlinkSync } = require('fs')
+const { version } = require('../package.json')
 
 const OUTPUT_PATH = path.join(__dirname, '/openAPIRes.yml')
 
@@ -249,5 +250,9 @@ describe('Library specs', function () {
   it('should work if no options in request body', async function () {
     const result = await postmanToOpenApi(COLLECTION_NO_OPTIONS, OUTPUT_PATH, {})
     equal(result, EXPECTED_BASIC)
+  })
+
+  it('should expose the version of the library', async function () {
+    equal(postmanToOpenApi.version, version)
   })
 })
