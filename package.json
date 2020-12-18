@@ -36,6 +36,7 @@
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
     "conventional-changelog-cli": "^2.0.34",
+    "@commitlint/config-conventional": "^10.0.0",
     "eslint": "^7.3.1",
     "husky": "^4.2.5",
     "mocha": "^8.1.1",
@@ -71,7 +72,6 @@
     "check-coverage": true
   },
   "dependencies": {
-    "@commitlint/config-conventional": "^10.0.0",
     "js-yaml": "^3.14.0",
     "marked": "^1.1.1"
   }
