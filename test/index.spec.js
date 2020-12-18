@@ -33,6 +33,7 @@ const EXPECTED_DEPTH_PATH_PARAMS = readFileSync('./test/resources/output/DepthPa
 const EXPECTED_PARSE_STATUS_CODE = readFileSync('./test/resources/output/ParseStatus.yml', 'utf8')
 const EXPECTED_NO_PATH = readFileSync('./test/resources/output/NoPath.yml', 'utf8')
 const EXPECTED_DELETE = readFileSync('./test/resources/output/DeleteOperation.yml', 'utf8')
+const EXPECTED_URL_WITH_PORT = readFileSync('./test/resources/output/UrlWithPort.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -60,6 +61,7 @@ describe('Library specs', function () {
       const COLLECTION_DELETE = `./test/resources/input/${version}/DeleteOperation.json`
       const COLLECTION_AUTH_BEARER = `./test/resources/input/${version}/AuthBearer.json`
       const COLLECTION_AUTH_BASIC = `./test/resources/input/${version}/AuthBasic.json`
+      const COLLECTION_URL_WITH_PORT = `./test/resources/input/${version}/UrlWithPort.json`
 
       it('should work with a basic transform', async function () {
         const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {})
@@ -243,6 +245,11 @@ describe('Library specs', function () {
         }
         const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, { auth: authDefinition })
         equal(result, EXPECTED_BASIC_WITH_AUTH)
+      })
+
+      it('should parse url with port', async function () {
+        const result = await postmanToOpenApi(COLLECTION_URL_WITH_PORT, OUTPUT_PATH)
+        equal(result, EXPECTED_URL_WITH_PORT)
       })
     })
   })
