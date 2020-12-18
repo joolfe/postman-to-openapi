@@ -214,7 +214,7 @@ This info can be provided as collection variables in the same way as described i
 
 This library support the transformation from Postman collection to all the basic HTTP method as GET, POST, PUT... and also parse the body request of type raw `Json` or `Text` type. [Query parameters](#parameters-parsing) are also supported.
 
-Have a look to the [PostmantoOpenAPI collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/PostmantoOpenAPI.json) file for an example of how to use this feature.
+Have a look to the [PostmantoOpenAPI collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/PostmantoOpenAPI.json) file for an example of how to use this feature.
 
 ## Basic API info
 
@@ -226,7 +226,7 @@ You can customize all this information with the [Info option](#info-(object)).
 
 For info about how to setup the `contact` and `license` properties have a look to section [License and Contact configuration](#license-and-contact-configuration).
 
-Have a look to the [SimplePost collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/SimplePost.json) file for an example of how to use this feature.
+Have a look to the [SimplePost collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/v21/SimplePost.json) file for an example of how to use this feature.
 
 ## Folders as tags
 
@@ -234,7 +234,7 @@ In postman you can add [folders](https://learning.postman.com/docs/sending-reque
 
 As part of the implementation we now support `description` for [tags](http://spec.openapis.org/oas/v3.0.3.html#tag-object), just add a description into the Postman Collection folder and automatically the `tags` section will be filled in the he OpenApi spec.
 
-Have a look to the [FolderCollection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/FolderCollection.json) file for an example of how to use this feature.
+Have a look to the [FolderCollection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/FolderCollection.json) file for an example of how to use this feature.
 
 ## Parameters parsing
 
@@ -246,7 +246,7 @@ Path parameters are also automatically detected, this library look for [Postman 
 
 For headers and query fields you can indicate that this parameter is mandatory/required adding into the description the literal `[required]`. The library use a case insensitive regexp so all variations are supported (`[REQUIRED]`, `[Required]`...) and never mind the location inside the description (at the beginning, at the end...).
 
-Have a look to the [GetMethods collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/GetMethods.json), [Headers collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/Headers.json) and [PathParams collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/PathParams.json) files for examples of how to use this features.
+Have a look to the [GetMethods collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/GetMethods.json), [Headers collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/Headers.json) and [PathParams collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/PathParams.json) files for examples of how to use this features.
 
 ## Global authorization
 
@@ -256,7 +256,7 @@ Only types 'Basic Auth' and 'Bearer Token' are supported now and not operation i
 
 You can customize the global authorization definition using the [Auth option](#auth-(object)).
 
-Have a look to the collections [AuthBasic](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/AuthBasic.json) and [AuthBearer](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/AuthBearer.json) for examples of how to use this feature.
+Have a look to the collections [AuthBasic](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/AuthBasic.json) and [AuthBearer](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/AuthBearer.json) for examples of how to use this feature.
 
 ## Global servers configuration
 
@@ -303,7 +303,7 @@ This table is providing additional information about a Path parameter, the suppo
 
 Take into account that `postman-to-openapi` remove from the description all the content after the key header `# postman-to-openapi`, so the meta-information table should be the last content of the description field.
 
-Have a look to the collections [PathParams](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/PathParams.json) for examples of how to use this feature.
+Have a look to the collections [PathParams](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/PathParams.json) for examples of how to use this feature.
 
 ## Response status code parse from Test
 
