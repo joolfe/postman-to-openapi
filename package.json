@@ -1,8 +1,11 @@
 {
   "name": "postman-to-openapi",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Convert postman collection to OpenAPI spec",
   "main": "lib/index.js",
+  "bin": {
+    "p2o": "./bin/p2o.js"
+  },
   "scripts": {
     "lint": "standard **/*.js",
     "lint:fix": "standard **/*.js --fix",
@@ -35,9 +38,9 @@
   "homepage": "https://github.com/joolfe/postman-to-openapi#readme",
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
-    "conventional-changelog-cli": "^2.0.34",
     "@commitlint/config-conventional": "^10.0.0",
-    "eslint": "^7.3.1",
+    "conventional-changelog-cli": "^2.0.34",
+    "eslint": "^7.16.0",
     "husky": "^4.2.5",
     "mocha": "^8.1.1",
     "nyc": "^15.1.0",
@@ -73,6 +76,7 @@
   },
   "dependencies": {
     "js-yaml": "^3.14.0",
-    "marked": "^1.1.1"
+    "marked": "^1.1.1",
+    "yargs": "^16.2.0"
   }
 }
