@@ -4,10 +4,10 @@ info:
   description: Just a simple collection for test
   version: 2.3.0
 externalDocs:
-  url: 'https://docs2.example.com'
+  url: https://docs2.example.com
   description: Find more info here or there
 servers:
-  - url: 'https://api.io'
+  - url: https://api.io
 paths:
   /users:
     post:

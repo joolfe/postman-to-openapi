@@ -1,3 +1,10 @@
+### [1.6.1](https://github.com/joolfe/postman-to-openapi/compare/1.6.0...1.6.1) (2021-03-14)
+
+
+### Build System
+
+* update several dependencies ([bff147f](https://github.com/joolfe/postman-to-openapi/commit/bff147f50a42e3aac6776c4fe0e367fa394d958f))
+
 ### [1.5.1](https://github.com/joolfe/postman-to-openapi/compare/1.5.0...1.5.1) (2020-10-01)
 
 

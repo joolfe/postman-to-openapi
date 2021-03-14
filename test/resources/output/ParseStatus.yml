@@ -4,7 +4,7 @@ info:
   description: Just a simple collection for test status parsing
   version: 2.3.0
 servers:
-  - url: 'https://api.io'
+  - url: https://api.io
 paths:
   /users:
     post:
