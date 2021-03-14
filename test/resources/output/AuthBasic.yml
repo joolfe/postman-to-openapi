@@ -4,7 +4,7 @@ info:
   description: Collection to test authorization global
   version: 1.0.0
 servers:
-  - url: 'https://api.io'
+  - url: https://api.io
 components:
   securitySchemes:
     basicAuth:

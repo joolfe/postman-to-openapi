@@ -8,7 +8,7 @@ info:
   license:
     name: MIT
 servers:
-  - url: 'https://api.io'
+  - url: https://api.io
 paths:
   /users:
     post:

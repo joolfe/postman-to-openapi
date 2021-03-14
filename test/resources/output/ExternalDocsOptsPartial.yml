@@ -4,9 +4,9 @@ info:
   description: Mi super test collection from postman
   version: 1.1.0
 externalDocs:
-  url: 'https://docs2.example.com'
+  url: https://docs2.example.com
 servers:
-  - url: 'https://api.io'
+  - url: https://api.io
 paths:
   /users:
     post:

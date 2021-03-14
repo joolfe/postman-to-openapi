@@ -4,9 +4,9 @@ info:
   description: Collection to test path parameters
   version: 1.0.0
 servers:
-  - url: 'https://api.io'
+  - url: https://api.io
 paths:
-  '/users/{user_id}':
+  /users/{user_id}:
     get:
       tags:
         - default
@@ -23,7 +23,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  '/customer/{customer-id}':
+  /customer/{customer-id}:
     get:
       tags:
         - default
@@ -40,7 +40,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  '/desc/{user_id}':
+  /desc/{user_id}:
     get:
       tags:
         - default
