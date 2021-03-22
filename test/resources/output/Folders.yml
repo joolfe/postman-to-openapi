@@ -8,9 +8,24 @@ servers:
 tags:
   - name: Users
     description: Operations at User level
+  - name: Users > Admin
+    description: Admin operations at User level
   - name: Posts
     description: Operations for Post items
+  - name: Posts > Admin
+    description: Admin operations for Post items
 paths:
+  /users/admin/roles:
+    get:
+      tags:
+        - Users > Admin
+      summary: Get user roles
+      description: This is a get request in a nested folder
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /users:
     post:
       tags:
@@ -48,6 +63,17 @@ paths:
                 other:
                   data1: 'yes'
                   data2: 'no'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /posts/admin/settings:
+    get:
+      tags:
+        - Posts > Admin
+      summary: Get posts settings
+      description: This is a get request in a nested folder
       responses:
         '200':
           description: Successful response
