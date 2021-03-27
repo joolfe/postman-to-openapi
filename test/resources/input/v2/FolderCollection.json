@@ -450,6 +450,11 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "Empty Folder",
+			"item": [],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Create a info",
 			"request": {
 				"method": "POST",
