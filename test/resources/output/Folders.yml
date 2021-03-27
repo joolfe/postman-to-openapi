@@ -14,6 +14,16 @@ tags:
     description: Operations for Post items
   - name: Posts > Admin
     description: Admin operations for Post items
+  - name: Folder 1
+    description: Folder 1 description
+  - name: Folder 1 > Folder 2
+    description: Folder 2 description
+  - name: Folder 1 > Folder 2 > Folder 3
+    description: Folder 3 description
+  - name: Folder 1 > Folder 2 > Folder 3 > Folder 4
+    description: Folder 4 description
+  - name: Folder 1 > Folder 2 > Folder 3 > Folder 4 > Folder 5
+    description: Folder 5 description
 paths:
   /users/admin/roles:
     get:
@@ -87,6 +97,90 @@ paths:
       requestBody:
         content:
           text/plain: {}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /req4:
+    post:
+      tags:
+        - Folder 1 > Folder 2 > Folder 3 > Folder 4 > Folder 5
+      summary: Request 4
+      description: This is a post request with json body
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                example: field
+                other:
+                  data1: 'yes'
+                  data2: 'no'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /req3:
+    post:
+      tags:
+        - Folder 1 > Folder 2 > Folder 3
+      summary: Request 3
+      description: This is a post request with json body
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                example: field
+                other:
+                  data1: 'yes'
+                  data2: 'no'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /req2:
+    post:
+      tags:
+        - Folder 1 > Folder 2
+      summary: Request 2
+      description: This is a post request with json body
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                example: field
+                other:
+                  data1: 'yes'
+                  data2: 'no'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /req1:
+    post:
+      tags:
+        - Folder 1
+      summary: Request 1
+      description: This is a post request with json body
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                example: field
+                other:
+                  data1: 'yes'
+                  data2: 'no'
       responses:
         '200':
           description: Successful response
