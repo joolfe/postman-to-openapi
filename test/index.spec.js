@@ -16,6 +16,8 @@ const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 
 const EXPECTED_NO_VERSION = readFileSync('./test/resources/output/NoVersion.yml', 'utf8')
 const EXPECTED_CUSTOM_TAG = readFileSync('./test/resources/output/CustomTag.yml', 'utf8')
 const EXPECTED_FOLDERS = readFileSync('./test/resources/output/Folders.yml', 'utf8')
+const EXPECTED_FOLDERS_NO_CONCAT = readFileSync('./test/resources/output/FoldersNoConcat.yml', 'utf8')
+const EXPECTED_FOLDERS_SEPARATOR = readFileSync('./test/resources/output/FoldersSeparator.yml', 'utf8')
 const EXPECTED_GET_METHODS = readFileSync('./test/resources/output/GetMethods.yml', 'utf8')
 const EXPECTED_HEADERS = readFileSync('./test/resources/output/Headers.yml', 'utf8')
 const EXPECTED_AUTH_BEARER = readFileSync('./test/resources/output/AuthBearer.yml', 'utf8')
@@ -102,6 +104,16 @@ describe('Library specs', function () {
       it('should work with folders and use as tags', async function () {
         const result = await postmanToOpenApi(COLLECTION_FOLDERS, OUTPUT_PATH)
         equal(result, EXPECTED_FOLDERS)
+      })
+
+      it('should use "folders.separator" options for customize tags separators ', async function () {
+        const result = await postmanToOpenApi(COLLECTION_FOLDERS, OUTPUT_PATH, { folders: { separator: '-' } })
+        equal(result, EXPECTED_FOLDERS_SEPARATOR)
+      })
+
+      it('should use "folders.concat" options for not concatenate folder names as tags ', async function () {
+        const result = await postmanToOpenApi(COLLECTION_FOLDERS, OUTPUT_PATH, { folders: { concat: false } })
+        equal(result, EXPECTED_FOLDERS_NO_CONCAT)
       })
 
       it('should parse GET methods with query string', async function () {
