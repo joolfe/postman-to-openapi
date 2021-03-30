@@ -10,7 +10,52 @@ Or in other words, transform [this specification](https://schema.getpostman.com/
 [![codecov](https://codecov.io/gh/joolfe/postman-to-openapi/branch/master/graph/badge.svg)](https://codecov.io/gh/joolfe/postman-to-openapi)
 [![npm version](https://img.shields.io/npm/v/postman-to-openapi
 )](https://www.npmjs.com/package/postman-to-openapi)
-[![dcos](https://img.shields.io/badge/docs-here-yellow)](https://joolfe.github.io/postman-to-openapi/)
+[![docs](https://img.shields.io/badge/docs-here-yellow)](https://joolfe.github.io/postman-to-openapi/)
+
+## Installation
+
+Using `npm`:
+
+```bash
+npm i postman-to-openapi
+```
+
+Using `yarn`:
+
+```bash
+yarn add postman-to-openapi
+```
+
+## Quick Usage
+
+```js
+// Require Package
+const postmanToOpenApi = require('postman-to-openapi')
+
+// Postman Collection Path
+const postmanCollection = './path/to/postman/collection.json'
+// Output OpenAPI Path
+const outputFile = './api/collection.yml'
+
+// Async/await
+try {
+    const result = await postmanToOpenApi(postmanCollection, outputFile, { defaultTag: 'General' })
+    // Without save the result in a file
+    const result2 = await postmanToOpenApi(postmanCollection, null, { defaultTag: 'General' })
+    console.log(`OpenAPI specs: ${result}`)
+} catch (err) {
+    console.log(err)
+}
+
+// Promise callback style
+postmanToOpenApi(postmanCollection, outputFile, { defaultTag: 'General' })
+    .then(result => {
+        console.log(`OpenAPI specs: ${result}`)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+```
 
 ## Documentation
 
