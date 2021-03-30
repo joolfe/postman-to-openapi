@@ -12,6 +12,53 @@ Or in other words, transform [this specification](https://schema.getpostman.com/
 )](https://www.npmjs.com/package/postman-to-openapi)
 [![dcos](https://img.shields.io/badge/docs-here-yellow)](https://joolfe.github.io/postman-to-openapi/)
 
+## Installation
+
+Using `npm`:
+
+`npm i postman-to-openapi`
+
+Using `yarn`:
+
+`yarn add postman-to-openapi`
+
+## Quick Usage
+
+```
+// Require Package
+const postmanToOpenApi = require('postman-to-openapi')
+
+// Postman Collection Path
+const postmanCollection = './path/to/postman/collection.json'
+// Output OpenAPI Path
+const outputFile = './api/collection.yml'
+
+// Convert Postman collection to OpenAPI using Async/Await
+const collectionToOpenAPI = async () => {
+    try {
+        const result = await postmanToOpenApi(postmanCollection, outputFile, { defaultTag: 'General' })
+        // Without save the result in a file
+        const result2 = await postmanToOpenApi(postmanCollection, null, { defaultTag: 'General' })
+        console.log(`OpenAPI specs: ${result}`)
+    } catch (err) {
+        console.log(err)
+    }
+}
+collectionToOpenAPI();
+
+// Convert Postman collection to OpenAPI using Promise Callback
+const collectionToOpenAPI = async () => {
+    postmanToOpenApi(postmanCollection, outputFile, { defaultTag: 'General' })
+        .then(result => {
+            console.log(`OpenAPI specs: ${result}`)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+collectionToOpenAPI();
+```
+
 ## Documentation
 
 All features, usage instructions and help can be found in the [Documentation page](https://joolfe.github.io/postman-to-openapi/)
