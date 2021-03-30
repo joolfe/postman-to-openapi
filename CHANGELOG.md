@@ -1,3 +1,15 @@
+### [1.7.1](https://github.com/joolfe/postman-to-openapi/compare/1.7.0...1.7.1) (2021-03-30)
+
+
+### Bug Fixes
+
+* vulnerability high fixed in deps ([2e4a2cb](https://github.com/joolfe/postman-to-openapi/commit/2e4a2cb8cf7cb612ad05bd5e3664686d98d31094))
+
+
+### Documentation
+
+* add quick usage in readme Close [#95](https://github.com/joolfe/postman-to-openapi/issues/95) ([194b1a4](https://github.com/joolfe/postman-to-openapi/commit/194b1a4185da70cc00cf3994093b10b68f381c62))
+
 ## [1.7.0](https://github.com/joolfe/postman-to-openapi/compare/1.6.1...1.7.0) (2021-03-28)
 
 
