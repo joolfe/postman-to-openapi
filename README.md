@@ -11,6 +11,8 @@ Or in other words, transform [this specification](https://schema.getpostman.com/
 [![npm version](https://img.shields.io/npm/v/postman-to-openapi
 )](https://www.npmjs.com/package/postman-to-openapi)
 [![docs](https://img.shields.io/badge/docs-here-yellow)](https://joolfe.github.io/postman-to-openapi/)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
+
 
 ## Installation
 
