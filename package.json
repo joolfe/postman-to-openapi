@@ -10,7 +10,8 @@
     "test:unit-no-only": "npm run test:unit -- --forbid-only",
     "test": "nyc npm run test:unit-no-only",
     "changelog:all": "conventional-changelog --config ./changelog.config.js -i CHANGELOG.md -s -r 0",
-    "changelog": "conventional-changelog --config ./changelog.config.js -i CHANGELOG.md -s"
+    "changelog": "conventional-changelog --config ./changelog.config.js -i CHANGELOG.md -s",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -42,7 +43,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
-    "husky": "^4.3.8",
+    "husky": "^6.0.0",
     "mocha": "^8.3.2",
     "nyc": "^15.1.0"
   },
@@ -50,11 +51,6 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "nyc": {
     "all": true,
