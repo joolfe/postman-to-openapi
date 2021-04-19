@@ -4,11 +4,11 @@ info:
   description: Mi super test collection from postman
   version: 1.1.0
   contact:
-    url: 'http://www.api.com/support'
+    url: http://www.api.com/support
   license:
     name: MIT
 servers:
-  - url: 'https://api.io'
+  - url: https://api.io
 paths:
   /users:
     post:

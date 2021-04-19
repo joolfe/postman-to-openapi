@@ -1,3 +1,57 @@
+### [1.7.1](https://github.com/joolfe/postman-to-openapi/compare/1.7.0...1.7.1) (2021-03-30)
+
+
+### Bug Fixes
+
+* vulnerability high fixed in deps ([2e4a2cb](https://github.com/joolfe/postman-to-openapi/commit/2e4a2cb8cf7cb612ad05bd5e3664686d98d31094))
+
+
+### Documentation
+
+* add quick usage in readme Close [#95](https://github.com/joolfe/postman-to-openapi/issues/95) ([194b1a4](https://github.com/joolfe/postman-to-openapi/commit/194b1a4185da70cc00cf3994093b10b68f381c62))
+
+## [1.7.0](https://github.com/joolfe/postman-to-openapi/compare/1.6.1...1.7.0) (2021-03-28)
+
+
+### Features
+
+* add support for nested folders ([4f5ee97](https://github.com/joolfe/postman-to-openapi/commit/4f5ee97698c20898132329824acd72bdd00db1f3))
+* added concat and separator option to folder tags calculation ([4513095](https://github.com/joolfe/postman-to-openapi/commit/4513095a07d6e9f031d8e8bfaa18ea7d7c737701))
+* support empty folders Close [#89](https://github.com/joolfe/postman-to-openapi/issues/89) ([6397d7c](https://github.com/joolfe/postman-to-openapi/commit/6397d7c644e1d23e6dba989905af6089a927985c))
+
+
+### Bug Fixes
+
+* lint error fixes ([de025fd](https://github.com/joolfe/postman-to-openapi/commit/de025fdf977f2de42f16a0c2db1b448d8b4a4d49))
+* remove not needed code for feature ([48d7952](https://github.com/joolfe/postman-to-openapi/commit/48d7952df2685b9a95d54a6dc3b5b294bd708603))
+
+
+### Tests
+
+* add complex folder structure test ([56d00df](https://github.com/joolfe/postman-to-openapi/commit/56d00dfcf96543a3170f8382665be8108b291c94))
+
+
+### Documentation
+
+* update folder features ([83ae5bd](https://github.com/joolfe/postman-to-openapi/commit/83ae5bdaa89a2624deadac73c037f272263603f8))
+
+
+### Miscellaneous Chores
+
+* update version ([ebba3da](https://github.com/joolfe/postman-to-openapi/commit/ebba3da102bf05f00317dec5045ab32397fd07c7))
+
+
+### Build System
+
+* update deps ([42b0b96](https://github.com/joolfe/postman-to-openapi/commit/42b0b96d7949759c25fefeda8247dcd735028e16))
+
+### [1.6.1](https://github.com/joolfe/postman-to-openapi/compare/1.6.0...1.6.1) (2021-03-14)
+
+
+### Build System
+
+* update several dependencies ([bff147f](https://github.com/joolfe/postman-to-openapi/commit/bff147f50a42e3aac6776c4fe0e367fa394d958f))
+
 ### [1.5.1](https://github.com/joolfe/postman-to-openapi/compare/1.5.0...1.5.1) (2020-10-01)
 
 

@@ -15,7 +15,7 @@
 
 ## Features at a glance
 
-- Postman Collection v2.1 and v2.0
+- Postman Collection v2.1 and v2.0.
 - OpenApi 3.0
 - Basic info API from Postman info or customizable.
 - Basic method conversion (GET, POST, PUT...).
@@ -205,6 +205,62 @@ The info about the API external documentation, as described in OpenAPI spec [Ext
 
 This info can be provided as collection variables in the same way as described in section [License and Contact configuration](#license-and-contact-configuration), you can setup the variables `externalDocs.url` and `externalDocs.description` for provide the information.
 
+### folders (Object)
+
+This library support the use of folders and nested folders as OpenAPI `tags`, see [Folders as tags](#folders-as-tags) section for more info, with this options you can configure the behavior of the tags calculation when there exist multiple level of folders in the Postman collection, the fields inside `folders` object are:
+
+| Param            | Description                    |
+|------------------|--------------------------------|
+| `concat`         | Boolean. Indicated if in case of multiple levels of folders the tag used in the request is a concatenation of the folders name. Default value `true`. |
+| `separator`      | String. Separator used to concatenate the names of the different folders. Default value ` > ` |
+
+If we have a Postman collection with an structure as:
+
+```txt
+|- Domestic Payments (folder)
+    |- Consent (folder)
+        |- request 1
+    |- request 2
+|- Scheduled payments (folder)
+    |- Consent (folder)
+        |- request 3
+    |- request 4
+```
+
+The tags for each request would be:
+
+| Request   | Default config                 | Custom separator             | Avoid concatenation  |
+|-----------|--------------------------------|------------------------------|----------------------|
+| request 1 | `Domestic Payments > Consent`  | `Domestic Payments-Consent`  | `Consent`            |
+| request 2 | `Domestic Payments`            | `Domestic Payments`          | `Domestic Payments`  |
+| request 3 | `Scheduled payments > Consent` | `Scheduled payments-Consent` | `Consent`            |
+| request 4 | `Scheduled payments`           | `Scheduled payments`         | `Scheduled payments` |
+
+Default config:
+
+```js
+{
+    concat = true,
+    separator = ' > '
+}
+```
+
+Custom separator:
+
+```js
+{
+    separator = '-'
+}
+```
+
+Avoid concatenation
+
+```js
+{
+    concat = false
+}
+```
+
 </div></div>
 <div class="tilted-section"><div markdown="1">
 
@@ -230,7 +286,9 @@ Have a look to the [SimplePost collection](https://github.com/joolfe/postman-to-
 
 ## Folders as tags
 
-In postman you can add [folders](https://learning.postman.com/docs/sending-requests/intro-to-collections/) inside your collection to group requests and keep the collection clean, in OpenAPI there are no folders but exist the concept of [tags](http://spec.openapis.org/oas/v3.0.3.html#tag-object) that has the same approximate meaning, this library automatically detect folders and use the name of the folder as tag name in the transformation. Right now is not possible to have more than one tag value for each operation.
+In postman you can add [folders](https://learning.postman.com/docs/sending-requests/intro-to-collections/) inside your collection to group requests and keep the collection clean, in OpenAPI there are no folders but exist the concept of [tags](http://spec.openapis.org/oas/v3.0.3.html#tag-object) that has the same approximate meaning, this library automatically detect folders and use the name of the folder as tag name in the transformation.
+
+If you have more than one level of folders you can configure the behavior to calculate the tag of the request, See option [folders](#folders-object) for more info about how to configure this feature and some examples.
 
 As part of the implementation we now support `description` for [tags](http://spec.openapis.org/oas/v3.0.3.html#tag-object), just add a description into the Postman Collection folder and automatically the `tags` section will be filled in the he OpenApi spec.
 

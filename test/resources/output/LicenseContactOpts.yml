@@ -5,13 +5,13 @@ info:
   version: 1.0.0
   contact:
     name: My Support
-    url: 'http://www.api.com/support'
+    url: http://www.api.com/support
     email: support@api.com
   license:
     name: MIT
-    url: 'https://es.wikipedia.org/wiki/Licencia_MIT'
+    url: https://es.wikipedia.org/wiki/Licencia_MIT
 servers:
-  - url: 'https://api.io'
+  - url: https://api.io
 paths:
   /users:
     get:

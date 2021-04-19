@@ -4,7 +4,7 @@ info:
   description: Just a simple collection for test
   version: 2.3.0
 servers:
-  - url: 'https://api.io:453'
+  - url: https://api.io:453
 paths:
   /users:
     post:
