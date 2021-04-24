@@ -46,6 +46,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
+    "execa": "^5.0.0",
     "husky": "^6.0.0",
     "mocha": "^8.3.2",
     "nyc": "^15.1.0"
@@ -74,9 +75,9 @@
     "check-coverage": true
   },
   "dependencies": {
+    "commander": "^7.2.0",
     "js-yaml": "^4.1.0",
-    "marked": "^2.0.3",
-    "yargs": "^16.2.0"
+    "marked": "^2.0.3"
   },
   "husky": {
     "hooks": {

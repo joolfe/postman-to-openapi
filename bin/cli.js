@@ -2,4 +2,8 @@
 
 const p2o = require('./p2o')
 
-p2o.parse(process.argv.slice(2))
+p2o.parseAsync()
+  .catch(err => {
+    process.exitCode = 1
+    console.error(err.message)
+  })

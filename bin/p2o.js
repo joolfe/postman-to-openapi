@@ -1,14 +1,54 @@
-const yargs = require('yargs')
-const { readFileSync } = require('fs')
+'use strict'
+
+const { Command, CommanderError } = require('commander')
+const { version } = require('../package.json')
 const postmanToOpenApi = require('../lib')
 
+/*
+const { readFileSync } = require('fs')
+*/
+
 // TODO
+// - usage move options after collection
+// - output should be an option better than an arguments?
+// - how to pass options
+// - error when colletcion doesnt exist
+// - r
 // - handle error in a homogeneous way
 // - add example usage
-// - add test for all code here (less cli i think....)
 // - check the input field or should be test inside library?
-// - silent option to not return in console the result if we have the file...
+// - Add some debug or is not needed?
 
+// Requeriments
+// - input file
+// - output file or if not just return to can pipe the command?? have think about this.
+
+const program = new Command()
+
+program
+  .version(version, '-v, --vers', 'output the current version')
+  .name('p2o')
+  .usage('<collection> [options]')
+  .arguments('<collection>')
+  .description('Transform postman collection to OpenAPI', {
+    collection: 'Relative path to the Postman collection json file'
+  })
+  .option('-f, --file <file>', 'Relative path to the file where result will be saved. If empty result will be returned by cli.')
+  .option('-o, --options <option>', 'Options object containing the optional parameters for the transformation')
+  .action(async (collection, options, command) => {
+    try {
+      console.log(collection)
+      const result = await postmanToOpenApi(collection, null, {})
+      console.info(result)
+    } catch (err) {
+      // TODO normalize errors here
+      throw new Error(err)
+    }
+  })
+
+module.exports = program
+
+/*
 const parser = yargs
   .scriptName('p2o')
   .command('$0 <collection> [options]',
@@ -52,5 +92,6 @@ const parser = yargs
   .alias('h', 'help')
 
 module.exports = parser
+*/
 
 // p2o ./test/resources/input/v2/SimplePost.json -p ./test/resources/options/info.json
