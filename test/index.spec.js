@@ -88,6 +88,7 @@ describe('Library specs', function () {
             termsOfService: 'http://tos.myweb.com'
           }
         })
+        console.log(result)
         equal(result, EXPECTED_INFO_OPTS)
       })
 
