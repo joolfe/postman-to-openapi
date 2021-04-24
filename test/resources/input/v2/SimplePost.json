@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "56e38043-4473-4faa-a735-1815ca79ee04",
+		"_postman_id": "e223ab3f-2683-4759-9e41-8167a7caaf99",
 		"name": "Simple Post",
 		"description": "Just a simple collection for test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
@@ -24,14 +24,31 @@
 				"description": "Create a new user into your amazing API"
 			},
 			"response": []
+		},
+		{
+			"name": "Post empty raw",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://api.io/raw",
+				"description": "Create a new user into your amazing API"
+			},
+			"response": []
 		}
 	],
 	"variable": [
 		{
-			"id": "a1b68638-d65e-4ee8-9a91-4d5749e9c2f2",
 			"key": "version",
 			"value": "2.3.0"
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
