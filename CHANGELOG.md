@@ -1,3 +1,23 @@
+### [1.7.3](https://github.com/joolfe/postman-to-openapi/compare/1.7.1...1.7.3) (2021-04-24)
+
+
+### Features
+
+* husky version 6 ([1f39c49](https://github.com/joolfe/postman-to-openapi/commit/1f39c4968d2b23e17c935b90df85795b7493716c))
+* keep old husky config ([1d85167](https://github.com/joolfe/postman-to-openapi/commit/1d851677c39bd4b977cd4f9ddeea79bbd649e37a))
+* using aslant instead standard.js Close [#94](https://github.com/joolfe/postman-to-openapi/issues/94) ([4ab6aef](https://github.com/joolfe/postman-to-openapi/commit/4ab6aef7fb51328573b387fed920ff5d90abee5c))
+
+
+### Bug Fixes
+
+* avoid fail `body.raw` is empty string Close [#101](https://github.com/joolfe/postman-to-openapi/issues/101) ([1c376cf](https://github.com/joolfe/postman-to-openapi/commit/1c376cff2bc77420ae96fb188d27bac94f0c349b))
+* some adaptions to use husky ([39d1a35](https://github.com/joolfe/postman-to-openapi/commit/39d1a35da9eae56a560d61102229249f31daaefe))
+
+
+### Build System
+
+* update some deps ([22c0086](https://github.com/joolfe/postman-to-openapi/commit/22c0086ec58c38e2763374bb93533e0650a1834a))
+
 ### [1.7.1](https://github.com/joolfe/postman-to-openapi/compare/1.7.0...1.7.1) (2021-03-30)
 
 

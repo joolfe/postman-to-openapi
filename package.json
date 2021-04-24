@@ -1,16 +1,17 @@
 {
   "name": "postman-to-openapi",
-  "version": "1.7.1",
+  "version": "1.7.3",
   "description": "Convert postman collection to OpenAPI spec",
   "main": "lib/index.js",
   "scripts": {
-    "lint": "standard **/*.js",
-    "lint:fix": "standard **/*.js --fix",
+    "lint": "eslint **/*.js",
+    "lint:fix": "eslint **/*.js --fix",
     "test:unit": "mocha",
     "test:unit-no-only": "npm run test:unit -- --forbid-only",
     "test": "nyc npm run test:unit-no-only",
     "changelog:all": "conventional-changelog --config ./changelog.config.js -i CHANGELOG.md -s -r 0",
-    "changelog": "conventional-changelog --config ./changelog.config.js -i CHANGELOG.md -s"
+    "changelog": "conventional-changelog --config ./changelog.config.js -i CHANGELOG.md -s",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -34,24 +35,22 @@
   },
   "homepage": "https://github.com/joolfe/postman-to-openapi#readme",
   "devDependencies": {
-    "@commitlint/cli": "^12.0.1",
-    "@commitlint/config-conventional": "^12.0.1",
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
     "conventional-changelog-cli": "^2.1.1",
-    "eslint": "^7.23.0",
-    "husky": "^4.3.8",
+    "eslint": "^7.24.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "husky": "^6.0.0",
     "mocha": "^8.3.2",
-    "nyc": "^15.1.0",
-    "standard": "^16.0.3"
+    "nyc": "^15.1.0"
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "nyc": {
     "all": true,
@@ -72,7 +71,12 @@
     "check-coverage": true
   },
   "dependencies": {
-    "js-yaml": "^4.0.0",
-    "marked": "^2.0.1"
+    "js-yaml": "^4.1.0",
+    "marked": "^2.0.3"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
