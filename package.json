@@ -1,6 +1,6 @@
 {
   "name": "postman-to-openapi",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "Convert postman collection to OpenAPI spec",
   "main": "lib/index.js",
   "bin": {
@@ -16,6 +16,10 @@
     "changelog": "conventional-changelog --config ./changelog.config.js -i CHANGELOG.md -s",
     "prepare": "husky install"
   },
+  "files": [
+    "bin/*",
+    "lib/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joolfe/postman-to-openapi.git"
