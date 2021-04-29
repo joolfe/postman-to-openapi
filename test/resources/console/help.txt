@@ -1,0 +1,20 @@
+Usage: p2o <collection> [options]
+
+Transform a postman collection to OpenAPI specification yml.
+
+Arguments:
+  collection               Relative path to the Postman collection json file
+
+Options:
+  -v, --vers               Output the current version of the library.
+  -f, --file <file>        Relative path to the file where result will be
+                           saved. If empty result will be returned by cli.
+  -o, --options <options>  Relative path to json file that contain the optional
+                           parameters for the transformation.
+  -h, --help               display help for command
+
+
+Example calls:
+  $ p2o ./path/to/PostmantoCollection.json -f ./path/to/result.yml -o ./path/to/options.json
+
+For more info about how to use it visit our documentation in <https://joolfe.github.io/postman-to-openapi/>
