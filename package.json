@@ -1,6 +1,6 @@
 {
   "name": "postman-to-openapi",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "description": "Convert postman collection to OpenAPI spec",
   "main": "lib/index.js",
   "bin": {
@@ -59,6 +59,9 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "engines": {
+    "node": ">=10 <15"
   },
   "nyc": {
     "all": true,
