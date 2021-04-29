@@ -5,12 +5,6 @@ const { version } = require('../package.json')
 const postmanToOpenApi = require('../lib')
 const { promises: { readFile } } = require('fs')
 
-// TODO
-// - handle error in a homogeneous way, put messages more clear or where is happening the error maybe?
-// - check the input field or should be test inside library?
-// - Errors should be more descriptive i think, for exmaple i dont know where the collection fail or the output fail?
-// - check the coverage
-
 const additionalHelp = `
 
 Example calls:
@@ -32,11 +26,10 @@ program
   .option('-o, --options <options>', 'Relative path to json file that contain the optional parameters for the transformation.')
   .action(async (collection, { file, options }, command) => {
     try {
-      const parsedOptions = options ? JSON.parse(await readFile(options)) : {}
+      const parsedOptions = await parseOptions(options)
       const result = await postmanToOpenApi(collection, file, parsedOptions)
       console.info(result)
     } catch (err) {
-      // TODO normalize errors here
       throw new Error(err)
     }
   })
@@ -47,3 +40,11 @@ program
     process.exitCode = 1
     console.error(err.message)
   })
+
+async function parseOptions (optionsPath) {
+  try {
+    return optionsPath ? JSON.parse(await readFile(optionsPath)) : {}
+  } catch (err) {
+    throw new Error(`invalid "options" parameter -> ${err.message}`)
+  }
+}

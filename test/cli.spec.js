@@ -64,10 +64,10 @@ describe('Cli specs', function () {
     equal(stdout, EXPECTED_INFO_OPTS)
   })
 
-  it('should print an error when options file doesn\'t exist', async function () {
+  it('should print an error when "options" file doesn\'t exist', async function () {
     await rejects(execa('node', [cliPath, COLLECTION_SIMPLE, '-o', './no_exist/options.json']), {
       name: 'Error',
-      stderr: "Error: ENOENT: no such file or directory, open './no_exist/options.json'",
+      stderr: "Error: invalid \"options\" parameter -> ENOENT: no such file or directory, open './no_exist/options.json'",
       exitCode: 1
     })
   })
@@ -75,7 +75,7 @@ describe('Cli specs', function () {
   it('should print an error when options file is not a valid json', async function () {
     await rejects(execa('node', [cliPath, COLLECTION_SIMPLE, '-o', INVALID_OPTIONS_INFO]), {
       name: 'Error',
-      stderr: 'SyntaxError: Unexpected token i in JSON at position 6',
+      stderr: 'Error: invalid "options" parameter -> Unexpected token i in JSON at position 6',
       exitCode: 1
     })
   })

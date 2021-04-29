@@ -1,6 +1,6 @@
 {
   "name": "postman-to-openapi",
-  "version": "1.7.3",
+  "version": "1.8.0",
   "description": "Convert postman collection to OpenAPI spec",
   "main": "lib/index.js",
   "bin": {
@@ -41,7 +41,7 @@
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
     "conventional-changelog-cli": "^2.1.1",
-    "eslint": "^7.24.0",
+    "eslint": "^7.25.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
@@ -60,7 +60,8 @@
     "all": true,
     "include": [
       "lib/**/*.js",
-      "test/**/*.js"
+      "test/**/*.js",
+      "bin/**/*.js"
     ],
     "exclude": [],
     "reporter": [
