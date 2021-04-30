@@ -1,3 +1,40 @@
+## [1.8.0](https://github.com/joolfe/postman-to-openapi/compare/1.7.1...1.8.0) (2021-04-30)
+
+
+### Features
+
+* addd testa dn support for node 14 Close [#104](https://github.com/joolfe/postman-to-openapi/issues/104) ([4fe0284](https://github.com/joolfe/postman-to-openapi/commit/4fe02849a55f01bfa563174c5c47bf07c2370817))
+* change cli parser (wip) ([2009923](https://github.com/joolfe/postman-to-openapi/commit/20099237ac1a85d4945a3e19e1c147c4b8206c8e))
+* cli added to library ([5df5d9b](https://github.com/joolfe/postman-to-openapi/commit/5df5d9b5cc985b6418f2bb1ab44411dd7624b8d3))
+* files configured in package.json Close [#103](https://github.com/joolfe/postman-to-openapi/issues/103) ([0ac1cd2](https://github.com/joolfe/postman-to-openapi/commit/0ac1cd2901d63b59d9bd21f4983e86f6f79cb961))
+* husky version 6 ([1f39c49](https://github.com/joolfe/postman-to-openapi/commit/1f39c4968d2b23e17c935b90df85795b7493716c))
+* keep old husky config ([1d85167](https://github.com/joolfe/postman-to-openapi/commit/1d851677c39bd4b977cd4f9ddeea79bbd649e37a))
+* simple cli called p2o ([a4cea3f](https://github.com/joolfe/postman-to-openapi/commit/a4cea3f9a4e99b14978039d46333a303e7e6919c))
+* using aslant instead standard.js Close [#94](https://github.com/joolfe/postman-to-openapi/issues/94) ([4ab6aef](https://github.com/joolfe/postman-to-openapi/commit/4ab6aef7fb51328573b387fed920ff5d90abee5c))
+* **wip:** first version of cli ([a259287](https://github.com/joolfe/postman-to-openapi/commit/a259287745556fad13e5e6d0399f47d0e4719abb))
+
+
+### Bug Fixes
+
+* avoid fail `body.raw` is empty string Close [#101](https://github.com/joolfe/postman-to-openapi/issues/101) ([1c376cf](https://github.com/joolfe/postman-to-openapi/commit/1c376cff2bc77420ae96fb188d27bac94f0c349b))
+* some adaptions to use husky ([39d1a35](https://github.com/joolfe/postman-to-openapi/commit/39d1a35da9eae56a560d61102229249f31daaefe))
+
+
+### Build System
+
+* update some deps ([22c0086](https://github.com/joolfe/postman-to-openapi/commit/22c0086ec58c38e2763374bb93533e0650a1834a))
+
+
+### Code Refactoring
+
+* only one file and ass more test ([1c440da](https://github.com/joolfe/postman-to-openapi/commit/1c440da2b3f93ce2085026a7bbc0bb905a94efc3))
+
+
+### Documentation
+
+* add cli references ([739ea64](https://github.com/joolfe/postman-to-openapi/commit/739ea64f289d61706f7ddb644a619fe6bfc65eaf))
+* update changelog ([7813e7c](https://github.com/joolfe/postman-to-openapi/commit/7813e7c1ffd58bbe9b2325b8de69f288deca8ace))
+
 ### [1.7.3](https://github.com/joolfe/postman-to-openapi/compare/1.7.1...1.7.3) (2021-04-24)
 
 

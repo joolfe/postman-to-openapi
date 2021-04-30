@@ -1,8 +1,11 @@
 {
   "name": "postman-to-openapi",
-  "version": "1.7.3",
+  "version": "1.8.0",
   "description": "Convert postman collection to OpenAPI spec",
   "main": "lib/index.js",
+  "bin": {
+    "p2o": "./bin/cli.js"
+  },
   "scripts": {
     "lint": "eslint **/*.js",
     "lint:fix": "eslint **/*.js --fix",
@@ -13,6 +16,10 @@
     "changelog": "conventional-changelog --config ./changelog.config.js -i CHANGELOG.md -s",
     "prepare": "husky install"
   },
+  "files": [
+    "bin/*",
+    "lib/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joolfe/postman-to-openapi.git"
@@ -38,11 +45,12 @@
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
     "conventional-changelog-cli": "^2.1.1",
-    "eslint": "^7.24.0",
+    "eslint": "^7.25.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
+    "execa": "^5.0.0",
     "husky": "^6.0.0",
     "mocha": "^8.3.2",
     "nyc": "^15.1.0"
@@ -52,11 +60,15 @@
       "@commitlint/config-conventional"
     ]
   },
+  "engines": {
+    "node": ">=10 <15"
+  },
   "nyc": {
     "all": true,
     "include": [
       "lib/**/*.js",
-      "test/**/*.js"
+      "test/**/*.js",
+      "bin/**/*.js"
     ],
     "exclude": [],
     "reporter": [
@@ -71,6 +83,7 @@
     "check-coverage": true
   },
   "dependencies": {
+    "commander": "^7.2.0",
     "js-yaml": "^4.1.0",
     "marked": "^2.0.3"
   },
