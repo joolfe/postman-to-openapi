@@ -13,7 +13,6 @@ Or in other words, transform [this specification](https://schema.getpostman.com/
 [![docs](https://img.shields.io/badge/docs-here-yellow)](https://joolfe.github.io/postman-to-openapi/)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 
-
 ## Installation
 
 Using `npm`:
@@ -28,7 +27,15 @@ Using `yarn`:
 yarn add postman-to-openapi
 ```
 
+To install as a `cli` just
+
+```bash
+npm i postman-to-openapi -g
+```
+
 ## Quick Usage
+
+As a library
 
 ```js
 // Require Package
@@ -57,6 +64,12 @@ postmanToOpenApi(postmanCollection, outputFile, { defaultTag: 'General' })
     .catch(err => {
         console.log(err)
     })
+```
+
+As a cli
+
+```bash
+p2o ./path/to/PostmantoCollection.json -f ./path/to/result.yml -o ./path/to/options.json
 ```
 
 ## Documentation

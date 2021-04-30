@@ -15,20 +15,21 @@
 
 ## Features at a glance
 
-- Postman Collection v2.1 and v2.0.
-- OpenApi 3.0
-- Basic info API from Postman info or customizable.
-- Basic method conversion (GET, POST, PUT...).
-- Support Postman folders as tags.
-- Transform query, headers and path parameters (description, required...).
-- Postman variables as Path parameters.
-- Automatic infer types from query and headers parameters.
-- Support Json and Text body formats.
-- Global Authorization parse or by configuration (Basic and Bearer).
-- Contact and License from variables or by configuration.
-- Provide meta-information as a markdown table.
-- Path depth configuration.
-- Response status code parse from test.
+* Postman Collection v2.1 and v2.0.
+* OpenApi 3.0
+* 🆕 Cli available
+* Basic info API from Postman info or customizable.
+* Basic method conversion (GET, POST, PUT...).
+* Support Postman folders as tags.
+* Transform query, headers and path parameters (description, required...).
+* Postman variables as Path parameters.
+* Automatic infer types from query and headers parameters.
+* Support Json and Text body formats.
+* Global Authorization parse or by configuration (Basic and Bearer).
+* Contact and License from variables or by configuration.
+* Provide meta-information as a markdown table.
+* Path depth configuration.
+* Response status code parse from test.
 
 See [Features](#features) section for more details about how to use each of this features.
 
@@ -37,16 +38,24 @@ See [Features](#features) section for more details about how to use each of this
 
 # Install
 
+To use local in your Node.js project as a library
+
 ```bash
 npm i postman-to-openapi --save
 ```
 
-To use as a cli coming soon...
+To use as a cli
+
+```bash
+npm i postman-to-openapi -g
+```
 
 </div></div>
 <div class="tilted-section"><div markdown="1">
 
 # Usage
+
+## As library
 
 Use the library is as easy as use a single method `async postmanToOpenApi(inputPath, outputPath, options)`, the parameters are:
 
@@ -84,6 +93,20 @@ postmanToOpenApi(postmanCollection, outputFile, { defaultTag: 'General' })
     .catch(err => {
         console.log(err)
     })
+```
+
+## As cli
+
+After install just need to
+
+```bash
+p2o ./path/to/PostmantoCollection.json -f ./path/to/result.yml -o ./path/to/options.json
+```
+
+All the field described in [options](#options) can be provided and used in the cli, for more info an all the available options just check the cli help
+
+```bash
+p2o -h
 ```
 
 ## Options
