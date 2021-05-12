@@ -1,4 +1,4 @@
-![logo](./docs/assets/img/logo.png)
+![logo](./docs/assets/img/logoBanner.png)
 
 # [postman-to-openapi](https://joolfe.github.io/postman-to-openapi/)
 
