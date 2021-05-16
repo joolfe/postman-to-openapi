@@ -210,6 +210,17 @@ describe('Library specs', function () {
         equal(result, EXPECTED_LICENSE_CONTACT_PARTIAL_2)
       })
 
+      it('should not fail if license and/or contact are empty', async function () {
+        const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH,
+          {
+            info: {
+              license: {},
+              contact: {}
+            }
+          })
+        equal(result, EXPECTED_BASIC)
+      })
+
       it('should use depth configuration for parse paths', async function () {
         const result = await postmanToOpenApi(COLLECTION_DEPTH_PATH_PARAMS, OUTPUT_PATH, { pathDepth: 1 })
         equal(result, EXPECTED_DEPTH_PATH_PARAMS)
