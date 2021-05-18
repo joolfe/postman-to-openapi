@@ -221,6 +221,14 @@ describe('Library specs', function () {
         equal(result, EXPECTED_BASIC)
       })
 
+      it('should not fail if auth is empty object', async function () {
+        const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH,
+          {
+            auth: {}
+          })
+        equal(result, EXPECTED_BASIC)
+      })
+
       it('should use depth configuration for parse paths', async function () {
         const result = await postmanToOpenApi(COLLECTION_DEPTH_PATH_PARAMS, OUTPUT_PATH, { pathDepth: 1 })
         equal(result, EXPECTED_DEPTH_PATH_PARAMS)
