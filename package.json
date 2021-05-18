@@ -3,12 +3,14 @@
   "version": "1.8.0",
   "description": "Convert postman collection to OpenAPI spec",
   "main": "lib/index.js",
+  "types": "types/index.d.ts",
   "bin": {
     "p2o": "./bin/cli.js"
   },
   "scripts": {
     "lint": "eslint **/*.js",
     "lint:fix": "eslint **/*.js --fix",
+    "lint:ts": "tsc --build types",
     "test:unit": "mocha",
     "test:unit-no-only": "npm run test:unit -- --forbid-only",
     "test": "nyc npm run test:unit-no-only",
@@ -53,7 +55,8 @@
     "execa": "^5.0.0",
     "husky": "^6.0.0",
     "mocha": "^8.3.2",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "typescript": "^4.2.4"
   },
   "commitlint": {
     "extends": [
