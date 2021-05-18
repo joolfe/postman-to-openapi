@@ -1,3 +1,34 @@
+## [1.9.0](https://github.com/joolfe/postman-to-openapi/compare/1.8.0...1.9.0) (2021-05-18)
+
+
+### Features
+
+* add ts definitions to library ([36cf16b](https://github.com/joolfe/postman-to-openapi/commit/36cf16bdf6659997f8c068e8cfdba3943d9d6c2e))
+
+
+### Bug Fixes
+
+* add title to the banner ([24425d4](https://github.com/joolfe/postman-to-openapi/commit/24425d453255e4f5d77e3cd6e3ee818baebdba21))
+* remove console from test ([c91e47c](https://github.com/joolfe/postman-to-openapi/commit/c91e47ce3acc91b1e60f7e2e3c2e9c8815e8c71b))
+* support empty auth options ([704ef36](https://github.com/joolfe/postman-to-openapi/commit/704ef36d4f42901b876d8db97b20a96bdab20bbf))
+* vulnerability in deps ([5218cb2](https://github.com/joolfe/postman-to-openapi/commit/5218cb27dabb1948c3ce1e2dbb0eac0eef0063d6))
+
+
+### Documentation
+
+* add gif demo about the CLI ([1de0f8d](https://github.com/joolfe/postman-to-openapi/commit/1de0f8d01762816c6cb752c67ea47d5c926f0ab0))
+* added logo banner ([20681bf](https://github.com/joolfe/postman-to-openapi/commit/20681bf100b672542124cb16bb84363d1a640896))
+
+
+### Tests
+
+* check that library don't fail when license and contact are empty objects ([4d9b400](https://github.com/joolfe/postman-to-openapi/commit/4d9b4006b743c8bce9a34a65d92467227b699caf))
+
+
+### Build System
+
+* update version ([06650c4](https://github.com/joolfe/postman-to-openapi/commit/06650c414e77368faf5637b4b35bdac05aa46e2d))
+
 ## [1.8.0](https://github.com/joolfe/postman-to-openapi/compare/1.7.1...1.8.0) (2021-04-30)
 
 
