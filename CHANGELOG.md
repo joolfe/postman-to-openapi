@@ -1,3 +1,10 @@
+### [1.9.1](https://github.com/joolfe/postman-to-openapi/compare/1.9.0...1.9.1) (2021-05-19)
+
+
+### Bug Fixes
+
+* ts definition should be upload with the package ([0c4610d](https://github.com/joolfe/postman-to-openapi/commit/0c4610d3784b47a5f336280efba395813b1dbb46))
+
 ## [1.9.0](https://github.com/joolfe/postman-to-openapi/compare/1.8.0...1.9.0) (2021-05-18)
 
 
