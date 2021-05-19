@@ -88,7 +88,6 @@ describe('Library specs', function () {
             termsOfService: 'http://tos.myweb.com'
           }
         })
-        console.log(result)
         equal(result, EXPECTED_INFO_OPTS)
       })
 
@@ -209,6 +208,25 @@ describe('Library specs', function () {
             }
           })
         equal(result, EXPECTED_LICENSE_CONTACT_PARTIAL_2)
+      })
+
+      it('should not fail if license and/or contact are empty', async function () {
+        const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH,
+          {
+            info: {
+              license: {},
+              contact: {}
+            }
+          })
+        equal(result, EXPECTED_BASIC)
+      })
+
+      it('should not fail if auth is empty object', async function () {
+        const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH,
+          {
+            auth: {}
+          })
+        equal(result, EXPECTED_BASIC)
       })
 
       it('should use depth configuration for parse paths', async function () {

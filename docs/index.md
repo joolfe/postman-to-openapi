@@ -109,6 +109,10 @@ All the field described in [options](#options) can be provided and used in the c
 p2o -h
 ```
 
+See demo in next gif:
+
+![Cli demo gif](assets/img/demo.gif)
+
 ## Options
 
 The third parameter used in the library method is an `options` object containing the optional parameters for the transformation, the allowed parameters are:
@@ -357,7 +361,7 @@ Inside the [info object](http://spec.openapis.org/oas/v3.0.3.html#info-object) o
 
 Is as easy as define the values in the "Edit Collection" form page inside the tab "Variables", as showed in the next image:
 
-![contact and license variables](images/variables.png)
+![contact and license variables](assets/img/variables.png)
 
 The variables names will be in dot notation, for example for `contact` fields will be as `contact.name`, `contact.url`... Take into account that fields that are required by OpenAPI specs, as `contact.name`, if not provided then all the section will be ignored.
 

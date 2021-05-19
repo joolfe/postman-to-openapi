@@ -1,4 +1,4 @@
-![logo](./docs/assets/img/logo.png)
+![logo](./docs/assets/img/logoBanner.png)
 
 # [postman-to-openapi](https://joolfe.github.io/postman-to-openapi/)
 
@@ -10,7 +10,6 @@ Or in other words, transform [this specification](https://schema.getpostman.com/
 [![codecov](https://codecov.io/gh/joolfe/postman-to-openapi/branch/master/graph/badge.svg)](https://codecov.io/gh/joolfe/postman-to-openapi)
 [![npm version](https://img.shields.io/npm/v/postman-to-openapi
 )](https://www.npmjs.com/package/postman-to-openapi)
-[![docs](https://img.shields.io/badge/docs-here-yellow)](https://joolfe.github.io/postman-to-openapi/)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 
 ## Installation
@@ -72,6 +71,10 @@ As a cli
 p2o ./path/to/PostmantoCollection.json -f ./path/to/result.yml -o ./path/to/options.json
 ```
 
+## Cli Demo
+
+![cli demo gif](./docs/assets/img/demo.gif)
+
 ## Documentation
 
 All features, usage instructions and help can be found in the [Documentation page](https://joolfe.github.io/postman-to-openapi/)
@@ -92,6 +95,15 @@ Use the scripts in `package.json`:
 - `lint`: Execute standard lint to review errors in code.
 - `lint:fix`: Execute standard lint and automatically fix errors.
 - `changelog`: Update changelog automatically.
+
+Steps to generate the gif demo:
+
+- Install terminalizer `npm install -g terminalizer`
+- Start a recording using `terminalizer record demo -d 'zsh'`
+- Stop recording with `Ctrl+D`
+- Check demo with `terminalizer play demo`
+- Adjust delays in `demo.yml`, change `rows` to 15 (is the height) and anonymize terminal session.
+- Generate the gif with `terminalizer render demo`
 
 [Husky](https://www.npmjs.com/package/husky) is configured to avoid push incorrect content to git.
 
