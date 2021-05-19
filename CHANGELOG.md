@@ -1,3 +1,10 @@
+### [1.9.2](https://github.com/joolfe/postman-to-openapi/compare/1.9.1...1.9.2) (2021-05-19)
+
+
+### Bug Fixes
+
+* use export default for the main function in ts ([baa3173](https://github.com/joolfe/postman-to-openapi/commit/baa3173dac2ab08cc433ec5e6458ae3d60c27702))
+
 ### [1.9.1](https://github.com/joolfe/postman-to-openapi/compare/1.9.0...1.9.1) (2021-05-19)
 
 
