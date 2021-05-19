@@ -80,4 +80,4 @@ export interface Options {
     folders?: FoldersOption
 }
 
-export function postmanToOpenApi (input: string, output?: string, options?: Options) : string
+export default function postmanToOpenApi (input: string, output?: string, options?: Options) : string

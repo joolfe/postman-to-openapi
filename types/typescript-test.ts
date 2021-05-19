@@ -1,9 +1,9 @@
 'use strict'
 
-import {
+import postmanToOpenApi, {
     Options, ContactObject, LicenseObject, InfoObject,
     ServerObject, SecurityObject, ExternalDocsObject,
-    FoldersOption, postmanToOpenApi
+    FoldersOption, 
 } from './index.d'
 
 const contact:ContactObject = {
@@ -81,5 +81,3 @@ const options:Options = {
     const openAPI3 = postmanToOpenApi('./path/to/postman_collection.json', './path/to/result/openApi.yml', options)
 
 })();
-// TODO what is really mandatory or not as is not the same that the object is mandatory 
-// and then inside the object what should be complete, example type in auth?
