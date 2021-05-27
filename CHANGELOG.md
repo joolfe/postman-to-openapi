@@ -1,3 +1,15 @@
+## [1.10.0](https://github.com/joolfe/postman-to-openapi/compare/1.9.2...1.10.0) (2021-05-27)
+
+
+### Features
+
+* allow request with empty URLs (just skip) ([6e589d0](https://github.com/joolfe/postman-to-openapi/commit/6e589d06b300d1d105d45923ea2521b0dead218a))
+
+
+### Build System
+
+* update version ([b91b5d5](https://github.com/joolfe/postman-to-openapi/commit/b91b5d56962b37c86f1fe8f95974a7dce575a0ca))
+
 ### [1.9.2](https://github.com/joolfe/postman-to-openapi/compare/1.9.1...1.9.2) (2021-05-19)
 
 
