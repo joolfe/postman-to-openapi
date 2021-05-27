@@ -39,6 +39,7 @@ const EXPECTED_URL_WITH_PORT = readFileSync('./test/resources/output/UrlWithPort
 const EXPECTED_EXTERNAL_DOCS = readFileSync('./test/resources/output/ExternalDocs.yml', 'utf8')
 const EXPECTED_EXTERNAL_DOCS_OPTS = readFileSync('./test/resources/output/ExternalDocsOpts.yml', 'utf8')
 const EXPECTED_EXTERNAL_DOCS_OPTS_PARTIAL = readFileSync('./test/resources/output/ExternalDocsOptsPartial.yml', 'utf8')
+const EXPECTED_EMPTY_URL = readFileSync('./test/resources/output/EmptyUrl.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -68,6 +69,7 @@ describe('Library specs', function () {
       const COLLECTION_AUTH_BASIC = `./test/resources/input/${version}/AuthBasic.json`
       const COLLECTION_URL_WITH_PORT = `./test/resources/input/${version}/UrlWithPort.json`
       const COLLECTION_EXTERNAL_DOCS = `./test/resources/input/${version}/ExternalDocs.json`
+      const COLLECTION_EMPTY_URL = `./test/resources/input/${version}/EmptyUrl.json`
 
       it('should work with a basic transform', async function () {
         const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {})
@@ -311,6 +313,11 @@ describe('Library specs', function () {
             }
           })
         equal(result, EXPECTED_EXTERNAL_DOCS_OPTS_PARTIAL)
+      })
+
+      it('should not transform empty url request', async function () {
+        const result = await postmanToOpenApi(COLLECTION_EMPTY_URL, OUTPUT_PATH)
+        equal(result, EXPECTED_EMPTY_URL)
       })
     })
   })
