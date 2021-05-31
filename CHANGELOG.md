@@ -1,3 +1,15 @@
+## [1.11.0](https://github.com/joolfe/postman-to-openapi/compare/1.10.0...1.11.0) (2021-05-31)
+
+
+### Features
+
+* x-logo support Close [#18](https://github.com/joolfe/postman-to-openapi/issues/18) ([2e7358f](https://github.com/joolfe/postman-to-openapi/commit/2e7358f97e38bbaa25e4249b1019e97f36e4a8b5))
+
+
+### Documentation
+
+* update docs with new field ([3aa907f](https://github.com/joolfe/postman-to-openapi/commit/3aa907f2fc7b6a5a651bc595a58c3a3779d3cde9))
+
 ## [1.10.0](https://github.com/joolfe/postman-to-openapi/compare/1.9.2...1.10.0) (2021-05-27)
 
 
