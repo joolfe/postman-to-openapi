@@ -40,6 +40,8 @@ const EXPECTED_EXTERNAL_DOCS = readFileSync('./test/resources/output/ExternalDoc
 const EXPECTED_EXTERNAL_DOCS_OPTS = readFileSync('./test/resources/output/ExternalDocsOpts.yml', 'utf8')
 const EXPECTED_EXTERNAL_DOCS_OPTS_PARTIAL = readFileSync('./test/resources/output/ExternalDocsOptsPartial.yml', 'utf8')
 const EXPECTED_EMPTY_URL = readFileSync('./test/resources/output/EmptyUrl.yml', 'utf8')
+const EXPECTED_X_LOGO = readFileSync('./test/resources/output/XLogo.yml', 'utf8')
+const EXPECTED_X_LOGO_VAR = readFileSync('./test/resources/output/XLogoVar.yml', 'utf8')
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -70,6 +72,7 @@ describe('Library specs', function () {
       const COLLECTION_URL_WITH_PORT = `./test/resources/input/${version}/UrlWithPort.json`
       const COLLECTION_EXTERNAL_DOCS = `./test/resources/input/${version}/ExternalDocs.json`
       const COLLECTION_EMPTY_URL = `./test/resources/input/${version}/EmptyUrl.json`
+      const COLLECTION_XLOGO = `./test/resources/input/${version}/XLogo.json`
 
       it('should work with a basic transform', async function () {
         const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {})
@@ -318,6 +321,38 @@ describe('Library specs', function () {
       it('should not transform empty url request', async function () {
         const result = await postmanToOpenApi(COLLECTION_EMPTY_URL, OUTPUT_PATH)
         equal(result, EXPECTED_EMPTY_URL)
+      })
+
+      it('should accept "x-logo" extension by option', async function () {
+        const result = await postmanToOpenApi(COLLECTION_XLOGO, OUTPUT_PATH, {
+          info: {
+            xLogo: {
+              url: 'https://github.com/joolfe/logoBanner.png',
+              backgroundColor: '#FFFFFF',
+              altText: 'Example logo'
+            }
+          }
+        })
+        equal(result, EXPECTED_X_LOGO)
+      })
+
+      it('should use only "x-logo" standard fields', async function () {
+        const result = await postmanToOpenApi(COLLECTION_XLOGO, OUTPUT_PATH, {
+          info: {
+            xLogo: {
+              url: 'https://github.com/joolfe/logoBanner.png',
+              backgroundColor: '#FFFFFF',
+              altText: 'Example logo',
+              incorrect: 'field'
+            }
+          }
+        })
+        equal(result, EXPECTED_X_LOGO)
+      })
+
+      it('should use "x-logo" from variables', async function () {
+        const result = await postmanToOpenApi(COLLECTION_XLOGO, OUTPUT_PATH, {})
+        equal(result, EXPECTED_X_LOGO_VAR)
       })
     })
   })
