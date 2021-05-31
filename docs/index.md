@@ -129,6 +129,7 @@ The basic information of the API is obtained from Postman collection as describe
 | `termsOfService` | String. A URL to the Terms of Service for the API. MUST be in the format of a URL. |
 | `contact`        | Object. The contact information for the exposed API. See details in [License and Contact configuration](#license-and-contact-configuration) section.                             |
 | `license`        | Object. The license information for the exposed API.See details in [License and Contact configuration](#license-and-contact-configuration) section. |
+| `xLogo` | Object. Contain the info for the `x-logo` extension defined by [redoc](https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md#x-logo) |
 
 Basically this are the required and relevant parameters defined in OpenAPI spec [info object](http://spec.openapis.org/oas/v3.0.3.html#info-object), an example of the option will be:
 
@@ -147,6 +148,11 @@ Basically this are the required and relevant parameters defined in OpenAPI spec 
             name: 'My Support',
             url: 'http://www.api.com/support',
             email: 'support@api.com'
+        },
+        xLogo: {
+            url: 'https://github.com/joolfe/logoBanner.png',
+            backgroundColor: '#FFFFFF',
+            altText: 'Example logo'
         }
     }
 }
@@ -355,9 +361,9 @@ const result = await postmanToOpenApi(postmanCollection, outputFile, { servers: 
 
 This will remove the `servers` field from the yml specification result.
 
-## License and Contact configuration
+## Pass data as postman collection variables
 
-Inside the [info object](http://spec.openapis.org/oas/v3.0.3.html#info-object) of OpenAPI definition exist two Object fields called `contact` and `license`, this fields are very useful for provide information to developers, but inside a Postman collection not exist any "standard" way to save this information, for this reason we use [Postman collection variables](https://learning.postman.com/docs/sending-requests/variables/) to define this options.
+Inside the [info object](http://spec.openapis.org/oas/v3.0.3.html#info-object) of OpenAPI definition exist some Object fields as `contact`, `license` or `xLogo`, this fields are very useful for provide information to developers, but inside a Postman collection not exist any "standard" way to save this information, for this reason we use [Postman collection variables](https://learning.postman.com/docs/sending-requests/variables/) to define this options and maintain this info indie the postman collection.
 
 Is as easy as define the values in the "Edit Collection" form page inside the tab "Variables", as showed in the next image:
 
