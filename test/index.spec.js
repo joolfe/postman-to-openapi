@@ -23,6 +23,7 @@ const EXPECTED_HEADERS = readFileSync('./test/resources/output/Headers.yml', 'ut
 const EXPECTED_AUTH_BEARER = readFileSync('./test/resources/output/AuthBearer.yml', 'utf8')
 const EXPECTED_AUTH_BASIC = readFileSync('./test/resources/output/AuthBasic.yml', 'utf8')
 const EXPECTED_BASIC_WITH_AUTH = readFileSync('./test/resources/output/BasicWithAuth.yml', 'utf8')
+const EXPECTED_AUTH_MULTIPLE = readFileSync('./test/resources/output/AuthMultiple.yml', 'utf8')
 const EXPECTED_PATH_PARAMS = readFileSync('./test/resources/output/PathParams.yml', 'utf8')
 const EXPECTED_MULTIPLE_SERVERS = readFileSync('./test/resources/output/MultipleServers.yml', 'utf8')
 const EXPECTED_SERVERS_OPTIONS = readFileSync('./test/resources/output/ServersOpts.yml', 'utf8')
@@ -42,6 +43,26 @@ const EXPECTED_EXTERNAL_DOCS_OPTS_PARTIAL = readFileSync('./test/resources/outpu
 const EXPECTED_EMPTY_URL = readFileSync('./test/resources/output/EmptyUrl.yml', 'utf8')
 const EXPECTED_X_LOGO = readFileSync('./test/resources/output/XLogo.yml', 'utf8')
 const EXPECTED_X_LOGO_VAR = readFileSync('./test/resources/output/XLogoVar.yml', 'utf8')
+const EXPECTED_AUTH_OPTIONS = readFileSync('./test/resources/output/AuthOptions.yml', 'utf8')
+
+const AUTH_DEFINITIONS = {
+  myCustomAuth: {
+    type: 'http',
+    scheme: 'bearer',
+    bearerFormat: 'A resource owner JWT',
+    description: 'My awesome authentication using bearer'
+  },
+  myCustomAuth2: {
+    type: 'http',
+    scheme: 'basic',
+    description: 'My awesome authentication using user and password'
+  },
+  notSupported: {
+    type: 'http',
+    scheme: 'digest',
+    description: 'Not supported security'
+  }
+}
 
 describe('Library specs', function () {
   afterEach('remove file', function () {
@@ -73,6 +94,7 @@ describe('Library specs', function () {
       const COLLECTION_EXTERNAL_DOCS = `./test/resources/input/${version}/ExternalDocs.json`
       const COLLECTION_EMPTY_URL = `./test/resources/input/${version}/EmptyUrl.json`
       const COLLECTION_XLOGO = `./test/resources/input/${version}/XLogo.json`
+      const COLLECTION_MULTI_AUTH = `./test/resources/input/${version}/AuthMultiple.json`
 
       it('should work with a basic transform', async function () {
         const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {})
@@ -265,25 +287,7 @@ describe('Library specs', function () {
       })
 
       it('should use global authorization by configuration', async function () {
-        const authDefinition = {
-          myCustomAuth: {
-            type: 'http',
-            scheme: 'bearer',
-            bearerFormat: 'A resource owner JWT',
-            description: 'My awesome authentication using bearer'
-          },
-          myCustomAuth2: {
-            type: 'http',
-            scheme: 'basic',
-            description: 'My awesome authentication using user and password'
-          },
-          notSupported: {
-            type: 'http',
-            scheme: 'digest',
-            description: 'Not supported security'
-          }
-        }
-        const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, { auth: authDefinition })
+        const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, { auth: AUTH_DEFINITIONS })
         equal(result, EXPECTED_BASIC_WITH_AUTH)
       })
 
@@ -353,6 +357,16 @@ describe('Library specs', function () {
       it('should use "x-logo" from variables', async function () {
         const result = await postmanToOpenApi(COLLECTION_XLOGO, OUTPUT_PATH, {})
         equal(result, EXPECTED_X_LOGO_VAR)
+      })
+
+      it('should support auth definition at request level', async function () {
+        const result = await postmanToOpenApi(COLLECTION_MULTI_AUTH, OUTPUT_PATH, {})
+        equal(result, EXPECTED_AUTH_MULTIPLE)
+      })
+
+      it('should ignore operational auth when auth options are provided', async function () {
+        const result = await postmanToOpenApi(COLLECTION_MULTI_AUTH, OUTPUT_PATH, { auth: AUTH_DEFINITIONS })
+        equal(result, EXPECTED_AUTH_OPTIONS)
       })
     })
   })

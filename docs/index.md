@@ -25,11 +25,12 @@
 * Postman variables as Path parameters.
 * Automatic infer types from query and headers parameters.
 * Support Json and Text body formats.
-* Global Authorization parse or by configuration (Basic and Bearer).
+* Postman Authorization parse or by configuration (Basic and Bearer).
 * Contact and License from variables or by configuration.
 * Provide meta-information as a markdown table.
 * Path depth configuration.
 * Response status code parse from test.
+* [x-logo](https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md#x-logo) extension support
 
 See [Features](#features) section for more details about how to use each of this features.
 
@@ -186,7 +187,7 @@ The default value is `0`, so all prefix will be added to Open APi operations Pat
 
 ### auth (Object)
 
-The global authorization info can be parse from the Postman collection as described in [Global authorization](#global-authorization) section, but you can customize this info using the `auth` option, this param is a Object that follow the structure of OpenAPI [Security Scheme](http://spec.openapis.org/oas/v3.0.3.html#security-scheme-object), in this moment only type `http` is supported and schemes `basic` and `bearer`, as an example of this option:
+The global authorization info can be parse from the Postman collection as described in [Postman authorization](#postman-authorization) section, but you can customize this info using the `auth` option, this param is a Object that follow the structure of OpenAPI [Security Scheme](http://spec.openapis.org/oas/v3.0.3.html#security-scheme-object), in this moment only type `http` is supported and schemes `basic` and `bearer`, as an example of this option:
 
 ```js
 {
@@ -339,15 +340,15 @@ For headers and query fields you can indicate that this parameter is mandatory/r
 
 Have a look to the [GetMethods collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/GetMethods.json), [Headers collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/Headers.json) and [PathParams collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/PathParams.json) files for examples of how to use this features.
 
-## Global authorization
+## Postman authorization
 
 The OpenAPI root [security](http://spec.openapis.org/oas/v3.0.3.html#openapi-object) definition is filled using the authorization method defined at Postman Collection [authorization config](https://learning.postman.com/docs/sending-requests/authorization/#inheriting-auth).
 
-Only types 'Basic Auth' and 'Bearer Token' are supported now and not operation individual definition is supported.
+Only types 'Basic Auth' and 'Bearer Token' are supported by now. If you define an authorization at postman request level this will overwrite the global defined for this OpenAPI operation.
 
 You can customize the global authorization definition using the [Auth option](#auth-(object)).
 
-Have a look to the collections [AuthBasic](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/AuthBasic.json) and [AuthBearer](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/AuthBearer.json) for examples of how to use this feature.
+Have a look to the collections [AuthBasic](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/AuthBasic.json), [AuthBearer](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/AuthBearer.json) and [AuthMultiple](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/AuthMultiple.json) for examples of how to use this feature.
 
 ## Global servers configuration
 
