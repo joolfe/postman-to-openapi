@@ -7,6 +7,7 @@
 [![build](https://github.com/joolfe/postman-to-openapi/workflows/Build/badge.svg)](https://github.com/joolfe/postman-to-openapi/actions)
 [![codecov](https://codecov.io/gh/joolfe/postman-to-openapi/branch/master/graph/badge.svg)](https://codecov.io/gh/joolfe/postman-to-openapi)
 [![npm version](https://badge.fury.io/js/postman-to-openapi.svg)](https://www.npmjs.com/package/postman-to-openapi)
+[![CodeQL](https://github.com/joolfe/postman-to-openapi/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/joolfe/postman-to-openapi/actions/workflows/codeql-analysis.yml)
 
 ## Index
 
