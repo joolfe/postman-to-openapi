@@ -1,3 +1,20 @@
+## [1.12.0](https://github.com/joolfe/postman-to-openapi/compare/1.11.0...1.12.0) (2021-06-05)
+
+
+### Features
+
+* support for auth method at operation/request level Close [#40](https://github.com/joolfe/postman-to-openapi/issues/40) ([a8c4d17](https://github.com/joolfe/postman-to-openapi/commit/a8c4d176c8596cac3769cd0ac4eb7edaf74351d9))
+
+
+### Build System
+
+* update deps ([fb52ed4](https://github.com/joolfe/postman-to-openapi/commit/fb52ed48b13df29441873281a5319ad7f0a894e5))
+
+
+### Documentation
+
+* add codeql badget ([4e315f4](https://github.com/joolfe/postman-to-openapi/commit/4e315f43ef0bc740080d89c364dfbd7e980c3133))
+
 ## [1.11.0](https://github.com/joolfe/postman-to-openapi/compare/1.10.0...1.11.0) (2021-05-31)
 
 
