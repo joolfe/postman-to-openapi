@@ -1,3 +1,10 @@
+### [1.12.1](https://github.com/joolfe/postman-to-openapi/compare/1.12.0...1.12.1) (2021-06-11)
+
+
+### Bug Fixes
+
+* remove deep with vulnerability ([56877cc](https://github.com/joolfe/postman-to-openapi/commit/56877ccab41325646c053b16971d67f1b0314bb7))
+
 ## [1.12.0](https://github.com/joolfe/postman-to-openapi/compare/1.11.0...1.12.0) (2021-06-05)
 
 
