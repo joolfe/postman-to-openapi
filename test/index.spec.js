@@ -371,6 +371,14 @@ describe('Library specs', function () {
     })
   })
 
+  // TODO add the user id description of the field in markdown or were is need it
+  it.only('should add responses from postman examples', async function () {
+    const result = await postmanToOpenApi('./test/resources/input/v21/Responses.json', OUTPUT_PATH, { pathDepth: 2 })
+    console.log(result)
+    // equal(result, EXPECTED_BASIC)
+  })
+  it('should add responses from multiple format for the same status code (text and json)')
+
   it('should work if no options in request body', async function () {
     const result = await postmanToOpenApi(COLLECTION_NO_OPTIONS, OUTPUT_PATH, {})
     equal(result, EXPECTED_BASIC)
