@@ -74,21 +74,15 @@ paths:
             application/json:
               schema:
                 type: object
-              examples:
-                example-0:
-                  summary: Create new User example
-                  value:
-                    id: '51'
-                    createdAt: '2021-06-04T15:50:38.568Z'
-                    name: Carol
-                    avatar: https://cdn.fakercloud.com/avatars/nelsonjoyce_128.jpg
-                example-1:
-                  summary: Create new User automatic id
-                  value:
-                    id: '54'
-                    createdAt: '2021-06-04T15:50:38.568Z'
-                    name: Carol
-                    avatar: https://cdn.fakercloud.com/avatars/nelsonjoyce_128.jpg
+              example:
+                id: '51'
+                createdAt: '2021-06-04T15:50:38.568Z'
+                name: Carol
+                avatar: https://cdn.fakercloud.com/avatars/nelsonjoyce_128.jpg
+            text/plain:
+              schema:
+                type: string
+              example: '"Success"'
   /users/{user_id}:
     get:
       tags:
@@ -166,57 +160,14 @@ paths:
                 avatar: https://cdn.fakercloud.com/avatars/bartjo_128.jpg
         '404':
           description: Not Found
-          headers:
-            Server:
-              schema:
-                type: string
-                example: Cowboy
-            Connection:
-              schema:
-                type: string
-                example: keep-alive
-            X-Powered-By:
-              schema:
-                type: string
-                example: Express
-            Access-Control-Allow-Origin:
-              schema:
-                type: string
-                example: '*'
-            Access-Control-Allow-Methods:
-              schema:
-                type: string
-                example: GET,PUT,POST,DELETE,OPTIONS
-            Access-Control-Allow-Headers:
-              schema:
-                type: string
-                example: X-Requested-With,Content-Type,Cache-Control,access_token
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-            Content-Length:
-              schema:
-                type: integer
-                example: '11'
-            Etag:
-              schema:
-                type: string
-                example: '"1592724850"'
-            Vary:
-              schema:
-                type: string
-                example: Accept-Encoding
-            Date:
-              schema:
-                type: string
-                example: Sat, 05 Jun 2021 08:48:30 GMT
-            Via:
-              schema:
-                type: number
-                example: 1.1 vegur
           content:
             text/plain:
               schema:
                 type: string
-              example: '"Not found"'
+              examples:
+                example-0:
+                  summary: Get User data NOT FOUND
+                  value: '"Not found"'
+                example-1:
+                  summary: Get User data NOT FOUND
+                  value: '"User not exist"'
