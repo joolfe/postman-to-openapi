@@ -30,7 +30,7 @@
 * Contact and License from variables or by configuration.
 * Provide meta-information as a markdown table.
 * Path depth configuration.
-* Response status code parse from test.
+* API Response parse from postman examples and from test code (status code).
 * [x-logo](https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md#x-logo) extension support
 
 See [Features](#features) section for more details about how to use each of this features.
@@ -118,6 +118,17 @@ See demo in next gif:
 ## Options
 
 The third parameter used in the library method is an `options` object containing the optional parameters for the transformation, the allowed parameters are:
+
+| Param            | Description                                                                        |
+|------------------|------------------------------------------------------------------------------------|
+| [info](#info-object) | Basic API information |
+| [defaultTag](#defaulttag-string) | Values of the default tag object. |
+| [pathDepth](#pathdepth-number) | Number of subpaths that should be part of the operation path.  |
+| [auth](#auth-object) | Global authorization definition object. |
+| [servers](#servers-array) | Server list for the OpenApi specs. |
+| [externalDocs](#externaldocs-object) | Info about the API external documentation. |
+| [folders](#folders-object) | Config object for folders and nested folders in postman collection. |
+| [responseHeaders](#responseheaders-boolean) | Indicate if should parse the response headers from the collection examples. |
 
 ### info (Object)
 
@@ -299,6 +310,12 @@ Avoid concatenation
 </div></div>
 <div class="tilted-section"><div markdown="1">
 
+### responseHeaders (Boolean)
+
+This flag indicates if the headers that are saved as part of the postman collection examples (see feature [Responses parsed from Postman collection examples](#responses-parsed-from-postman-collection-examples)) should be used in the OpenApi specification. This headers normally contain lot of unused headers but are automatically saved by postman when create an example, a better approach is to define response headers in a common way.
+
+The default value is `true`, so headers are by default added to the response definition.
+
 # Features
 
 ## Basic conversion
@@ -412,6 +429,10 @@ The status code will be automatically parsed and used in the OpenAPI specificati
 
 </div></div>
 <div class="tilted-section"><div markdown="1">
+
+## Responses parsed from Postman collection examples
+
+If there are more than one example at request level the used headers will be the ones that appear in the last example in the postman collection.
 
 # Postman collection examples
 
