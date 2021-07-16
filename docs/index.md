@@ -425,14 +425,22 @@ pm.response.to.have.status(201)
 pm.expect(pm.response.code).to.eql(202)
 ```
 
-The status code will be automatically parsed and used in the OpenAPI specification.
-
-</div></div>
-<div class="tilted-section"><div markdown="1">
+The status code will be automatically parsed and used in the OpenAPI specification, take into account that feature [Responses parsed from Postman collection examples](#responses-parsed-from-postman-collection-examples) has priority over this feature.
 
 ## Responses parsed from Postman collection examples
 
+As described in [Postman docs](https://learning.postman.com/docs/sending-requests/examples/) is possible to save real responses from a server or create manually responses to save as examples in a postman request, this examples contain all the information about the request (method, url, headers, parameters...) and the corresponding response (body, headers, status code...) and will be automatically parsed by `postman-to-openapi`  and added as an operation [Response Object Example/Examples](https://swagger.io/specification/) in the result OpenAPI specification.
+
+Note that this examples will be added in OpenAPI specification as a 'Operation Object > Responses Objects > content > Media Type Object > example or examples' and not as a schema.
+
+Actually multiple examples in the same request are supported with the same or different status code response as OpenAPI support the description of more than one example. The Supported Media Types in this moment are `application/json` and `text/plain`.
+
+Take into account that this feature has priority over the [Response status code parse from Test](#response-status-code-parse-from-test) one so if `postman-to-openapi` detect that some example exist in the postman collection will no parse the test script.
+
 If there are more than one example at request level the used headers will be the ones that appear in the last example in the postman collection.
+
+</div></div>
+<div class="tilted-section"><div markdown="1">
 
 # Postman collection examples
 
