@@ -30,7 +30,7 @@
 * Contact and License from variables or by configuration.
 * Provide meta-information as a markdown table.
 * Path depth configuration.
-* Response status code parse from test.
+* API Response parse from postman examples and from test code (status code).
 * [x-logo](https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md#x-logo) extension support
 
 See [Features](#features) section for more details about how to use each of this features.
@@ -118,6 +118,17 @@ See demo in next gif:
 ## Options
 
 The third parameter used in the library method is an `options` object containing the optional parameters for the transformation, the allowed parameters are:
+
+| Param            | Description                                                                        |
+|------------------|------------------------------------------------------------------------------------|
+| [info](#info-object) | Basic API information |
+| [defaultTag](#defaulttag-string) | Values of the default tag object. |
+| [pathDepth](#pathdepth-number) | Number of subpaths that should be part of the operation path.  |
+| [auth](#auth-object) | Global authorization definition object. |
+| [servers](#servers-array) | Server list for the OpenApi specs. |
+| [externalDocs](#externaldocs-object) | Info about the API external documentation. |
+| [folders](#folders-object) | Config object for folders and nested folders in postman collection. |
+| [responseHeaders](#responseheaders-boolean) | Indicate if should parse the response headers from the collection examples. |
 
 ### info (Object)
 
@@ -299,6 +310,12 @@ Avoid concatenation
 </div></div>
 <div class="tilted-section"><div markdown="1">
 
+### responseHeaders (Boolean)
+
+This flag indicates if the headers that are saved as part of the postman collection examples (see feature [Responses parsed from Postman collection examples](#responses-parsed-from-postman-collection-examples)) should be used in the OpenApi specification. This headers normally contain lot of unused headers but are automatically saved by postman when create an example, a better approach is to define response headers in a common way.
+
+The default value is `true`, so headers are by default added to the response definition.
+
 # Features
 
 ## Basic conversion
@@ -408,7 +425,19 @@ pm.response.to.have.status(201)
 pm.expect(pm.response.code).to.eql(202)
 ```
 
-The status code will be automatically parsed and used in the OpenAPI specification.
+The status code will be automatically parsed and used in the OpenAPI specification, take into account that feature [Responses parsed from Postman collection examples](#responses-parsed-from-postman-collection-examples) has priority over this feature.
+
+## Responses parsed from Postman collection examples
+
+As described in [Postman docs](https://learning.postman.com/docs/sending-requests/examples/) is possible to save real responses from a server or create manually responses to save as examples in a postman request, this examples contain all the information about the request (method, url, headers, parameters...) and the corresponding response (body, headers, status code...) and will be automatically parsed by `postman-to-openapi`  and added as an operation [Response Object Example/Examples](https://swagger.io/specification/) in the result OpenAPI specification.
+
+Note that this examples will be added in OpenAPI specification as a 'Operation Object > Responses Objects > content > Media Type Object > example or examples' and not as a schema.
+
+Actually multiple examples in the same request are supported with the same or different status code response as OpenAPI support the description of more than one example. The Supported Media Types in this moment are `application/json` and `text/plain`.
+
+Take into account that this feature has priority over the [Response status code parse from Test](#response-status-code-parse-from-test) one so if `postman-to-openapi` detect that some example exist in the postman collection will no parse the test script.
+
+If there are more than one example at request level the used headers will be the ones that appear in the last example in the postman collection.
 
 </div></div>
 <div class="tilted-section"><div markdown="1">

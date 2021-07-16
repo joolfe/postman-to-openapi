@@ -44,6 +44,10 @@ const EXPECTED_EMPTY_URL = readFileSync('./test/resources/output/EmptyUrl.yml', 
 const EXPECTED_X_LOGO = readFileSync('./test/resources/output/XLogo.yml', 'utf8')
 const EXPECTED_X_LOGO_VAR = readFileSync('./test/resources/output/XLogoVar.yml', 'utf8')
 const EXPECTED_AUTH_OPTIONS = readFileSync('./test/resources/output/AuthOptions.yml', 'utf8')
+const EXPECTED_RESPONSES = readFileSync('./test/resources/output/Responses.yml', 'utf8')
+const EXPECTED_RESPONSES_MULTI_LANG = readFileSync('./test/resources/output/ResponsesMultiLang.yml', 'utf8')
+const EXPECTED_AUTH_REQUEST = readFileSync('./test/resources/output/AuthRequest.yml', 'utf8')
+const EXPECTED_RESPONSES_NO_HEADERS = readFileSync('./test/resources/output/ResponsesNoHeaders.yml', 'utf8')
 
 const AUTH_DEFINITIONS = {
   myCustomAuth: {
@@ -95,6 +99,9 @@ describe('Library specs', function () {
       const COLLECTION_EMPTY_URL = `./test/resources/input/${version}/EmptyUrl.json`
       const COLLECTION_XLOGO = `./test/resources/input/${version}/XLogo.json`
       const COLLECTION_MULTI_AUTH = `./test/resources/input/${version}/AuthMultiple.json`
+      const COLLECTION_RESPONSES = `./test/resources/input/${version}/Responses.json`
+      const COLLECTION_RESPONSES_MULTI_LANG = `./test/resources/input/${version}/ResponsesMultiLang.json`
+      const COLLECTION_AUTH_REQUEST = `./test/resources/input/${version}/AuthRequest.json`
 
       it('should work with a basic transform', async function () {
         const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {})
@@ -367,6 +374,26 @@ describe('Library specs', function () {
       it('should ignore operational auth when auth options are provided', async function () {
         const result = await postmanToOpenApi(COLLECTION_MULTI_AUTH, OUTPUT_PATH, { auth: AUTH_DEFINITIONS })
         equal(result, EXPECTED_AUTH_OPTIONS)
+      })
+
+      it('should add responses from postman examples', async function () {
+        const result = await postmanToOpenApi(COLLECTION_RESPONSES, OUTPUT_PATH, { pathDepth: 2 })
+        equal(result, EXPECTED_RESPONSES)
+      })
+
+      it('should add responses from multiple format for the same status code (text and json)', async function () {
+        const result = await postmanToOpenApi(COLLECTION_RESPONSES_MULTI_LANG, OUTPUT_PATH, { pathDepth: 2 })
+        equal(result, EXPECTED_RESPONSES_MULTI_LANG)
+      })
+
+      it('should work if auth only defined at request level', async function () {
+        const result = await postmanToOpenApi(COLLECTION_AUTH_REQUEST, OUTPUT_PATH, {})
+        equal(result, EXPECTED_AUTH_REQUEST)
+      })
+
+      it('should avoid headers in response', async function () {
+        const result = await postmanToOpenApi(COLLECTION_RESPONSES, OUTPUT_PATH, { pathDepth: 2, responseHeaders: false })
+        equal(result, EXPECTED_RESPONSES_NO_HEADERS)
       })
     })
   })
