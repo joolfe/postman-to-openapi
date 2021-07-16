@@ -1,3 +1,20 @@
+## [1.13.0](https://github.com/joolfe/postman-to-openapi/compare/1.12.1...1.13.0) (2021-07-16)
+
+
+### Features
+
+* parse API response from postman examples ([b731f4e](https://github.com/joolfe/postman-to-openapi/commit/b731f4e2748622e85be1a93dc097d6723dfb0578))
+
+
+### Documentation
+
+* update docs about responses ([aa61018](https://github.com/joolfe/postman-to-openapi/commit/aa6101856a2d40dcfb794af50af96a2387a67608))
+
+
+### Build System
+
+* update deps and version ([65991ee](https://github.com/joolfe/postman-to-openapi/commit/65991ee1510db3429e636503e22d11e26cb123bd))
+
 ### [1.12.1](https://github.com/joolfe/postman-to-openapi/compare/1.12.0...1.12.1) (2021-06-11)
 
 
