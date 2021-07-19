@@ -24,9 +24,10 @@ program
   })
   .option('-f, --file <file>', 'Relative path to the file where result will be saved. If empty result will be returned by cli.')
   .option('-o, --options <options>', 'Relative path to json file that contain the optional parameters for the transformation.')
-  .action(async (collection, { file, options }, command) => {
+  .option('-g, --globals <globals>', 'Relative path to json file that contain the global parameters for the transformation.')
+  .action(async (collection, { file, options, globals }, command) => {
     try {
-      const parsedOptions = await parseOptions(options)
+      const parsedOptions = await parseOptions(options || globals)
       const result = await postmanToOpenApi(collection, file, parsedOptions)
       console.info(result)
     } catch (err) {
