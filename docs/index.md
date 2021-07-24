@@ -25,7 +25,7 @@
 * Transform query, headers and path parameters (description, required...).
 * Postman variables as Path parameters.
 * Automatic infer types from query and headers parameters.
-* Support Json and Text body formats.
+* Support postman "raw" body for `Json` and `Text` formats and also postman body "form-data".
 * Postman Authorization parse or by configuration (Basic and Bearer).
 * Contact and License from variables or by configuration.
 * Provide meta-information as a markdown table.
@@ -320,7 +320,7 @@ The default value is `true`, so headers are by default added to the response def
 
 ## Basic conversion
 
-This library support the transformation from Postman collection to all the basic HTTP method as GET, POST, PUT... and also parse the body request of type raw `Json` or `Text` type. [Query parameters](#parameters-parsing) are also supported.
+This library support the transformation from Postman collection to all the basic HTTP method as GET, POST, PUT... parse the body request of type "raw" (`Json` and `Text`) and "form-data" (see ["form-data" body](#form-data-body) section for more info about this mode). [Query parameters](#parameters-parsing) are also supported.
 
 Have a look to the [PostmantoOpenAPI collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/PostmantoOpenAPI.json) file for an example of how to use this feature.
 
@@ -438,6 +438,14 @@ Actually multiple examples in the same request are supported with the same or di
 Take into account that this feature has priority over the [Response status code parse from Test](#response-status-code-parse-from-test) one so if `postman-to-openapi` detect that some example exist in the postman collection will no parse the test script.
 
 If there are more than one example at request level the used headers will be the ones that appear in the last example in the postman collection.
+
+## "form-data" Body
+
+Library `postman-to-openapi` is able to parse the Postman collection body request of type "form-data", as Postman only support the parameter types `Text` and `File` (as you can see in next image) this are the only supported types for the Library.
+
+![form-data options](assets/img/formDataOptions.png)
+
+A "form-data" request body will be describe as a `multipart/form-data` content with schema of type `object`. For `Text` parameter `postman-to-openapi` will parse just as a `type: string` parameter and for type `File` following  OpenAPI specs is parsed as `type: string, format: binary`
 
 </div></div>
 <div class="tilted-section"><div markdown="1">

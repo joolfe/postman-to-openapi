@@ -1,3 +1,35 @@
+## [1.14.0](https://github.com/joolfe/postman-to-openapi/compare/1.13.0...1.14.0) (2021-07-24)
+
+
+### Features
+
+* adding support for formdata ([547b137](https://github.com/joolfe/postman-to-openapi/commit/547b137a52277d029e7b4c022311faf79161fccf))
+
+
+### Bug Fixes
+
+* fix lint problems ([91ce1a9](https://github.com/joolfe/postman-to-openapi/commit/91ce1a92c4994237236a1af9f99471bf07c54c99))
+
+
+### Tests
+
+* form data testing ([8a26c69](https://github.com/joolfe/postman-to-openapi/commit/8a26c691cadd36db46151a35f15517bdc57129db))
+
+
+### Code Refactoring
+
+* little refactor to follow our code style and 100% coverage. Support for file types ([b569785](https://github.com/joolfe/postman-to-openapi/commit/b569785acde50530cc5a7ca9135143380b3b1371))
+
+
+### Documentation
+
+* update new feature for parse "form-data" ([4699d50](https://github.com/joolfe/postman-to-openapi/commit/4699d5007c214c2a6347faee9b0a2a91eb1fcee9))
+
+
+### Build System
+
+* update version ([2855f10](https://github.com/joolfe/postman-to-openapi/commit/2855f1086e113685f1d0d0034eee14e24cd12cf1))
+
 ## [1.13.0](https://github.com/joolfe/postman-to-openapi/compare/1.12.1...1.13.0) (2021-07-16)
 
 
