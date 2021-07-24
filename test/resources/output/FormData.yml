@@ -27,8 +27,11 @@ paths:
                   example: newuser@example.com
                 password:
                   type: string
-                  description: password (to be used for logging in)
                   example: pasword123
+                profileImage:
+                  type: string
+                  description: User avatar
+                  format: binary
       responses:
         '200':
           description: Successful response
