@@ -1,13 +1,13 @@
 ---
 ---
 
-@import "jekyll-theme-cayman";
-
 $header-bg-color: #ff6b37 !default;
 $header-bg-color-secondary: #5f5278 !default;
 
 $body-link-color: #3b95ef !default;
 $section-headings-color: #ff6b37 !default;
+
+@import "jekyll-theme-cayman";
 
 strong {
     color: #788286;
