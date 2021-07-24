@@ -48,6 +48,7 @@ const EXPECTED_RESPONSES = readFileSync('./test/resources/output/Responses.yml',
 const EXPECTED_RESPONSES_MULTI_LANG = readFileSync('./test/resources/output/ResponsesMultiLang.yml', 'utf8')
 const EXPECTED_AUTH_REQUEST = readFileSync('./test/resources/output/AuthRequest.yml', 'utf8')
 const EXPECTED_RESPONSES_NO_HEADERS = readFileSync('./test/resources/output/ResponsesNoHeaders.yml', 'utf8')
+const EXPECTED_FORM_DATA = readFileSync('./test/resources/output/FormData.yml', 'utf8')
 
 const AUTH_DEFINITIONS = {
   myCustomAuth: {
@@ -102,6 +103,7 @@ describe('Library specs', function () {
       const COLLECTION_RESPONSES = `./test/resources/input/${version}/Responses.json`
       const COLLECTION_RESPONSES_MULTI_LANG = `./test/resources/input/${version}/ResponsesMultiLang.json`
       const COLLECTION_AUTH_REQUEST = `./test/resources/input/${version}/AuthRequest.json`
+      const COLLECTION_FORM_DATA = `./test/resources/input/${version}/FormData.json`
 
       it('should work with a basic transform', async function () {
         const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {})
@@ -395,6 +397,11 @@ describe('Library specs', function () {
         const result = await postmanToOpenApi(COLLECTION_RESPONSES, OUTPUT_PATH, { pathDepth: 2, responseHeaders: false })
         equal(result, EXPECTED_RESPONSES_NO_HEADERS)
       })
+
+      // it('should parse POST methods with form data', async function () {
+      //   const result = await postmanToOpenApi(COLLECTION_FORM_DATA, OUTPUT_PATH, { pathDepth: 2, responseHeaders: false })
+      //   equal(result, COLLECTION_FORM_DATA)
+      // })
     })
   })
 
