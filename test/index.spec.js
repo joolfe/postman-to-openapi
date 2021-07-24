@@ -398,10 +398,10 @@ describe('Library specs', function () {
         equal(result, EXPECTED_RESPONSES_NO_HEADERS)
       })
 
-      // it('should parse POST methods with form data', async function () {
-      //   const result = await postmanToOpenApi(COLLECTION_FORM_DATA, OUTPUT_PATH, { pathDepth: 2, responseHeaders: false })
-      //   equal(result, COLLECTION_FORM_DATA)
-      // })
+      it('should parse POST methods with form data', async function () {
+        const result = await postmanToOpenApi(COLLECTION_FORM_DATA, OUTPUT_PATH, {})
+        equal(result, EXPECTED_FORM_DATA)
+      })
     })
   })
 
