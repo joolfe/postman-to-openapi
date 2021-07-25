@@ -21,12 +21,10 @@ paths:
                   type: string
                   description: full name of the user (accepts spaces)
                   example: New User
-                  required: true
                 email:
                   type: string
                   description: email of the user (for notifications and login)
                   example: newuser@example.com
-                  required: true
                 password:
                   type: string
                   example: pasword123
@@ -34,15 +32,6 @@ paths:
                   type: string
                   description: User avatar
                   format: binary
-              encoding:
-                name:
-                  contentType: text/plain
-                email:
-                  contentType: text/plain
-                password:
-                  contentType: text/plain
-                profileImage:
-                  contentType: application/octet-stream
       responses:
         '200':
           description: Successful response

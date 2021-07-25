@@ -19,17 +19,14 @@ paths:
                   type: string
                   description: full name of the user (accepts spaces)
                   example: New User
-                  required: true
                 email:
                   type: string
                   description: email of the user (for notifications and login)
                   example: newuser@example.com
-                  required: true
                 password:
                   type: string
                   description: password (to be used for logging in)
                   example: pasword123
-                  required: true
       responses:
         '200':
           description: Successful response
