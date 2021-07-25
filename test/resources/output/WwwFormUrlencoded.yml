@@ -1,7 +1,6 @@
 openapi: 3.0.0
 info:
   title: Form Data
-  description: Just a collection with a form data post for test
   version: 1.0.0
 servers:
   - url: https://api.io
@@ -13,9 +12,8 @@ paths:
       summary: Register New User
       requestBody:
         content:
-          multipart/form-data:
+          application/x-www-form-urlencoded:
             schema:
-              type: object
               properties:
                 name:
                   type: string
@@ -32,18 +30,6 @@ paths:
                   description: password (to be used for logging in) [required]
                   example: pasword123
                   require: true
-                avatar:
-                  type: string
-                  format: base64
-              encoding:
-                name:
-                  contentType: text/plain
-                email:
-                  contentType: text/plain
-                password:
-                  contentType: text/plain
-                avatar:
-                  contentType: application/octet-stream
       responses:
         '200':
           description: Successful response

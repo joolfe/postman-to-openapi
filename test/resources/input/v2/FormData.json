@@ -17,20 +17,26 @@
 						{
 							"key": "name",
 							"value": "New User",
-							"description": "full name of the user (accepts spaces)",
+							"description": "full name of the user (accepts spaces) [required]",
 							"type": "text"
 						},
 						{
 							"key": "email",
 							"value": "newuser@example.com",
-							"description": "email of the user (for notifications and login)",
+							"description": "email of the user (for notifications and login) [required]",
 							"type": "text"
 						},
 						{
 							"key": "password",
 							"value": "pasword123",
-							"description": "password (to be used for logging in)",
+							"description": "password (to be used for logging in) [required]",
 							"type": "text"
+						},
+						{
+							"key": "avatar",
+							"contentType": "application/octet-stream",
+							"type": "file",
+							"src": []
 						}
 					]
 				},
