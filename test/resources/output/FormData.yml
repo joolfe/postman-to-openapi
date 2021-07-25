@@ -19,21 +19,21 @@ paths:
               properties:
                 name:
                   type: string
-                  description: full name of the user (accepts spaces) [required]
+                  description: full name of the user (accepts spaces)
                   example: New User
-                  require: true
+                  required: true
                 email:
                   type: string
-                  description: email of the user (for notifications and login) [required]
+                  description: email of the user (for notifications and login)
                   example: newuser@example.com
-                  require: true
+                  required: true
                 password:
                   type: string
                   example: pasword123
                 profileImage:
                   type: string
-                  format: base64
                   description: User avatar
+                  format: binary
               encoding:
                 name:
                   contentType: text/plain
