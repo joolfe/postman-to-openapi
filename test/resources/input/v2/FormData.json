@@ -1,8 +1,8 @@
 {
 	"info": {
-		"_postman_id": "1eaa74c4-2d76-45f0-bd34-bff5d96f0ba8",
+		"_postman_id": "66fd929e-c84f-4bc5-970a-60231fe16f5b",
 		"name": "Form Data",
-    "description": "Just a collection with a form data post for test",
+		"description": "Just a collection with a form data post for test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
@@ -29,12 +29,12 @@
 						{
 							"key": "password",
 							"value": "pasword123",
-							"description": "password (to be used for logging in) [required]",
 							"type": "text"
 						},
 						{
-							"key": "avatar",
-							"contentType": "application/octet-stream",
+							"key": "profileImage",
+							"description": "User avatar",
+              "contentType": "application/octet-stream",
 							"type": "file",
 							"src": []
 						}

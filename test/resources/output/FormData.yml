@@ -29,12 +29,11 @@ paths:
                   require: true
                 password:
                   type: string
-                  description: password (to be used for logging in) [required]
                   example: pasword123
-                  require: true
-                avatar:
+                profileImage:
                   type: string
                   format: base64
+                  description: User avatar
               encoding:
                 name:
                   contentType: text/plain
@@ -42,7 +41,7 @@ paths:
                   contentType: text/plain
                 password:
                   contentType: text/plain
-                avatar:
+                profileImage:
                   contentType: application/octet-stream
       responses:
         '200':
