@@ -49,6 +49,7 @@ const EXPECTED_RESPONSES_MULTI_LANG = readFileSync('./test/resources/output/Resp
 const EXPECTED_AUTH_REQUEST = readFileSync('./test/resources/output/AuthRequest.yml', 'utf8')
 const EXPECTED_RESPONSES_NO_HEADERS = readFileSync('./test/resources/output/ResponsesNoHeaders.yml', 'utf8')
 const EXPECTED_FORM_DATA = readFileSync('./test/resources/output/FormData.yml', 'utf8')
+const EXPECTED_WWW_FORM_URLENCODED = readFileSync('./test/resources/output/WwwFormUrlencoded.yml', 'utf8')
 
 const AUTH_DEFINITIONS = {
   myCustomAuth: {
@@ -104,6 +105,7 @@ describe('Library specs', function () {
       const COLLECTION_RESPONSES_MULTI_LANG = `./test/resources/input/${version}/ResponsesMultiLang.json`
       const COLLECTION_AUTH_REQUEST = `./test/resources/input/${version}/AuthRequest.json`
       const COLLECTION_FORM_DATA = `./test/resources/input/${version}/FormData.json`
+      const COLLECTION_WWW_FORM_URLENCODED = `./test/resources/input/${version}/WwwFormUrlencoded.json`
 
       it('should work with a basic transform', async function () {
         const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {})
@@ -401,6 +403,11 @@ describe('Library specs', function () {
       it('should parse POST methods with form data', async function () {
         const result = await postmanToOpenApi(COLLECTION_FORM_DATA, OUTPUT_PATH, {})
         equal(result, EXPECTED_FORM_DATA)
+      })
+
+      it('should parse POST methods with www form urlencoded', async function () {
+        const result = await postmanToOpenApi(COLLECTION_WWW_FORM_URLENCODED, OUTPUT_PATH, {})
+        equal(result, EXPECTED_WWW_FORM_URLENCODED)
       })
     })
   })
