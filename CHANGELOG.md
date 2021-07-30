@@ -1,3 +1,38 @@
+## [1.15.0](https://github.com/joolfe/postman-to-openapi/compare/1.14.0...1.15.0) (2021-07-30)
+
+
+### Features
+
+* adding x-www-form-urlencoded support ([8311563](https://github.com/joolfe/postman-to-openapi/commit/8311563e556cc5fdf791f7304d43de994203ae3d))
+
+
+### Bug Fixes
+
+* move import to try to fix erro in gh pages ([326c745](https://github.com/joolfe/postman-to-openapi/commit/326c745a957cd0dc38187adeb1aaf81309dc8a89))
+* put color to the beginning of the css ([9cc56b0](https://github.com/joolfe/postman-to-openapi/commit/9cc56b06963cf775232dea9134cb30c362f2c4e9))
+
+
+### Tests
+
+* trying to fix docs theme error ([8c6428b](https://github.com/joolfe/postman-to-openapi/commit/8c6428b119607d92aa7adf46a86cf4caa5729acc))
+
+
+### Build System
+
+* update version and mocha dep ([cc4f4c5](https://github.com/joolfe/postman-to-openapi/commit/cc4f4c5c67ea7f1f9fda87527144cfcaf9456439))
+
+
+### Code Refactoring
+
+* change collection name ([8115bc7](https://github.com/joolfe/postman-to-openapi/commit/8115bc76aa944ee16c460363bbf27ffc6932a458))
+* form data drop encoding section from  and removed require code ([9994c8d](https://github.com/joolfe/postman-to-openapi/commit/9994c8d24805f125244af1b320dedb106a05fd78))
+* improving the mapFormData function ([a85eef6](https://github.com/joolfe/postman-to-openapi/commit/a85eef63d7d9d67538fbf089ff7514d11f64357e))
+
+
+### Documentation
+
+* mention new feature about "x-www-form-urlencoded" ([2c38fd9](https://github.com/joolfe/postman-to-openapi/commit/2c38fd91db2e9401840b37094cdf3a53c5f75221))
+
 ## [1.14.0](https://github.com/joolfe/postman-to-openapi/compare/1.13.0...1.14.0) (2021-07-24)
 
 

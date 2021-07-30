@@ -1,8 +1,7 @@
 {
 	"info": {
-		"_postman_id": "66fd929e-c84f-4bc5-970a-60231fe16f5b",
-		"name": "Form Data",
-		"description": "Just a collection with a form data post for test",
+		"_postman_id": "c7890cb4-aa39-4569-9701-a9d6f4abc750",
+		"name": "Form Url Encoded",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -12,8 +11,8 @@
 				"method": "POST",
 				"header": [],
 				"body": {
-					"mode": "formdata",
-					"formdata": [
+					"mode": "urlencoded",
+					"urlencoded": [
 						{
 							"key": "name",
 							"value": "New User",
@@ -29,14 +28,8 @@
 						{
 							"key": "password",
 							"value": "pasword123",
+							"description": "password (to be used for logging in) [required]",
 							"type": "text"
-						},
-						{
-							"key": "profileImage",
-							"description": "User avatar",
-              "contentType": "application/octet-stream",
-							"type": "file",
-							"src": []
 						}
 					]
 				},
