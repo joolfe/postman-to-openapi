@@ -25,7 +25,7 @@
 * Transform query, headers and path parameters (description, required...).
 * Postman variables as Path parameters.
 * Automatic infer types from query and headers parameters.
-* Support postman "raw" body for `Json` and `Text` formats and also postman body "form-data".
+* Support postman "raw" body (`Json` and `Text`), "form-data" and "x-www-form-urlencoded".
 * Postman Authorization parse or by configuration (Basic and Bearer).
 * Contact and License from variables or by configuration.
 * Provide meta-information as a markdown table.
@@ -320,7 +320,7 @@ The default value is `true`, so headers are by default added to the response def
 
 ## Basic conversion
 
-This library support the transformation from Postman collection to all the basic HTTP method as GET, POST, PUT... parse the body request of type "raw" (`Json` and `Text`) and "form-data" (see ["form-data" body](#form-data-body) section for more info about this mode). [Query parameters](#parameters-parsing) are also supported.
+This library support the transformation from Postman collection to all the basic HTTP method as GET, POST, PUT... parse the body request of type "raw" (`Json` and `Text`), "form-data" (see ["form-data" body](#form-data-body) section for more info about this mode) and "x-www-form-urlencoded" formats. [Query parameters](#parameters-parsing) are also supported.
 
 Have a look to the [PostmantoOpenAPI collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/PostmantoOpenAPI.json) file for an example of how to use this feature.
 
