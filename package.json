@@ -1,6 +1,6 @@
 {
   "name": "postman-to-openapi",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "description": "Convert postman collection to OpenAPI spec",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
@@ -54,7 +54,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "execa": "^5.1.1",
     "husky": "^6.0.0",
-    "mocha": "^9.0.2",
+    "mocha": "^9.0.3",
     "nyc": "^15.1.0",
     "typescript": "^4.3.2"
   },
