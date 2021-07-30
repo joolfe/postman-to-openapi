@@ -1,8 +1,8 @@
 {
 	"info": {
-		"_postman_id": "1eaa74c4-2d76-45f0-bd34-bff5d96f0ba8",
-		"name": "Form Data",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "c7890cb4-aa39-4569-9701-a9d6f4abc750",
+		"name": "Form Url Encoded",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -33,17 +33,7 @@
 						}
 					]
 				},
-				"url": {
-					"raw": "https://api.io/register",
-					"protocol": "https",
-					"host": [
-						"api",
-						"io"
-					],
-					"path": [
-						"register"
-					]
-				}
+				"url": "https://api.io/register"
 			},
 			"response": []
 		}
