@@ -1,6 +1,6 @@
 {
-  "name": "@ocis/postman-to-openapi",
-  "version": "1.13.1",
+  "name": "postman-to-openapi",
+  "version": "1.15.0",
   "description": "Convert postman collection to OpenAPI spec",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
@@ -45,8 +45,8 @@
   },
   "homepage": "https://github.com/joolfe/postman-to-openapi#readme",
   "devDependencies": {
-    "@commitlint/cli": "^12.1.4",
-    "@commitlint/config-conventional": "^12.1.4",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "eslint": "^7.28.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.23.4",
@@ -54,7 +54,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "execa": "^5.1.1",
     "husky": "^6.0.0",
-    "mocha": "^8.4.0",
+    "mocha": "^9.0.3",
     "nyc": "^15.1.0",
     "typescript": "^4.3.2"
   },
