@@ -3,7 +3,7 @@
 		"_postman_id": "747abd37-e913-4bf8-a7e7-01730737b973",
 		"name": "Variables",
 		"description": "Mi super test collection from postman",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -20,15 +20,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{server}}/users",
-					"host": [
-						"{{server}}"
-					],
-					"path": [
-						"users"
-					]
-				},
+				"url": "{{server}}/users",
 				"description": "Create a new user into your amazing API"
 			},
 			"response": []
@@ -63,18 +55,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "https://api.io/{{dinamic_path}}/post",
-					"protocol": "https",
-					"host": [
-						"api",
-						"io"
-					],
-					"path": [
-						"{{dinamic_path}}",
-						"post"
-					]
-				}
+				"url": "https://api.io/{{dinamic_path}}/post"
 			},
 			"response": []
 		},

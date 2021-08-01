@@ -3,7 +3,7 @@
 		"_postman_id": "747abd37-e913-4bf8-a7e7-01730737b973",
 		"name": "Variables",
 		"description": "Mi super test collection from postman",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -20,15 +20,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "https://api.io/users",
-					"host": [
-						"https://api.io"
-					],
-					"path": [
-						"users"
-					]
-				},
+				"url": "https://api.io/users",
 				"description": "Create a new user into your amazing API"
 			},
 			"response": []
@@ -63,15 +55,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "https://api.io/post",
-					"host": [
-						"https://api.io"
-					],
-					"path": [
-						"post"
-					]
-				}
+				"url": "https://api.io/test/path/here/post"
 			},
 			"response": []
 		},
@@ -84,12 +68,6 @@
 						"key": "X-Company",
 						"value": "ServicesLTD",
 						"type": "text"
-					},
-					{
-						"key": "",
-						"value": "",
-						"type": "text",
-						"disabled": true
 					}
 				],
 				"url": {
@@ -187,6 +165,14 @@
 		{
 			"key": "service",
 			"value": "s23434"
+		},
+		{
+			"key": "desc-size",
+			"value": "size of the list"
+		},
+		{
+			"key": "dinamic_path",
+			"value": "test/path/here"
 		}
 	]
 }

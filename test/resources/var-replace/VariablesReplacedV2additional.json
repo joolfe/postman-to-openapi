@@ -3,7 +3,7 @@
 		"_postman_id": "747abd37-e913-4bf8-a7e7-01730737b973",
 		"name": "Variables",
 		"description": "Mi super test collection from postman",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -13,22 +13,14 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"example\": \"field\",\n    \"other\": {\n        \"data1\": \"yes\",\n        \"service\": \"{{service}}\"\n    }\n}",
+					"raw": "{\n    \"example\": \"field\",\n    \"other\": {\n        \"data1\": \"yes\",\n        \"service\": \"myService\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": {
-					"raw": "{{server}}/users",
-					"host": [
-						"{{server}}"
-					],
-					"path": [
-						"users"
-					]
-				},
+				"url": "https://api.io/users",
 				"description": "Create a new user into your amazing API"
 			},
 			"response": []
@@ -43,7 +35,7 @@
 					"formdata": [
 						{
 							"key": "company",
-							"value": "{{company}}",
+							"value": "myCompany",
 							"type": "text"
 						},
 						{
@@ -53,7 +45,7 @@
 						},
 						{
 							"key": "auditor",
-							"value": "{{auditor}}",
+							"value": "IHA",
 							"type": "text"
 						}
 					],
@@ -63,18 +55,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "https://api.io/{{dinamic_path}}/post",
-					"protocol": "https",
-					"host": [
-						"api",
-						"io"
-					],
-					"path": [
-						"{{dinamic_path}}",
-						"post"
-					]
-				}
+				"url": "https://api.io/test/path/here/post"
 			},
 			"response": []
 		},
@@ -85,14 +66,14 @@
 				"header": [
 					{
 						"key": "X-Company",
-						"value": "{{company}}",
+						"value": "myCompany",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{server}}/users/{{user_id}}?company={{company}}",
+					"raw": "https://api.io/users/{{user_id}}?company=myCompany",
 					"host": [
-						"{{server}}"
+						"https://api.io"
 					],
 					"path": [
 						"users",
@@ -101,7 +82,7 @@
 					"query": [
 						{
 							"key": "company",
-							"value": "{{company}}"
+							"value": "myCompany"
 						}
 					]
 				},
@@ -115,9 +96,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{server}}/users?size={{page-size}}&company={{company}}",
+					"raw": "https://api.io/users?size=10&company=myCompany",
 					"host": [
-						"{{server}}"
+						"https://api.io"
 					],
 					"path": [
 						"users"
@@ -125,12 +106,12 @@
 					"query": [
 						{
 							"key": "size",
-							"value": "{{page-size}}",
-							"description": "{{desc-size}}"
+							"value": "10",
+							"description": "size of the list"
 						},
 						{
 							"key": "company",
-							"value": "{{company}}",
+							"value": "myCompany",
 							"description": "company for filter users"
 						}
 					]
