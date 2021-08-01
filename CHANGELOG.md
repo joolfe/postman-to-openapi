@@ -1,3 +1,21 @@
+## [1.16.0](https://github.com/joolfe/postman-to-openapi/compare/1.15.0...1.16.0) (2021-08-01)
+
+
+### Features
+
+* replace variables from postman collection or new option ([75f8df1](https://github.com/joolfe/postman-to-openapi/commit/75f8df109bf6433c1933d08ebd1b11bab77a7e26))
+* var replacer first implementation ([768e59f](https://github.com/joolfe/postman-to-openapi/commit/768e59fc4a62a9d98ef394ca1ec3319e908b6531))
+
+
+### Documentation
+
+* update documentation with new replacement feature ([9cfd142](https://github.com/joolfe/postman-to-openapi/commit/9cfd1427d1d4735f8470077ca1a3a84b2a53c229))
+
+
+### Build System
+
+* update version for new feature ([32cdb47](https://github.com/joolfe/postman-to-openapi/commit/32cdb47b58289f453abb30407f3e6ed27384cf0b))
+
 ## [1.15.0](https://github.com/joolfe/postman-to-openapi/compare/1.14.0...1.15.0) (2021-07-30)
 
 

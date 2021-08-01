@@ -50,6 +50,8 @@ const EXPECTED_AUTH_REQUEST = readFileSync('./test/resources/output/AuthRequest.
 const EXPECTED_RESPONSES_NO_HEADERS = readFileSync('./test/resources/output/ResponsesNoHeaders.yml', 'utf8')
 const EXPECTED_FORM_DATA = readFileSync('./test/resources/output/FormData.yml', 'utf8')
 const EXPECTED_FORM_URLENCODED = readFileSync('./test/resources/output/FormUrlencoded.yml', 'utf8')
+const EXPECTED_VARIABLES = readFileSync('./test/resources/output/Variables.yml', 'utf8')
+const EXPECTED_VARIABLES_ADDITIONAL = readFileSync('./test/resources/output/VariablesAdditional.yml', 'utf8')
 
 const AUTH_DEFINITIONS = {
   myCustomAuth: {
@@ -106,6 +108,7 @@ describe('Library specs', function () {
       const COLLECTION_AUTH_REQUEST = `./test/resources/input/${version}/AuthRequest.json`
       const COLLECTION_FORM_DATA = `./test/resources/input/${version}/FormData.json`
       const COLLECTION_FORM_URLENCODED = `./test/resources/input/${version}/FormUrlencoded.json`
+      const COLLECTION_VARIABLES = `./test/resources/input/${version}/Variables.json`
 
       it('should work with a basic transform', async function () {
         const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {})
@@ -408,6 +411,22 @@ describe('Library specs', function () {
       it('should parse POST methods with www form urlencoded', async function () {
         const result = await postmanToOpenApi(COLLECTION_FORM_URLENCODED, OUTPUT_PATH, {})
         equal(result, EXPECTED_FORM_URLENCODED)
+      })
+
+      it('should replace postman variables if feature activated', async function () {
+        const result = await postmanToOpenApi(COLLECTION_VARIABLES, OUTPUT_PATH, { replaceVars: true })
+        equal(result, EXPECTED_VARIABLES)
+      })
+
+      it('should use additional variables for replace', async function () {
+        const result = await postmanToOpenApi(COLLECTION_VARIABLES, OUTPUT_PATH, {
+          replaceVars: true,
+          additionalVars: {
+            company: 'myCompany',
+            service: 'myService'
+          }
+        })
+        equal(result, EXPECTED_VARIABLES_ADDITIONAL)
       })
     })
   })

@@ -18,7 +18,8 @@
 
 * Postman Collection v2.1 and v2.0.
 * OpenApi 3.0
-* 🆕 Cli available
+* Cli available
+* 🆕 Postman variables automatically replaced.
 * Basic info API from Postman info or customizable.
 * Basic method conversion (GET, POST, PUT...).
 * Support Postman folders as tags.
@@ -31,7 +32,7 @@
 * Provide meta-information as a markdown table.
 * Path depth configuration.
 * API Response parse from postman examples and from test code (status code).
-* [x-logo](https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md#x-logo) extension support
+* [x-logo](https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md#x-logo) extension support.
 
 See [Features](#features) section for more details about how to use each of this features.
 
@@ -129,6 +130,8 @@ The third parameter used in the library method is an `options` object containing
 | [externalDocs](#externaldocs-object) | Info about the API external documentation. |
 | [folders](#folders-object) | Config object for folders and nested folders in postman collection. |
 | [responseHeaders](#responseheaders-boolean) | Indicate if should parse the response headers from the collection examples. |
+| [replaceVars](#replacevars-boolean) | Boolean value to indicate if postman variables should be replaced.|
+| [additionalVars](#additionalvars-object) |  Object to provide additional values for variables replacement.|
 
 ### info (Object)
 
@@ -316,6 +319,33 @@ This flag indicates if the headers that are saved as part of the postman collect
 
 The default value is `true`, so headers are by default added to the response definition.
 
+### replaceVars (Boolean)
+
+This flag indicates if the [postman variables](https://learning.postman.com/docs/sending-requests/variables/) referenced in the postman collection should be replaced before generate the OpenAPI specs.
+
+If set to `true` all variable references contained in the postman collection as "{{variable}}" will be replaced by his value defined at [postman collection level](https://learning.postman.com/docs/sending-requests/variables/#defining-collection-variables) or values provided the [additionalVars Object](#additionalvars-object).
+
+Be aware that path variables defined as postman variables "{{variable}}" as for example a path like `https://api.io/users/{{user_id}}` will be also replaced if there exist a variable definition at postman collection or in the [additionalVars Object](#additionalvars-object).
+
+The default value for this flag is `false` as variable replacement has a performance cost.
+
+### additionalVars (Object)
+
+In postman, variables can be defined at different [scopes level](https://learning.postman.com/docs/sending-requests/variables/#variable-scopes) but only the ones defined at [postman collection level](https://learning.postman.com/docs/sending-requests/variables/#defining-collection-variables) will be saved inside collection file, to provide additional variable values, what we can call Global or Environment variables, there exist the `additionalVars` parameter.
+
+This parameter is a json Object that contain as key the variable name and as value the variable value, as for example:
+
+```js
+{
+    additionalVars: {
+        service : 'myService',
+        company : 'myCompany'
+    }
+}
+```
+
+Take into account that variable values provided in the `additionalVars` Object supersede those defined at Postman collection level.
+
 # Features
 
 ## Basic conversion
@@ -352,7 +382,7 @@ This library automatically transform query and headers parameters from Postman o
 
 The default schema used for parameters is `string` but the library try to infer the type of the parameters based on the value using regular expressions, the detected types are `integer`, `number`, `boolean` and `string`, if you find any problem in the inference process please open an issue.
 
-Path parameters are also automatically detected, this library look for [Postman variables](https://learning.postman.com/docs/sending-requests/variables/) in the url as `{{{variable}}}` and transform to a single curly brace expression as `{variable}` as supported by OpenAPI, also create the parameter definition using the variable name. To provide additional information about a path parameter you can [Pass Meta-information as markdown](#pass-meta-information-as-markdown).
+Path parameters are also automatically detected, this library look for [Postman variables](https://learning.postman.com/docs/sending-requests/variables/) in the url as "{{variable}}" and transform to a single curly brace expression as `{variable}` as supported by OpenAPI, also create the parameter definition using the variable name. To provide additional information about a path parameter you can [Pass Meta-information as markdown](#pass-meta-information-as-markdown). Be aware that if you use the `replaceVar` option the path parameter using Postman variables can be affected. See [replaceVars option](#replacevars-boolean)
 
 For headers and query fields you can indicate that this parameter is mandatory/required adding into the description the literal `[required]`. The library use a case insensitive regexp so all variations are supported (`[REQUIRED]`, `[Required]`...) and never mind the location inside the description (at the beginning, at the end...).
 
