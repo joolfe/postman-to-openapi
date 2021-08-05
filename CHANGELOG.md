@@ -1,3 +1,15 @@
+### [1.16.1](https://github.com/joolfe/postman-to-openapi/compare/1.16.0...1.16.1) (2021-08-05)
+
+
+### Bug Fixes
+
+* fail when collection don't have ´variable´ parameter ([bb02ad6](https://github.com/joolfe/postman-to-openapi/commit/bb02ad64dcf49e27e3d48cfeed71f08bc3064b29))
+
+
+### Build System
+
+* update version and deps ([c95d377](https://github.com/joolfe/postman-to-openapi/commit/c95d37761798e8cf456cfe071ede2e7e634afc6c))
+
 ## [1.16.0](https://github.com/joolfe/postman-to-openapi/compare/1.15.0...1.16.0) (2021-08-01)
 
 
