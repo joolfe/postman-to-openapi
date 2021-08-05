@@ -428,6 +428,11 @@ describe('Library specs', function () {
         })
         equal(result, EXPECTED_VARIABLES_ADDITIONAL)
       })
+
+      it('should not fail if no variable are defined and want to replace', async function () {
+        const result = await postmanToOpenApi(COLLECTION_FORM_DATA, OUTPUT_PATH, { replaceVars: true })
+        equal(result, EXPECTED_FORM_DATA)
+      })
     })
   })
 
