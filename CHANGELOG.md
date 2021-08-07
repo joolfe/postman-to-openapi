@@ -1,3 +1,25 @@
+## [1.17.0](https://github.com/joolfe/postman-to-openapi/compare/1.16.1...1.17.0) (2021-08-07)
+
+
+### Features
+
+* support path parameter & replace the value and description ([faa7cbc](https://github.com/joolfe/postman-to-openapi/commit/faa7cbcb9259c1af3214b2a03cdad7a40b8509e6))
+
+
+### Code Refactoring
+
+*  simplify vars processing to align with existing code ([f07ec8e](https://github.com/joolfe/postman-to-openapi/commit/f07ec8e549bf2d7834efd1760b42c164d4f2bc05))
+
+
+### Documentation
+
+* update documentation ([4cfff1a](https://github.com/joolfe/postman-to-openapi/commit/4cfff1a5ff27ebb021e49ba0802f749411bdd447))
+
+
+### Build System
+
+* update version ([b60400d](https://github.com/joolfe/postman-to-openapi/commit/b60400d0068e43c978da2efbf8b6565911db1a73))
+
 ### [1.16.1](https://github.com/joolfe/postman-to-openapi/compare/1.16.0...1.16.1) (2021-08-05)
 
 
