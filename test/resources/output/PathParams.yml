@@ -69,7 +69,7 @@ paths:
         - name: user_id
           in: path
           schema:
-            type: number
+            type: integer
           required: true
           description: This is just a user identifier
           example: '476587598'
