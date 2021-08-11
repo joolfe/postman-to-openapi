@@ -53,6 +53,7 @@ const EXPECTED_FORM_URLENCODED = readFileSync('./test/resources/output/FormUrlen
 const EXPECTED_VARIABLES = readFileSync('./test/resources/output/Variables.yml', 'utf8')
 const EXPECTED_VARIABLES_ADDITIONAL = readFileSync('./test/resources/output/VariablesAdditional.yml', 'utf8')
 const EXPECTED_BASEPATH_VAR = readFileSync('./test/resources/output/BasepathVar.yml', 'utf8')
+const EXPECTED_REQUEST_BODY = readFileSync('./test/resources/output/RequestBody.yml', 'utf8')
 
 const AUTH_DEFINITIONS = {
   myCustomAuth: {
@@ -111,6 +112,7 @@ describe('Library specs', function () {
       const COLLECTION_FORM_URLENCODED = `./test/resources/input/${version}/FormUrlencoded.json`
       const COLLECTION_VARIABLES = `./test/resources/input/${version}/Variables.json`
       const COLLECTION_BASEURL_VAR = `./test/resources/input/${version}/BasepathVar.json`
+      const COLLECTION_REQUEST_BODY = `./test/resources/input/${version}/RequestBody.json`
 
       it('should work with a basic transform', async function () {
         const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {})
@@ -450,6 +452,11 @@ describe('Library specs', function () {
           ]
         })
         equal(result, EXPECTED_BASEPATH_VAR)
+      })
+
+      it('should parse request body', async function () {
+        const result = await postmanToOpenApi(COLLECTION_REQUEST_BODY, OUTPUT_PATH, {})
+        equal(result, EXPECTED_REQUEST_BODY)
       })
     })
   })

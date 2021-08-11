@@ -48,7 +48,7 @@
 						""
 					]
 				},
-				"description": "Obtain a list of users descriptions\n\n# postman-to-openapi\n\n| object | name     | description                    | required | type   | example   |\n|--------|----------|--------------------------------|----------|--------|-----------|\n| path   | user_id  | This is just a user identifier | true     | number | 476587598 |"
+				"description": "Obtain a list of users descriptions\n\n# postman-to-openapi\n\n## path\n| object | name     | description                    | required | type   | example   |\n|--------|----------|--------------------------------|----------|--------|-----------|\n| path   | user_id  | This is just a user identifier | true     | number | 476587598 |"
 			},
 			"response": []
 		},
@@ -72,7 +72,7 @@
 						"{{desc_id}}"
 					]
 				},
-				"description": "Obtain a list of users descriptions\n\n# postman-to-openapi\n\n| object | name     | description                    | required | type   | example   |\n|--------|----------|--------------------------------|----------|--------|-----------|\n| path   | user_id  | This is just a user identifier | true     | number | 476587598 |\n| path   | desc_id  | Description id                 | true     | string | ALMT      |"
+				"description": "Obtain a list of users descriptions\n\n# postman-to-openapi\n\n## path\n| object | name     | description                    | required | type   | example   |\n|--------|----------|--------------------------------|----------|--------|-----------|\n| path   | user_id  | This is just a user identifier | true     | number | 476587598 |\n| path   | desc_id  | Description id                 | true     | string | ALMT      |"
 			},
 			"response": []
 		}

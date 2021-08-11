@@ -180,7 +180,7 @@
 					}
 				},
 				"url": "https://60bb37ab42e1d000176206c3.mockapi.io/api/v1/users/{{user_id}}",
-				"description": "Retrieve the user data\n\n# postman-to-openapi\n\n| object | name     | description                    | required | type   | example   |\n|--------|----------|--------------------------------|----------|--------|-----------|\n| path   | user_id  | This is just a user identifier | true     | number | 54 |"
+				"description": "Retrieve the user data\n\n# postman-to-openapi\n\n## path\n| object | name     | description                    | required | type   | example   |\n|--------|----------|--------------------------------|----------|--------|-----------|\n| path   | user_id  | This is just a user identifier | true     | number | 54 |"
 			},
 			"response": [
 				{

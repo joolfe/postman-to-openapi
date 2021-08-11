@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "6249d605-1039-4f44-a6e5-da052ae8596f",
+		"name": "Path Params",
+		"description": "Collection to test path parameters",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all users with description and params with type",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"group_id\": 1,\n    \"user\": {\n        \"id\": 1,\n        \"name\": \"CY\",\n        \"info\": {\n            \"gender\": \"Male\",\n            \"age\": 20\n        }\n    },\n    \"others\": [\"message1\", \"message2\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.io/desc/:user_id/:type/all",
+					"protocol": "https",
+					"host": [
+						"api",
+						"io"
+					],
+					"path": [
+						"desc",
+						":user_id",
+						":type",
+						"all"
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": "{{user_id}}",
+							"description": "This description will be replaced"
+						},
+						{
+							"key": "type",
+							"value": "user",
+							"description": "This is just a user type"
+						}
+					]
+				},
+				"description": "Obtain a list of users descriptions\n\n# postman-to-openapi\n\n## path\n| object | name     | description                    | required | type   | example   |\n|--------|----------|--------------------------------|----------|--------|-----------|\n| path   | user_id  | This is just a user identifier | true     | number | 476587598 |\n| path   | type | Group of the type              | true     | string | ADMIN    |\n\n## body\n| name              | description                     | required | type   |\n| ----------------- | ------------------------------- | -------- | ------ |\n| group_id          | This is just a group identifier | true     | number |\n| user              | Object of the user              | true     | object |\n| user.id           | Identifier of the user          | true     | number |\n| user.name         | Name of the user                | true     | string |\n| user.info         | Information of the user            | false     | object |\n| user.info.gender | Gender of the user             | false     | string |\n| user.info.age | Age of the user             | false     | number |\n| others            | This is for options, but should give empty array             | true    | string[] |"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

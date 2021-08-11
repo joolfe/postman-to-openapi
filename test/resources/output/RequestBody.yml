@@ -1,0 +1,86 @@
+openapi: 3.0.0
+info:
+  title: Path Params
+  description: Collection to test path parameters
+  version: 1.0.0
+servers:
+  - url: https://api.io
+paths:
+  /desc/{user_id}/{type}/all:
+    post:
+      tags:
+        - default
+      summary: Get all users with description and params with type
+      description: Obtain a list of users descriptions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                group_id:
+                  type: number
+                  description: This is just a group identifier
+                user:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                      description: Identifier of the user
+                    name:
+                      type: string
+                      description: Name of the user
+                    info:
+                      type: object
+                      properties:
+                        gender:
+                          type: string
+                          description: Gender of the user
+                        age:
+                          type: number
+                          description: Age of the user
+                      description: Information of the user
+                  required:
+                    - id
+                    - name
+                  description: Object of the user
+                others:
+                  type: array
+                  items:
+                    type: string
+                  description: This is for options, but should give empty array
+              required:
+                - group_id
+                - user
+                - others
+              example:
+                group_id: 1
+                user:
+                  id: 1
+                  name: CY
+                  info:
+                    gender: Male
+                    age: 20
+                others:
+                  - message1
+                  - message2
+      parameters:
+        - name: user_id
+          in: path
+          schema:
+            type: number
+          required: true
+          description: This is just a user identifier
+          example: '476587598'
+        - name: type
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Group of the type
+          example: ADMIN
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
