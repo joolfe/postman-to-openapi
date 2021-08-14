@@ -52,6 +52,7 @@ const EXPECTED_FORM_DATA = readFileSync('./test/resources/output/FormData.yml', 
 const EXPECTED_FORM_URLENCODED = readFileSync('./test/resources/output/FormUrlencoded.yml', 'utf8')
 const EXPECTED_VARIABLES = readFileSync('./test/resources/output/Variables.yml', 'utf8')
 const EXPECTED_VARIABLES_ADDITIONAL = readFileSync('./test/resources/output/VariablesAdditional.yml', 'utf8')
+const EXPECTED_BASEPATH_VAR = readFileSync('./test/resources/output/BasepathVar.yml', 'utf8')
 
 const AUTH_DEFINITIONS = {
   myCustomAuth: {
@@ -109,6 +110,7 @@ describe('Library specs', function () {
       const COLLECTION_FORM_DATA = `./test/resources/input/${version}/FormData.json`
       const COLLECTION_FORM_URLENCODED = `./test/resources/input/${version}/FormUrlencoded.json`
       const COLLECTION_VARIABLES = `./test/resources/input/${version}/Variables.json`
+      const COLLECTION_BASEURL_VAR = `./test/resources/input/${version}/BasepathVar.json`
 
       it('should work with a basic transform', async function () {
         const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {})
@@ -432,6 +434,22 @@ describe('Library specs', function () {
       it('should not fail if no variable are defined and want to replace', async function () {
         const result = await postmanToOpenApi(COLLECTION_FORM_DATA, OUTPUT_PATH, { replaceVars: true })
         equal(result, EXPECTED_FORM_DATA)
+      })
+
+      it('should not fail if url has a base path but is not replaced', async function () {
+        const result = await postmanToOpenApi(COLLECTION_BASEURL_VAR, OUTPUT_PATH, {
+          servers: [
+            {
+              url: 'https://awesome.api.sandbox.io',
+              description: 'Sandbox environment server'
+            },
+            {
+              url: 'https://awesome.api.io',
+              description: 'Production env'
+            }
+          ]
+        })
+        equal(result, EXPECTED_BASEPATH_VAR)
       })
     })
   })
