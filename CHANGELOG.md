@@ -1,3 +1,15 @@
+### [1.17.1](https://github.com/joolfe/postman-to-openapi/compare/1.17.0...1.17.1) (2021-08-14)
+
+
+### Bug Fixes
+
+* scrape Url error close [#136](https://github.com/joolfe/postman-to-openapi/issues/136) ([dda9168](https://github.com/joolfe/postman-to-openapi/commit/dda9168896b7d06b79a721f5e14dbdb56c6d8665))
+
+
+### Build System
+
+* update version ([82939b9](https://github.com/joolfe/postman-to-openapi/commit/82939b9a157bd6665017d60e85af9eac6b48aaa6))
+
 ## [1.17.0](https://github.com/joolfe/postman-to-openapi/compare/1.16.1...1.17.0) (2021-08-07)
 
 
