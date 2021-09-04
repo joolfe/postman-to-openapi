@@ -1,3 +1,10 @@
+### [1.17.2](https://github.com/joolfe/postman-to-openapi/compare/1.17.1...1.17.2) (2021-09-04)
+
+
+### Build System
+
+* deps updated ([18f5446](https://github.com/joolfe/postman-to-openapi/commit/18f54461e9b6378437db69ed016e703d28869c00))
+
 ### [1.17.1](https://github.com/joolfe/postman-to-openapi/compare/1.17.0...1.17.1) (2021-08-14)
 
 
