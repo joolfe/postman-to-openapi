@@ -1,6 +1,6 @@
 {
   "name": "postman-to-openapi",
-  "version": "1.17.2",
+  "version": "1.17.3",
   "description": "Convert postman collection to OpenAPI spec",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
@@ -53,10 +53,10 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "execa": "^5.1.1",
-    "husky": "^6.0.0",
+    "husky": "^7.0.2",
     "mocha": "^9.0.3",
     "nyc": "^15.1.0",
-    "typescript": "^4.3.2"
+    "typescript": "^4.4.3"
   },
   "commitlint": {
     "extends": [
@@ -86,9 +86,9 @@
     "check-coverage": true
   },
   "dependencies": {
-    "commander": "^7.2.0",
+    "commander": "^8.2.0",
     "js-yaml": "^4.1.0",
-    "marked": "^2.0.7",
+    "marked": "^3.0.4",
     "mustache": "^4.2.0"
   },
   "husky": {
