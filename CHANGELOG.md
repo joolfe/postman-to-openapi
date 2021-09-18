@@ -1,3 +1,15 @@
+### [1.17.3](https://github.com/joolfe/postman-to-openapi/compare/1.17.2...1.17.3) (2021-09-18)
+
+
+### Bug Fixes
+
+* update typescript definition with last added options ([4f83072](https://github.com/joolfe/postman-to-openapi/commit/4f8307236272499746d44483602e4a863de07695))
+
+
+### Build System
+
+* update dependencies to vastest versions ([513ed85](https://github.com/joolfe/postman-to-openapi/commit/513ed85b7677246726ce412da676971b2f65c13a))
+
 ### [1.17.2](https://github.com/joolfe/postman-to-openapi/compare/1.17.1...1.17.2) (2021-09-04)
 
 
