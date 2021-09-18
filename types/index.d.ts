@@ -77,7 +77,12 @@ export interface Options {
     auth?: AuthOptions,
     servers?: Array<ServerObject>,
     externalDocs?: ExternalDocsObject,
-    folders?: FoldersOption
+    folders?: FoldersOption,
+    // Default value true
+    responseHeaders?: boolean,
+    // Default value false
+    replaceVars?: boolean,
+    additionalVars?: { [key: string]: string }
 }
 
 export default function postmanToOpenApi (input: string, output?: string, options?: Options) : string

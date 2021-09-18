@@ -72,6 +72,25 @@ const options:Options = {
     folders
 };
 
+const options2:Options = {
+    info,
+    defaultTag: 'my Tag',
+    pathDepth: 0,
+    auth: {
+        'basicAuth': basicAuth,
+        'bearerAuth': bearerAuth
+    },
+    servers: [serverDev, serverPro],
+    externalDocs,
+    folders,
+    responseHeaders: false,
+    replaceVars: false,
+    additionalVars: {
+        'key': 'value',
+        'key2': 'value2'
+    }
+};
+
 (async () => {
 
     const openAPI1 = postmanToOpenApi('./path/to/postman_collection.json')
@@ -79,5 +98,7 @@ const options:Options = {
     const openAPI2 = postmanToOpenApi('./path/to/postman_collection.json', './path/to/result/openApi.yml')
 
     const openAPI3 = postmanToOpenApi('./path/to/postman_collection.json', './path/to/result/openApi.yml', options)
+
+    const openAPI4 = postmanToOpenApi('./path/to/postman_collection.json', './path/to/result/openApi.yml', options2)
 
 })();
