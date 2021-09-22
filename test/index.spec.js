@@ -10,6 +10,7 @@ const { version } = require('../package.json')
 const OUTPUT_PATH = path.join(__dirname, '/openAPIRes.yml')
 
 const COLLECTION_NO_OPTIONS = './test/resources/input/NoOptionsInBody.json'
+const COLLECTION_RAW_BODY = './test/resources/input/RawBody.json'
 
 const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
 const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
@@ -53,6 +54,7 @@ const EXPECTED_FORM_URLENCODED = readFileSync('./test/resources/output/FormUrlen
 const EXPECTED_VARIABLES = readFileSync('./test/resources/output/Variables.yml', 'utf8')
 const EXPECTED_VARIABLES_ADDITIONAL = readFileSync('./test/resources/output/VariablesAdditional.yml', 'utf8')
 const EXPECTED_BASEPATH_VAR = readFileSync('./test/resources/output/BasepathVar.yml', 'utf8')
+const EXPECTED_RAW_BODY = readFileSync('./test/resources/output/RawBody.yml', 'utf8')
 
 const AUTH_DEFINITIONS = {
   myCustomAuth: {
@@ -457,6 +459,11 @@ describe('Library specs', function () {
   it('should work if no options in request body', async function () {
     const result = await postmanToOpenApi(COLLECTION_NO_OPTIONS, OUTPUT_PATH, {})
     equal(result, EXPECTED_BASIC)
+  })
+
+  it('should try to parse raw body as json but fallback to text', async function () {
+    const result = await postmanToOpenApi(COLLECTION_RAW_BODY, OUTPUT_PATH, {})
+    equal(result, EXPECTED_RAW_BODY)
   })
 
   it('should expose the version of the library', async function () {
