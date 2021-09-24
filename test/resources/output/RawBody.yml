@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Postman to OpenAPI
+  title: Raw Body
   description: Mi super test collection from postman
   version: 1.0.0
 servers:
