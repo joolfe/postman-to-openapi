@@ -1,3 +1,20 @@
+### [1.17.4](https://github.com/joolfe/postman-to-openapi/compare/1.17.3...1.17.4) (2021-09-24)
+
+
+### Bug Fixes
+
+* fallback to parsing non-json raw body as text ([#153](https://github.com/joolfe/postman-to-openapi/issues/153)) ([abb85ec](https://github.com/joolfe/postman-to-openapi/commit/abb85ec0fe289096febc6cdc585295755d0da00f))
+
+
+### Tests
+
+* add test for supported collection versions ([d55abfd](https://github.com/joolfe/postman-to-openapi/commit/d55abfd8ef09c3289b72191ef66fdb53e5a55a89))
+
+
+### Build System
+
+* update version ([6388e81](https://github.com/joolfe/postman-to-openapi/commit/6388e813bce63bb3c2a9a2042cba9eed30bb594f))
+
 ### [1.17.3](https://github.com/joolfe/postman-to-openapi/compare/1.17.2...1.17.3) (2021-09-18)
 
 
