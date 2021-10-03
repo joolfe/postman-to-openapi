@@ -1,3 +1,16 @@
+### [1.17.5](https://github.com/joolfe/postman-to-openapi/compare/1.17.4...1.17.5) (2021-10-03)
+
+
+### Bug Fixes
+
+* Avoid error when some versions of postman export response header with null value. close [#152](https://github.com/joolfe/postman-to-openapi/issues/152) ([8eb6861](https://github.com/joolfe/postman-to-openapi/commit/8eb68619ef5a2cc1f952d9a516e45ee3c1047ab8))
+
+
+### Build System
+
+* update deps ([69e3397](https://github.com/joolfe/postman-to-openapi/commit/69e339772de486f2cfd99f6da0765d95f9a667b3))
+* update version ([921f9bd](https://github.com/joolfe/postman-to-openapi/commit/921f9bdbf0270cccb380a2fd0d8a1160323976f6))
+
 ### [1.17.4](https://github.com/joolfe/postman-to-openapi/compare/1.17.3...1.17.4) (2021-09-24)
 
 
