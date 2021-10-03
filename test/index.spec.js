@@ -10,6 +10,7 @@ const { version } = require('../package.json')
 const OUTPUT_PATH = path.join(__dirname, '/openAPIRes.yml')
 
 const COLLECTION_NO_OPTIONS = './test/resources/input/NoOptionsInBody.json'
+const COLLECTION_NULL_HEADERS = './test/resources/input/NullHeaders.json'
 
 const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
 const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
@@ -54,6 +55,7 @@ const EXPECTED_VARIABLES = readFileSync('./test/resources/output/Variables.yml',
 const EXPECTED_VARIABLES_ADDITIONAL = readFileSync('./test/resources/output/VariablesAdditional.yml', 'utf8')
 const EXPECTED_BASEPATH_VAR = readFileSync('./test/resources/output/BasepathVar.yml', 'utf8')
 const EXPECTED_RAW_BODY = readFileSync('./test/resources/output/RawBody.yml', 'utf8')
+const EXPECTED_NULL_HEADER = readFileSync('./test/resources/output/NullHeader.yml', 'utf8')
 
 const AUTH_DEFINITIONS = {
   myCustomAuth: {
@@ -468,5 +470,10 @@ describe('Library specs', function () {
 
   it('should expose the version of the library', async function () {
     equal(postmanToOpenApi.version, version)
+  })
+
+  it('should work if header is equals to "null" in response', async function () {
+    const result = await postmanToOpenApi(COLLECTION_NULL_HEADERS, OUTPUT_PATH, {})
+    equal(result, EXPECTED_NULL_HEADER)
   })
 })
