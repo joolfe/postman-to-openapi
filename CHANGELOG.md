@@ -1,3 +1,15 @@
+## [1.18.0](https://github.com/joolfe/postman-to-openapi/compare/1.17.5...1.18.0) (2021-10-16)
+
+
+### Bug Fixes
+
+* convert collections with `collection` wrapper attribute ([ddc8edc](https://github.com/joolfe/postman-to-openapi/commit/ddc8edcc752f062117db4a9e59ffded89898f2d8)), closes [#120](https://github.com/joolfe/postman-to-openapi/issues/120) [#161](https://github.com/joolfe/postman-to-openapi/issues/161)
+
+
+### Build System
+
+* update version and some deps ([b9cde95](https://github.com/joolfe/postman-to-openapi/commit/b9cde95db7ea37e1673e410c43d54997e3fed424))
+
 ### [1.17.5](https://github.com/joolfe/postman-to-openapi/compare/1.17.4...1.17.5) (2021-10-03)
 
 
