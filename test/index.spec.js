@@ -56,6 +56,7 @@ const EXPECTED_VARIABLES_ADDITIONAL = readFileSync('./test/resources/output/Vari
 const EXPECTED_BASEPATH_VAR = readFileSync('./test/resources/output/BasepathVar.yml', 'utf8')
 const EXPECTED_RAW_BODY = readFileSync('./test/resources/output/RawBody.yml', 'utf8')
 const EXPECTED_NULL_HEADER = readFileSync('./test/resources/output/NullHeader.yml', 'utf8')
+const EXPECTED_COLLECTION_WRAPPER = readFileSync('./test/resources/output/CollectionWrapper.yml', 'utf8')
 
 const AUTH_DEFINITIONS = {
   myCustomAuth: {
@@ -115,6 +116,7 @@ describe('Library specs', function () {
       const COLLECTION_VARIABLES = `./test/resources/input/${version}/Variables.json`
       const COLLECTION_BASEURL_VAR = `./test/resources/input/${version}/BasepathVar.json`
       const COLLECTION_RAW_BODY = `./test/resources/input/${version}/RawBody.json`
+      const COLLECTION_COLLECTION_WRAPPER = `./test/resources/input/${version}/CollectionWrapper.json`
 
       it('should work with a basic transform', async function () {
         const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {})
@@ -459,6 +461,11 @@ describe('Library specs', function () {
       it('should try to parse raw body as json but fallback to text', async function () {
         const result = await postmanToOpenApi(COLLECTION_RAW_BODY, OUTPUT_PATH, {})
         equal(result, EXPECTED_RAW_BODY)
+      })
+
+      it('should work with collection wrapper attribute', async function () {
+        const result = await postmanToOpenApi(COLLECTION_COLLECTION_WRAPPER, OUTPUT_PATH, {})
+        equal(result, EXPECTED_COLLECTION_WRAPPER)
       })
     })
   })
