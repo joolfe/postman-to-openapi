@@ -64,7 +64,7 @@
     ]
   },
   "engines": {
-    "node": ">=10 <15"
+    "node": ">=10 <17"
   },
   "nyc": {
     "all": true,
