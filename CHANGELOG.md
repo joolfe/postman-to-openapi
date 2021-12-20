@@ -1,3 +1,41 @@
+## [2.0.0](https://github.com/joolfe/postman-to-openapi/compare/1.17.5...2.0.0) (2021-12-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove support for node.js 10 as some dependencies doens't support
+
+### Features
+
+* study and test node.js version 17 every dependency is compatible ([a4ef018](https://github.com/joolfe/postman-to-openapi/commit/a4ef01849cfdf5e0e7c3b6cb37430e527d2cfd67))
+
+
+### Bug Fixes
+
+* convert collections with `collection` wrapper attribute ([ddc8edc](https://github.com/joolfe/postman-to-openapi/commit/ddc8edcc752f062117db4a9e59ffded89898f2d8)), closes [#120](https://github.com/joolfe/postman-to-openapi/issues/120) [#161](https://github.com/joolfe/postman-to-openapi/issues/161)
+
+
+### Documentation
+
+* update changelog ([cc714b5](https://github.com/joolfe/postman-to-openapi/commit/cc714b5d5b3833d22ed71328f6c4ef72135ab904))
+
+
+### Continuous Integration
+
+* add node 16 to pipeline ([d9b7029](https://github.com/joolfe/postman-to-openapi/commit/d9b7029e260185cb042915185cae14e680e244c4))
+* add node version 17 to pipelines ([fbf7b17](https://github.com/joolfe/postman-to-openapi/commit/fbf7b17572a3dabd2ac53d722122e73fb02d4ad4))
+
+
+### Build System
+
+* eslint version revert as fail in node 10 ([32bc11d](https://github.com/joolfe/postman-to-openapi/commit/32bc11d77c7feb1b9dab6461c9e563d5267a51d8))
+* remove support for node.js 10 as some dependencies doens't support ([2ad84c2](https://github.com/joolfe/postman-to-openapi/commit/2ad84c20bef25a3f33b35f011a91a20c8f3627b6))
+* update dependencies ([7d8ca7e](https://github.com/joolfe/postman-to-openapi/commit/7d8ca7e9a49b597e5e9da799fda35ebdcbdfc57a))
+* update deps (exec is not possible to update) ([14756b9](https://github.com/joolfe/postman-to-openapi/commit/14756b978684d737eecc15a6370e219c6b9cad5d))
+* update node supported version ([3bcb2df](https://github.com/joolfe/postman-to-openapi/commit/3bcb2df35f425777c31553765996814b53d2be7f))
+* update version ([8a02811](https://github.com/joolfe/postman-to-openapi/commit/8a028119c72d9a2bdd7ddb5fcf2b27fa8c531d25))
+* update version and some deps ([b9cde95](https://github.com/joolfe/postman-to-openapi/commit/b9cde95db7ea37e1673e410c43d54997e3fed424))
+
 ## [1.18.0](https://github.com/joolfe/postman-to-openapi/compare/1.17.5...1.18.0) (2021-10-16)
 
 
