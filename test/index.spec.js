@@ -6,6 +6,7 @@ const path = require('path')
 const { equal, ok } = require('assert').strict
 const { readFileSync, existsSync, unlinkSync } = require('fs')
 const { version } = require('../package.json')
+const { promises: { readFile } } = require('fs')
 
 const OUTPUT_PATH = path.join(__dirname, '/openAPIRes.yml')
 
@@ -482,5 +483,11 @@ describe('Library specs', function () {
   it('should work if header is equals to "null" in response', async function () {
     const result = await postmanToOpenApi(COLLECTION_NULL_HEADERS, OUTPUT_PATH, {})
     equal(result, EXPECTED_NULL_HEADER)
+  })
+
+  it('should work with string as input (instead of a file path)', async function () {
+    const collectionString = await readFile(COLLECTION_NO_OPTIONS, 'utf8')
+    const result = await postmanToOpenApi(collectionString, OUTPUT_PATH, {})
+    equal(result, EXPECTED_BASIC)
   })
 })
