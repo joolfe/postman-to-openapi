@@ -60,11 +60,11 @@ npm i postman-to-openapi -g
 
 ## As library
 
-Use the library is as easy as use a single method `async postmanToOpenApi(inputPath, outputPath, options)`, the parameters are:
+Use the library is as easy as use a single method `async postmanToOpenApi(input, outputPath, options)`, the parameters are:
 
 | Param        | Description                                                                                 |
 |--------------|---------------------------------------------------------------------------------------------|
-| `inputPath`  | String. Path of the Postman collection file.                                                |
+| `input`  | String. Path of the Postman collection file or value of the postman collection as String.                                              |
 | `outputPath` | String. Path of the output file where the OpenAPi will be stored. This param is optional if not provided (`undefined` or `null`) no file will be saved. |
 | `options`    | Object. Optional configuration, see [options](#options) section for a detailed description. |
 
