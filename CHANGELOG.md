@@ -1,3 +1,20 @@
+## [2.1.0](https://github.com/joolfe/postman-to-openapi/compare/2.0.1...2.1.0) (2022-01-15)
+
+
+### Features
+
+* allow input as string instead of file path ([5dc1a18](https://github.com/joolfe/postman-to-openapi/commit/5dc1a18627819514c68a880ef8defbc15cd33021))
+
+
+### Build System
+
+* update version ([ef62c20](https://github.com/joolfe/postman-to-openapi/commit/ef62c20a37f4b3888bc53c15a8720ca4f77863ed))
+
+
+### Documentation
+
+* updates docs ([f9f3979](https://github.com/joolfe/postman-to-openapi/commit/f9f397930b04e7b2397e0244a1c1675481dfeecb))
+
 ### [2.0.1](https://github.com/joolfe/postman-to-openapi/compare/2.0.0...2.0.1) (2022-01-15)
 
 
