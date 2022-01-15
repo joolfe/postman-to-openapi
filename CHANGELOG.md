@@ -1,3 +1,16 @@
+### [2.0.1](https://github.com/joolfe/postman-to-openapi/compare/2.0.0...2.0.1) (2022-01-15)
+
+
+### Documentation
+
+* update reference to node version in readme ([d661200](https://github.com/joolfe/postman-to-openapi/commit/d6612006c65b8cc52613a908aab95c3a6e2bf7f6))
+
+
+### Build System
+
+* update deps ([02f1082](https://github.com/joolfe/postman-to-openapi/commit/02f108268268cb5d5baeca70fc9513fa3f436b84))
+* update version ([7ca54bc](https://github.com/joolfe/postman-to-openapi/commit/7ca54bcfcf835eab4f94b4a3d1b5c8cb42a55086))
+
 ## [2.0.0](https://github.com/joolfe/postman-to-openapi/compare/1.17.5...2.0.0) (2021-12-20)
 
 
