@@ -84,7 +84,7 @@ All features, usage instructions and help can be found in the [Documentation pag
 
 This project use for development:
 
-- Node.js v10.15.3 or higher
+- Node.js v12.x to v17.x
 - [Standard JS](https://standardjs.com/) rules to maintain clean code.
 - Use [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/) for commit messages.
 - Test with [mocha.js](https://mochajs.org/).
