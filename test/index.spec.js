@@ -3,7 +3,7 @@
 const { describe, it, afterEach } = require('mocha')
 const postmanToOpenApi = require('../lib')
 const path = require('path')
-const { equal, ok } = require('assert').strict
+const { equal, ok, rejects } = require('assert').strict
 const { readFileSync, existsSync, unlinkSync } = require('fs')
 const { version } = require('../package.json')
 const { promises: { readFile } } = require('fs')
@@ -47,6 +47,7 @@ const EXPECTED_X_LOGO = readFileSync('./test/resources/output/XLogo.yml', 'utf8'
 const EXPECTED_X_LOGO_VAR = readFileSync('./test/resources/output/XLogoVar.yml', 'utf8')
 const EXPECTED_AUTH_OPTIONS = readFileSync('./test/resources/output/AuthOptions.yml', 'utf8')
 const EXPECTED_RESPONSES = readFileSync('./test/resources/output/Responses.yml', 'utf8')
+const EXPECTED_EMPTY_RESPONSES = readFileSync('./test/resources/output/ResponsesEmpty.yml', 'utf8')
 const EXPECTED_RESPONSES_MULTI_LANG = readFileSync('./test/resources/output/ResponsesMultiLang.yml', 'utf8')
 const EXPECTED_AUTH_REQUEST = readFileSync('./test/resources/output/AuthRequest.yml', 'utf8')
 const EXPECTED_RESPONSES_NO_HEADERS = readFileSync('./test/resources/output/ResponsesNoHeaders.yml', 'utf8')
@@ -118,6 +119,8 @@ describe('Library specs', function () {
       const COLLECTION_BASEURL_VAR = `./test/resources/input/${version}/BasepathVar.json`
       const COLLECTION_RAW_BODY = `./test/resources/input/${version}/RawBody.json`
       const COLLECTION_COLLECTION_WRAPPER = `./test/resources/input/${version}/CollectionWrapper.json`
+      const COLLECTION_RESPONSES_JSON_ERROR = `./test/resources/input/${version}/ResponsesJsonError.json`
+      const COLLECTION_RESPONSES_EMPTY = `./test/resources/input/${version}/ResponsesEmpty.json`
 
       it('should work with a basic transform', async function () {
         const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {})
@@ -467,6 +470,18 @@ describe('Library specs', function () {
       it('should work with collection wrapper attribute', async function () {
         const result = await postmanToOpenApi(COLLECTION_COLLECTION_WRAPPER, OUTPUT_PATH, {})
         equal(result, EXPECTED_COLLECTION_WRAPPER)
+      })
+
+      it('should return friendly error message when a response sample body has an error in JSON', async function () {
+        await rejects(postmanToOpenApi(COLLECTION_RESPONSES_JSON_ERROR, OUTPUT_PATH, {}), {
+          name: 'Error',
+          message: "Error parsing response example \"Create new User automatic id\" parse error is: Unexpected token ' in JSON at position 1"
+        })
+      })
+
+      it('should not fail if response body is json but empty', async function () {
+        const result = await postmanToOpenApi(COLLECTION_RESPONSES_EMPTY, OUTPUT_PATH, { pathDepth: 2 })
+        equal(result, EXPECTED_EMPTY_RESPONSES)
       })
     })
   })
