@@ -1,3 +1,20 @@
+## [2.2.0](https://github.com/joolfe/postman-to-openapi/compare/2.1.0...2.2.0) (2022-02-19)
+
+
+### Features
+
+* Add error handling in response example parse ([acba056](https://github.com/joolfe/postman-to-openapi/commit/acba056c307cf07d143476956e115e8b7bd16f93))
+
+
+### Bug Fixes
+
+* update dependencies for moderate vulnerability ([f0ccc6f](https://github.com/joolfe/postman-to-openapi/commit/f0ccc6f252a83048cdefc04033c4d8d896fb3403))
+
+
+### Build System
+
+* update version ([5e2edff](https://github.com/joolfe/postman-to-openapi/commit/5e2edff9e352e2611f47f30ce5b6886b6047065d))
+
 ## [2.1.0](https://github.com/joolfe/postman-to-openapi/compare/2.0.1...2.1.0) (2022-01-15)
 
 
