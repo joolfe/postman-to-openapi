@@ -1,3 +1,15 @@
+### [2.2.1](https://github.com/joolfe/postman-to-openapi/compare/2.2.0...2.2.1) (2022-03-13)
+
+
+### Bug Fixes
+
+* **types:** it should return promise<string> ([19ddc69](https://github.com/joolfe/postman-to-openapi/commit/19ddc69448ff2b68e4ee1dbef5114d6a8212f704)), closes [/github.com/joolfe/postman-to-openapi/blob/master/lib/index.js#L9](https://github.com/joolfe//github.com/joolfe/postman-to-openapi/blob/master/lib/index.js/issues/L9)
+
+
+### Build System
+
+* update version ([ee6d061](https://github.com/joolfe/postman-to-openapi/commit/ee6d061bf279b2e3da3ad29ab1c7fb5418d7659a))
+
 ## [2.2.0](https://github.com/joolfe/postman-to-openapi/compare/2.1.0...2.2.0) (2022-02-19)
 
 
