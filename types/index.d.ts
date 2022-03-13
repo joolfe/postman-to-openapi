@@ -85,4 +85,4 @@ export interface Options {
     additionalVars?: { [key: string]: string }
 }
 
-export default function postmanToOpenApi (input: string, output?: string, options?: Options) : string
+export default function postmanToOpenApi (input: string, output?: string, options?: Options) : Promise<string>
