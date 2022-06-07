@@ -59,6 +59,7 @@ const EXPECTED_BASEPATH_VAR = readFileSync('./test/resources/output/BasepathVar.
 const EXPECTED_RAW_BODY = readFileSync('./test/resources/output/RawBody.yml', 'utf8')
 const EXPECTED_NULL_HEADER = readFileSync('./test/resources/output/NullHeader.yml', 'utf8')
 const EXPECTED_COLLECTION_WRAPPER = readFileSync('./test/resources/output/CollectionWrapper.yml', 'utf8')
+const EXPECTED_COLLECTION_JSON_COMMENTS = readFileSync('./test/resources/output/JsonComments.yml', 'utf8')
 
 const AUTH_DEFINITIONS = {
   myCustomAuth: {
@@ -121,6 +122,7 @@ describe('Library specs', function () {
       const COLLECTION_COLLECTION_WRAPPER = `./test/resources/input/${version}/CollectionWrapper.json`
       const COLLECTION_RESPONSES_JSON_ERROR = `./test/resources/input/${version}/ResponsesJsonError.json`
       const COLLECTION_RESPONSES_EMPTY = `./test/resources/input/${version}/ResponsesEmpty.json`
+      const COLLECTION_JSON_COMMENTS = `./test/resources/input/${version}/JsonComments.json`
 
       it('should work with a basic transform', async function () {
         const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {})
@@ -475,13 +477,18 @@ describe('Library specs', function () {
       it('should return friendly error message when a response sample body has an error in JSON', async function () {
         await rejects(postmanToOpenApi(COLLECTION_RESPONSES_JSON_ERROR, OUTPUT_PATH, {}), {
           name: 'Error',
-          message: "Error parsing response example \"Create new User automatic id\" parse error is: Unexpected token ' in JSON at position 1"
+          message: 'Error parsing response example "Create new User automatic id"'
         })
       })
 
       it('should not fail if response body is json but empty', async function () {
         const result = await postmanToOpenApi(COLLECTION_RESPONSES_EMPTY, OUTPUT_PATH, { pathDepth: 2 })
         equal(result, EXPECTED_EMPTY_RESPONSES)
+      })
+
+      it('should not fail if request body and response body have json with comments', async function () {
+        const result = await postmanToOpenApi(COLLECTION_JSON_COMMENTS, OUTPUT_PATH, { pathDepth: 2 })
+        equal(result, EXPECTED_COLLECTION_JSON_COMMENTS)
       })
     })
   })
