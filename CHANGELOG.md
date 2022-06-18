@@ -1,3 +1,49 @@
+## [2.4.0](https://github.com/joolfe/postman-to-openapi/compare/2.2.1...2.4.0) (2022-06-18)
+
+
+### Features
+
+* request bodies & examples with json comments ([a2df3a6](https://github.com/joolfe/postman-to-openapi/commit/a2df3a697c83022faa8bdec37b60671dc7fefc4d))
+
+
+### Bug Fixes
+
+* trying to fix lint ([5e57b58](https://github.com/joolfe/postman-to-openapi/commit/5e57b5835de523210b54b1427b0687c669acf362))
+
+
+### Documentation
+
+* update changelog ([62b9ef0](https://github.com/joolfe/postman-to-openapi/commit/62b9ef0236c0cdef2a2942f4b779401428a29d58))
+
+
+### Build System
+
+* update deps ([6745a1d](https://github.com/joolfe/postman-to-openapi/commit/6745a1d6ab2a1cb7b0ffecf963c06240b9d3182b))
+* update version ([f2c6ba5](https://github.com/joolfe/postman-to-openapi/commit/f2c6ba535d27e5d030267bd656a5bb799b91f8a3))
+
+## [2.3.0](https://github.com/joolfe/postman-to-openapi/compare/2.2.0...2.3.0) (2022-06-02)
+
+
+### Features
+
+* allowed javascript object as input and output ([1f1976c](https://github.com/joolfe/postman-to-openapi/commit/1f1976cc18d023006ccd9134491db99b62c0fcf6))
+
+
+### Bug Fixes
+
+* **types:** it should return promise<string> ([19ddc69](https://github.com/joolfe/postman-to-openapi/commit/19ddc69448ff2b68e4ee1dbef5114d6a8212f704)), closes [/github.com/joolfe/postman-to-openapi/blob/master/lib/index.js#L9](https://github.com/joolfe//github.com/joolfe/postman-to-openapi/blob/master/lib/index.js/issues/L9)
+
+
+### Documentation
+
+* update CHANGELOG ([aa78799](https://github.com/joolfe/postman-to-openapi/commit/aa78799fb4d4a9ba0cb84979dc24dd4cf51bb075))
+
+
+### Build System
+
+* update deps ([6745a1d](https://github.com/joolfe/postman-to-openapi/commit/6745a1d6ab2a1cb7b0ffecf963c06240b9d3182b))
+* update version ([ee6d061](https://github.com/joolfe/postman-to-openapi/commit/ee6d061bf279b2e3da3ad29ab1c7fb5418d7659a))
+
 ### [2.2.1](https://github.com/joolfe/postman-to-openapi/compare/2.2.0...2.2.1) (2022-03-13)
 
 
