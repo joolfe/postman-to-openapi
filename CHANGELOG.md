@@ -1,3 +1,26 @@
+## [2.4.0](https://github.com/joolfe/postman-to-openapi/compare/2.2.1...2.4.0) (2022-06-18)
+
+
+### Features
+
+* request bodies & examples with json comments ([a2df3a6](https://github.com/joolfe/postman-to-openapi/commit/a2df3a697c83022faa8bdec37b60671dc7fefc4d))
+
+
+### Bug Fixes
+
+* trying to fix lint ([5e57b58](https://github.com/joolfe/postman-to-openapi/commit/5e57b5835de523210b54b1427b0687c669acf362))
+
+
+### Documentation
+
+* update changelog ([62b9ef0](https://github.com/joolfe/postman-to-openapi/commit/62b9ef0236c0cdef2a2942f4b779401428a29d58))
+
+
+### Build System
+
+* update deps ([6745a1d](https://github.com/joolfe/postman-to-openapi/commit/6745a1d6ab2a1cb7b0ffecf963c06240b9d3182b))
+* update version ([f2c6ba5](https://github.com/joolfe/postman-to-openapi/commit/f2c6ba535d27e5d030267bd656a5bb799b91f8a3))
+
 ## [2.3.0](https://github.com/joolfe/postman-to-openapi/compare/2.2.0...2.3.0) (2022-06-02)
 
 
