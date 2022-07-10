@@ -1,0 +1,447 @@
+{
+	"info": {
+		"_postman_id": "94f001c7-aea7-4119-a2bf-24c98160754a",
+		"name": "example-project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21612803"
+	},
+	"item": [
+		{
+			"name": "CreateOneEmployee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"",
+							"var jsonData = pm.response.json()",
+							"",
+							"pm.test(\"Body test\", function(){",
+							"    pm.expect(jsonData).to.not.have.property(\"errorMessage\")",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"{{emp4id}}\",\n    \"first_name\": \"{{emp4prename}}\",\n    \"last_name\": \"{{emp4surname}}\",\n    \"email\": \"{{emp4email}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/employee/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"employee",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CreateOneEmployee-Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"{{testid}}\",\n    \"first_name\": \"{{testprename}}\",\n    \"last_name\": \"{{testsurname}}\",\n    \"email\": \"{{testemail}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/employee/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"employee",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Jun 2022 07:17:31 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "26"
+						}
+					],
+					"cookie": [],
+					"body": "\"62baab0b9a9f8967d9cc9483\""
+				}
+			]
+		},
+		{
+			"name": "CreateEmployee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"",
+							"const jsonData = pm.response.json()",
+							"",
+							"pm.test(\"Body test\", function(){",
+							"    pm.expect(jsonData).to.not.have.property(\"errorMessage\")",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"employees\": [\n        {\n        \"id\": \"{{emp1id}}\",\n        \"first_name\": \"{{emp1prename}}\",\n        \"last_name\": \"{{emp1surname}}\",\n        \"email\": \"{{emp1email}}\"\n        },\n        {\n        \"id\": \"{{emp2id}}\",\n        \"first_name\": \"{{emp2prename}}\",\n        \"last_name\": \"{{emp2surname}}\",\n        \"email\": \"{{emp2email}}\"\n        },\n        {\n        \"id\": \"{{emp3id}}\",\n        \"first_name\": \"{{emp3prename}}\",\n        \"last_name\": \"{{emp3surname}}\",\n        \"email\": \"{{emp3email}}\"\n        }\n    ]   \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/employee/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"employee",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetEmployee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"",
+							"const jsonData = pm.response.json()",
+							"",
+							"pm.test(\"Body Test\", function(){",
+							"    pm.expect(jsonData).to.have.property(\"id\", pm.environment.get(\"emp1id\"))",
+							"    pm.expect(jsonData).to.have.property(\"first_name\", pm.environment.get(\"emp1prename\"))",
+							"    pm.expect(jsonData).to.have.property(\"last_name\", pm.environment.get(\"emp1surname\"))",
+							"    pm.expect(jsonData).to.have.property(\"email\", pm.environment.get(\"emp1email\"))",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9090/employee/{{emp2id}}/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"employee",
+						"{{emp2id}}",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAll",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function(){",
+							"    pm.response.to.have.status(200)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/employee/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"employee",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteEmployee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"ID1 Status Test\", function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"",
+							"var id2 = pm.environment.get(\"emp2id\")",
+							"var id3 = pm.environment.get(\"emp3id\")",
+							"var id4 = pm.environment.get(\"emp4id\")",
+							"",
+							"pm.sendRequest({",
+							"    url: \"http://localhost:9090/employee/\" + id2 + \"/delete\",",
+							"    method: \"DELETE\"",
+							"}, (err, res) => {",
+							"    pm.test(\"ID2 Status Test\", function() {",
+							"        pm.expect(res).to.have.property('code', 200)",
+							"    })",
+							"    ",
+							"})",
+							"",
+							"pm.sendRequest({",
+							"    url: \"http://localhost:9090/employee/\" + id3 + \"/delete\",",
+							"    method: \"DELETE\"",
+							"}, (err, res) => {",
+							"    pm.test(\"ID3 Status Test\", function(){",
+							"        pm.expect(res).to.have.property('code', 200)",
+							"    })",
+							"})",
+							"",
+							"pm.sendRequest({",
+							"    url: \"http://localhost:9090/employee/\" + id4 + \"/delete\",",
+							"    method: \"DELETE\"",
+							"}, (err, res) => {",
+							"    pm.test(\"ID4 Status Test\", function(){",
+							"        pm.expect(res).to.have.property('code', 200)",
+							"    })",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9090/employee/{{emp1id}}/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"employee",
+						"{{emp1id}}",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPaginatedEmployees",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status check\", function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"",
+							"pm.sendRequest({",
+							"    url: \"http://localhost:9090/employee/get?page=0&limit=3\",",
+							"    method: \"GET\"",
+							"}, (err, res) => {",
+							"    pm.test(\"Test Error Case: Page Zero\", function() {",
+							"        pm.expect(res).to.have.property('code', 400)",
+							"    })   ",
+							"})",
+							"",
+							"pm.sendRequest({",
+							"    url: \"http://localhost:9090/employee/get?page=grs&limit=grwy\",",
+							"    method: \"GET\"",
+							"}, (err, res) => {",
+							"    pm.test(\"Test Error Case: Invalid Queries\", function() {",
+							"        pm.expect(res).to.have.property('code', 400)",
+							"    })   ",
+							"})",
+							"",
+							"pm.sendRequest({",
+							"    url: \"http://localhost:9090/employee/get?page=99&limit=3\",",
+							"    method: \"GET\"",
+							"}, (err, res) => {",
+							"    pm.test(\"Test Error Case: Page out of range\", function() {",
+							"        pm.expect(res).to.have.property('code', 400)",
+							"    })   ",
+							"})",
+							"",
+							"pm.sendRequest({",
+							"    url: \"http://localhost:9090/employee/get\",",
+							"    method: \"GET\"",
+							"}, (err, res) => {",
+							"    pm.test(\"Test Error Case: No pagination request\", function() {",
+							"        pm.expect(res).to.have.property('code', 200)",
+							"    })   ",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/employee/get?page=1&limit=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"employee",
+						"get"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateOne",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"100\",\n    \"first_name\": \"Peter\",\n    \"last_name\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/employee/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"employee",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateMany",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n    \"id\": \"frfffrf\",\n    \"first_name\": \"Peter\",\n    \"last_name\": \"123\"\n    },\n    {\n    \"id\": \"101\",\n    \"first_name\": \"Tester\",\n    \"last_name\": \"123\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/employee/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"employee",
+						"update"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

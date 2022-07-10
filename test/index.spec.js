@@ -12,6 +12,7 @@ const OUTPUT_PATH = path.join(__dirname, '/openAPIRes.yml')
 
 const COLLECTION_NO_OPTIONS = './test/resources/input/NoOptionsInBody.json'
 const COLLECTION_NULL_HEADERS = './test/resources/input/NullHeaders.json'
+const COLLECTION_ISSUE_197 = './test/resources/input/collectionIssue197.json'
 
 const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
 const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
@@ -511,5 +512,12 @@ describe('Library specs', function () {
     const collectionString = await readFile(COLLECTION_NO_OPTIONS, 'utf8')
     const result = await postmanToOpenApi(collectionString, OUTPUT_PATH, {})
     equal(result, EXPECTED_BASIC)
+  })
+
+  it.only('issue 197', async function () {
+    const collectionString = await readFile(COLLECTION_ISSUE_197, 'utf8')
+    const result = await postmanToOpenApi(collectionString, OUTPUT_PATH, {})
+    console.log(result)
+    // equal(result, EXPECTED_BASIC)
   })
 })
