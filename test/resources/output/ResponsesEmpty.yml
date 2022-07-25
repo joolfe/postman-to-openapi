@@ -85,6 +85,9 @@ paths:
                 example-1:
                   summary: Create new User automatic id
                   value: {}
+                example-2:
+                  summary: Create new User automatic id (null)
+                  value: {}
   /users/{user_id}:
     get:
       tags:
