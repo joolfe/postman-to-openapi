@@ -13,7 +13,12 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "testesttestest"
+					"raw": "testesttestest",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
 				},
 				"url": {
 					"raw": "https://api.io/test",
