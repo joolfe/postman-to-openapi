@@ -68,7 +68,7 @@ paths:
                 example: Sat, 05 Jun 2021 08:42:32 GMT
             Via:
               schema:
-                type: number
+                type: string
                 example: 1.1 vegur
           content:
             application/json:
@@ -147,7 +147,7 @@ paths:
                 example: Sat, 05 Jun 2021 08:48:00 GMT
             Via:
               schema:
-                type: number
+                type: string
                 example: 1.1 vegur
           content:
             application/json:
