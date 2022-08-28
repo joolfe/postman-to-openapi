@@ -350,7 +350,7 @@ Take into account that variable values provided in the `additionalVars` Object s
 
 ## Basic conversion
 
-This library support the transformation from Postman collection to all the basic HTTP method as GET, POST, PUT... parse the body request of type "raw" (`Json` and `Text`), "form-data" (see ["form-data" body](#form-data-body) section for more info about this mode) and "x-www-form-urlencoded" formats. [Query parameters](#parameters-parsing) are also supported.
+This library support the transformation from Postman collection to all the basic HTTP method as GET, POST, PUT... parse the body request of type "raw" (`Json` and `Text`, please see [Postman raw body](#postman-raw-body)), "form-data" (see ["form-data" body](#form-data-body) section for more info about this mode) and "x-www-form-urlencoded" formats. [Query parameters](#parameters-parsing) are also supported.
 
 Have a look to the [PostmantoOpenAPI collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/PostmantoOpenAPI.json) file for an example of how to use this feature.
 
@@ -478,6 +478,12 @@ Library `postman-to-openapi` is able to parse the Postman collection body reques
 ![form-data options](assets/img/formDataOptions.png)
 
 A "form-data" request body will be describe as a `multipart/form-data` content with schema of type `object`. For `Text` parameter `postman-to-openapi` will parse just as a `type: string` parameter and for type `File` following  OpenAPI specs is parsed as `type: string, format: binary`
+
+## Postman raw body
+
+When using the `raw` mode in Postman a select box appear to choose the language, please ensure that you select a language manually, even if you see that select box have "Text" as default in some verison of postman if you choose one manually this will be saved as empty.
+
+The default behaviour of the library when no language is choosed in the `raw` body type is to use the content type `*/*` with schema type `string`.
 
 </div></div>
 <div class="tilted-section"><div markdown="1">
