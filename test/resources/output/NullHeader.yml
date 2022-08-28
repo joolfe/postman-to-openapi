@@ -17,14 +17,13 @@ paths:
         Retourne un token en cas de succès
       requestBody:
         content:
-          application/json:
+          '*/*':
             schema:
-              type: object
-              example:
-                contenu:
-                  compte: '{{compte}}'
-                  motDePasse: '{{motDePasse}}'
-                  identifiant: '{{identifiant}}'
+              type: string
+              example: >-
+                "{\r\n \"contenu\":\r\n {\r\n \"compte\": \"{{compte}}\",\r\n
+                \"motDePasse\": \"{{motDePasse}}\",\r\n \"identifiant\":
+                \"{{identifiant}}\"\r\n }\r\n}"
       parameters:
         - name: Content-Type
           in: header
