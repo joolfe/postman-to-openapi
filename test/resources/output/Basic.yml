@@ -48,7 +48,7 @@ paths:
       description: Just an example of text raw body
       requestBody:
         content:
-          application/json:
+          text/plain:
             schema:
               type: string
               example: This is an example Note

@@ -14,9 +14,9 @@ paths:
       description: Test Raw Body
       requestBody:
         content:
-          application/json:
+          text/plain:
             schema:
-              type: object
+              type: string
               example: testesttestest
       responses:
         '200':

@@ -3,8 +3,6 @@ info:
   title: Postman to OpenAPI
   description: Mi super test collection from postman
   version: 1.1.0
-externalDocs:
-  url: https://docs2.example.com
 servers:
   - url: https://api.io
 paths:
@@ -16,14 +14,12 @@ paths:
       description: Create a new user into your amazing API
       requestBody:
         content:
-          application/json:
+          '*/*':
             schema:
-              type: object
-              example:
-                example: field
-                other:
-                  data1: 'yes'
-                  data2: 'no'
+              type: string
+              example: >-
+                "{\n    \"example\": \"field\",\n    \"other\": {\n       
+                \"data1\": \"yes\",\n        \"data2\": \"no\"\n    }\n}"
       responses:
         '200':
           description: Successful response

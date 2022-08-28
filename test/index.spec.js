@@ -14,6 +14,7 @@ const COLLECTION_NO_OPTIONS = './test/resources/input/NoOptionsInBody.json'
 const COLLECTION_NULL_HEADERS = './test/resources/input/NullHeaders.json'
 
 const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
+const EXPECTED_BASIC_NO_OPTS = readFileSync('./test/resources/output/BasicNoOptions.yml', 'utf8')
 const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
 const EXPECTED_NO_VERSION = readFileSync('./test/resources/output/NoVersion.yml', 'utf8')
 const EXPECTED_CUSTOM_TAG = readFileSync('./test/resources/output/CustomTag.yml', 'utf8')
@@ -495,7 +496,7 @@ describe('Library specs', function () {
 
   it('should work if no options in request body', async function () {
     const result = await postmanToOpenApi(COLLECTION_NO_OPTIONS, OUTPUT_PATH, {})
-    equal(result, EXPECTED_BASIC)
+    equal(result, EXPECTED_BASIC_NO_OPTS)
   })
 
   it('should expose the version of the library', async function () {
@@ -510,6 +511,6 @@ describe('Library specs', function () {
   it('should work with string as input (instead of a file path)', async function () {
     const collectionString = await readFile(COLLECTION_NO_OPTIONS, 'utf8')
     const result = await postmanToOpenApi(collectionString, OUTPUT_PATH, {})
-    equal(result, EXPECTED_BASIC)
+    equal(result, EXPECTED_BASIC_NO_OPTS)
   })
 })

@@ -1,3 +1,16 @@
+## [2.5.0](https://github.com/joolfe/postman-to-openapi/compare/2.4.2...2.5.0) (2022-08-28)
+
+
+### Features
+
+* if no language is chosen in body raw mode then use '*/*' ([473db6b](https://github.com/joolfe/postman-to-openapi/commit/473db6b85b66a0604552f76ef84ef99a19ffad14))
+* support now 'text/plain' when body request is raw and language is text ([53cee26](https://github.com/joolfe/postman-to-openapi/commit/53cee26c474ccd452487ad7dd213a705f63def68))
+
+
+### Build System
+
+* update version ([83f6c46](https://github.com/joolfe/postman-to-openapi/commit/83f6c46f8c0177b343809bbdf5d1b15879d52d54))
+
 ### [2.4.1](https://github.com/joolfe/postman-to-openapi/compare/2.2.1...2.4.1) (2022-07-25)
 
 
