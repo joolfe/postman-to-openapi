@@ -1,3 +1,21 @@
+## [2.6.0](https://github.com/joolfe/postman-to-openapi/compare/2.5.0...2.6.0) (2022-08-29)
+
+
+### Features
+
+* add JSON format support ([c16a09f](https://github.com/joolfe/postman-to-openapi/commit/c16a09ff3acdfebdef44bffff4aef6f57afde447))
+
+
+### Documentation
+
+* document new option ([c0a37ae](https://github.com/joolfe/postman-to-openapi/commit/c0a37aef1c74fa9e0db78e540c38c3cffa544aed))
+
+
+### Build System
+
+* lock file ([2813792](https://github.com/joolfe/postman-to-openapi/commit/2813792f90b60001a97bba76e1f8337fcaa4419d))
+* update version and ts devs ([7aea545](https://github.com/joolfe/postman-to-openapi/commit/7aea5453d1bc938d45d10331e487674b92514432))
+
 ## [2.5.0](https://github.com/joolfe/postman-to-openapi/compare/2.4.2...2.5.0) (2022-08-28)
 
 
