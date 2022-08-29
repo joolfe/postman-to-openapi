@@ -82,7 +82,9 @@ export interface Options {
     responseHeaders?: boolean,
     // Default value false
     replaceVars?: boolean,
-    additionalVars?: { [key: string]: string }
+    additionalVars?: { [key: string]: string },
+    // Default value 'yaml'
+    outputFormat?: 'json' | 'yaml'
 }
 
 export default function postmanToOpenApi (input: string, output?: string, options?: Options) : Promise<string>
