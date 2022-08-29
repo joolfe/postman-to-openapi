@@ -14,6 +14,7 @@ const COLLECTION_NO_OPTIONS = './test/resources/input/NoOptionsInBody.json'
 const COLLECTION_NULL_HEADERS = './test/resources/input/NullHeaders.json'
 
 const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
+const EXPECTED_BASIC_JSON = readFileSync('./test/resources/output/Basic.json', 'utf8')
 const EXPECTED_BASIC_NO_OPTS = readFileSync('./test/resources/output/BasicNoOptions.yml', 'utf8')
 const EXPECTED_INFO_OPTS = readFileSync('./test/resources/output/InfoOpts.yml', 'utf8')
 const EXPECTED_NO_VERSION = readFileSync('./test/resources/output/NoVersion.yml', 'utf8')
@@ -490,6 +491,11 @@ describe('Library specs', function () {
       it('should not fail if request body and response body have json with comments', async function () {
         const result = await postmanToOpenApi(COLLECTION_JSON_COMMENTS, OUTPUT_PATH, { pathDepth: 2 })
         equal(result, EXPECTED_COLLECTION_JSON_COMMENTS)
+      })
+
+      it('should return "json" format is requested', async function () {
+        const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, { outputFormat: 'json' })
+        equal(result, EXPECTED_BASIC_JSON)
       })
     })
   })
