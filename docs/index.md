@@ -132,6 +132,7 @@ The third parameter used in the library method is an `options` object containing
 | [responseHeaders](#responseheaders-boolean) | Indicate if should parse the response headers from the collection examples. |
 | [replaceVars](#replacevars-boolean) | Boolean value to indicate if postman variables should be replaced.|
 | [additionalVars](#additionalvars-object) |  Object to provide additional values for variables replacement.|
+| [outputFormat](#outputformat-string) | Indicate the format of the output document. |
 
 ### info (Object)
 
@@ -345,6 +346,12 @@ This parameter is a json Object that contain as key the variable name and as val
 ```
 
 Take into account that variable values provided in the `additionalVars` Object supersede those defined at Postman collection level.
+
+### outputFormat (string)
+
+Indicates the resulting format of the OpenAPI document between `json` and `yaml`, the resulting file will be writte using this format and also the result value fo the method `postmanToOpenApi(...)` will use this format.
+
+Default value is `yaml`, if you use a unknown value `yaml` will be used.
 
 # Features
 
