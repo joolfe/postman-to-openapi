@@ -471,6 +471,11 @@
 				"url": "https://api.io/info"
 			},
 			"response": []
+		},
+		{
+			"name": "Empty Folder 2",
+			"item": [],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"variable": [

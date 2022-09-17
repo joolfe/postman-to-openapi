@@ -23,6 +23,7 @@ tags:
   - name: Folder 5
     description: Folder 5 description
   - name: Empty Folder
+  - name: Empty Folder 2
 paths:
   /users/admin/roles:
     get:
