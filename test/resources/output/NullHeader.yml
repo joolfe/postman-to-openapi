@@ -4,6 +4,7 @@ info:
   version: 1.0.0
 servers:
   - url: http://{{url}}
+  - url: https://api.io
 tags:
   - name: Authentification
 paths:
@@ -47,3 +48,24 @@ paths:
                 codeErreur: 0
                 contenu:
                   token: ct54q7uoidffg2z661afigu98ix476s8
+  /userHeader:
+    post:
+      tags:
+        - Authentification
+      summary: Missing headers field
+      description: Create a new user into your amazing API
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                example: field
+                other:
+                  data1: 'yes'
+                  data2: 'no'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
