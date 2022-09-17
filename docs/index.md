@@ -353,6 +353,18 @@ Indicates the resulting format of the OpenAPI document between `json` and `yaml`
 
 Default value is `yaml`, if you use a unknown value `yaml` will be used.
 
+### disabledParams (object)
+
+By default all parameters in the postman collection that has the field `"disabled": true` is ignored and not included in the resulting OpenAPI doc, you can customize this behaviour with this options 
+| Param            | Description                                                                        |
+|------------------|------------------------------------------------------------------------------------|
+| `includeQuery`   | Boolean. Indicates if the "query" paraneters disabled should be included into the OpenAPI. |
+| `includeHeader`  | Boolean. Indicates if the "header" paraneters disabled should be included into the OpenAPI. |
+
+* When is not disabled
+* When one exist disabled
+* When exist more than one parameter with same name and disabled.
+
 # Features
 
 ## Basic conversion
