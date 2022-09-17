@@ -506,7 +506,7 @@ describe('Library specs', function () {
         equal(result, EXPECTED_DISABLED_PARAMS_DEFAULT)
       })
 
-      it.only('should parse `disabled` parameters if option is used', async function () {
+      it('should parse `disabled` parameters if option is used', async function () {
         const result = await postmanToOpenApi(COLLECTION_DISABLED, OUTPUT_PATH, {
           disabledParams: {
             includeQuery: true,
