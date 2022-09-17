@@ -97,6 +97,34 @@
                             "body": "{\n \"erreur\": null,\n \"codeErreur\": 0,\n \"contenu\": {\n \"token\": \"ct54q7uoidffg2z661afigu98ix476s8\"\n }\n}"
                         }
                     ]
+                },
+                {
+                    "name": "Missing headers field",
+                    "request": {
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"example\": \"field\",\n    \"other\": {\n        \"data1\": \"yes\",\n        \"data2\": \"no\"\n    }\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "https://api.io/userHeader",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "io"
+                            ],
+                            "path": [
+                                "userHeader"
+                            ]
+                        },
+                        "description": "Create a new user into your amazing API"
+                    },
+                    "response": []
                 }
             ],
             "event": [
