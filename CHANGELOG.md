@@ -1,3 +1,10 @@
+### [2.6.2](https://github.com/joolfe/postman-to-openapi/compare/2.6.1...2.6.2) (2022-09-17)
+
+
+### Bug Fixes
+
+* support collections without the headers  fields in request close [#217](https://github.com/joolfe/postman-to-openapi/issues/217) ([fa93c35](https://github.com/joolfe/postman-to-openapi/commit/fa93c35426b7607072d945ca9143794288b6c4bd))
+
 ### [2.6.1](https://github.com/joolfe/postman-to-openapi/compare/2.6.0...2.6.1) (2022-09-17)
 
 
