@@ -575,6 +575,11 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Empty Folder 2",
+			"item": [],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"variable": [
