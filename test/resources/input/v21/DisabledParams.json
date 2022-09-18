@@ -21,7 +21,7 @@
 					{
 						"key": "X-My-Header",
 						"value": "1234567890",
-						"description": "Custom header [required]",
+						"description": "Custom header disabled [required]",
 						"type": "text",
 						"disabled": true
 					},

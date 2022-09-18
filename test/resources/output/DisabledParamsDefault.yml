@@ -41,7 +41,7 @@ paths:
           in: query
           schema:
             type: string
-          description: Disabled param duplicated
+          description: Filter by name
           example: Jhon
         - name: review
           in: query

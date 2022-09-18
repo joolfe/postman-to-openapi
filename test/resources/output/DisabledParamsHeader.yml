@@ -50,12 +50,6 @@ paths:
             type: string
           description: Disabled parameter
           example: QWERTY
-        - name: age
-          in: query
-          schema:
-            type: integer
-          description: Disabled param
-          example: '45'
         - name: name
           in: query
           schema:
@@ -68,12 +62,6 @@ paths:
             type: boolean
           description: Indicate if should be reviewed or not
           example: 'true'
-        - name: name
-          in: query
-          schema:
-            type: string
-          description: Disabled param duplicated
-          example: Mark
         - name: section
           in: path
           schema:

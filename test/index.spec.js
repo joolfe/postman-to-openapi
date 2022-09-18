@@ -64,6 +64,8 @@ const EXPECTED_COLLECTION_WRAPPER = readFileSync('./test/resources/output/Collec
 const EXPECTED_COLLECTION_JSON_COMMENTS = readFileSync('./test/resources/output/JsonComments.yml', 'utf8')
 const EXPECTED_DISABLED_PARAMS_DEFAULT = readFileSync('./test/resources/output/DisabledParamsDefault.yml', 'utf8')
 const EXPECTED_DISABLED_PARAMS_ALL = readFileSync('./test/resources/output/DisabledParamsAll.yml', 'utf8')
+const EXPECTED_DISABLED_PARAMS_QUERY = readFileSync('./test/resources/output/DisabledParamsQuery.yml', 'utf8')
+const EXPECTED_DISABLED_PARAMS_HEADER = readFileSync('./test/resources/output/DisabledParamsHeader.yml', 'utf8')
 
 const AUTH_DEFINITIONS = {
   myCustomAuth: {
@@ -516,8 +518,23 @@ describe('Library specs', function () {
         equal(result, EXPECTED_DISABLED_PARAMS_ALL)
       })
 
-      // should include query but not header
-      // should include headers but not query
+      it('should include `disable` query but not header', async function () {
+        const result = await postmanToOpenApi(COLLECTION_DISABLED, OUTPUT_PATH, {
+          disabledParams: {
+            includeQuery: true
+          }
+        })
+        equal(result, EXPECTED_DISABLED_PARAMS_QUERY)
+      })
+
+      it('should include `disable` headers but not query', async function () {
+        const result = await postmanToOpenApi(COLLECTION_DISABLED, OUTPUT_PATH, {
+          disabledParams: {
+            includeHeader: true
+          }
+        })
+        equal(result, EXPECTED_DISABLED_PARAMS_HEADER)
+      })
     })
   })
 
