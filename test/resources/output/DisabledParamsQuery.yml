@@ -55,12 +55,6 @@ paths:
             type: boolean
           description: Indicate if should be reviewed or not
           example: 'true'
-        - name: name
-          in: query
-          schema:
-            type: string
-          description: Disabled param duplicated
-          example: Mark
         - name: section
           in: path
           schema:

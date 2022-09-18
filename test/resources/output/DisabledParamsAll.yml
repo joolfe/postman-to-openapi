@@ -20,13 +20,6 @@ paths:
           required: true
           description: Custom header
           example: hudjilksns78jsijns090
-        - name: X-My-Header
-          in: header
-          schema:
-            type: integer
-          required: true
-          description: Custom header disabled
-          example: '1234567890'
         - name: X-Other
           in: header
           schema:
@@ -68,12 +61,6 @@ paths:
             type: boolean
           description: Indicate if should be reviewed or not
           example: 'true'
-        - name: name
-          in: query
-          schema:
-            type: string
-          description: Disabled param duplicated
-          example: Mark
         - name: section
           in: path
           schema:

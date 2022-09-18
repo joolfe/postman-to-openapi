@@ -20,13 +20,6 @@ paths:
           required: true
           description: Custom header
           example: hudjilksns78jsijns090
-        - name: X-My-Header
-          in: header
-          schema:
-            type: integer
-          required: true
-          description: Custom header disabled
-          example: '1234567890'
         - name: X-Other
           in: header
           schema:
