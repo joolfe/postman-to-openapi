@@ -144,8 +144,8 @@ The basic information of the API is obtained from Postman collection as describe
 | `version`        | String. The version of the OpenAPI document. |
 | `description`    | String. A short description of the API.                                            |
 | `termsOfService` | String. A URL to the Terms of Service for the API. MUST be in the format of a URL. |
-| `contact`        | Object. The contact information for the exposed API. See details in [License and Contact configuration](#license-and-contact-configuration) section.                             |
-| `license`        | Object. The license information for the exposed API.See details in [License and Contact configuration](#license-and-contact-configuration) section. |
+| `contact`        | Object. The contact information for the exposed API. See details in [Pass data as postman collection variables](#pass-data-as-postman-collection-variables) section.                             |
+| `license`        | Object. The license information for the exposed API.See details in [Pass data as postman collection variables](#pass-data-as-postman-collection-variables) section. |
 | `xLogo` | Object. Contain the info for the `x-logo` extension defined by [redoc](https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md#x-logo) |
 
 Basically this are the required and relevant parameters defined in OpenAPI spec [info object](http://spec.openapis.org/oas/v3.0.3.html#info-object), an example of the option will be:
@@ -253,7 +253,7 @@ The info about the API external documentation, as described in OpenAPI spec [Ext
 }
 ```
 
-This info can be provided as collection variables in the same way as described in section [License and Contact configuration](#license-and-contact-configuration), you can setup the variables `externalDocs.url` and `externalDocs.description` for provide the information.
+This info can be provided as collection variables in the same way as described in section [Pass data as postman collection variables](#pass-data-as-postman-collection-variables), you can setup the variables `externalDocs.url` and `externalDocs.description` for provide the information.
 
 ### folders (Object)
 
@@ -355,15 +355,13 @@ Default value is `yaml`, if you use a unknown value `yaml` will be used.
 
 ### disabledParams (object)
 
-By default all parameters in the postman collection that has the field `"disabled": true` is ignored and not included in the resulting OpenAPI doc, you can customize this behaviour with this options 
+By default all parameters in the postman collection that has the field `"disabled": true` are ignored and not included in the resulting OpenAPI doc, you can customize this behaviour with this options
 | Param            | Description                                                                        |
 |------------------|------------------------------------------------------------------------------------|
-| `includeQuery`   | Boolean. Indicates if the "query" paraneters disabled should be included into the OpenAPI. |
-| `includeHeader`  | Boolean. Indicates if the "header" paraneters disabled should be included into the OpenAPI. |
+| `includeQuery`   | Boolean. Indicates if the "query" paraneters disabled should be included into the OpenAPI spec. |
+| `includeHeader`  | Boolean. Indicates if the "header" paraneters disabled should be included into the OpenAPI spec. |
 
-* When is not disabled
-* When one exist disabled
-* When exist more than one parameter with same name and disabled.
+> Note: If you have duplicated Headers or Query parameters names with and without disabled flag and activate the inclusion of disabled parameters this will cause that parameter in OpenAPI spec will be duplicated, this is something not allowed in OpenAPI spec in this moment as parameters should be unique by the combination of "name" and location (expressed by field "in").
 
 # Features
 
@@ -379,9 +377,9 @@ For fill the OpenAPI [info object](http://spec.openapis.org/oas/v3.0.3.html#info
 
 Postman don't have any field at collection level that feat with OpenAPI "version" field (is a required field in OpenAPI specification), so this library look for a variable with name `version` in Postman [collection variables](https://learning.postman.com/docs/sending-requests/variables/#defining-collection-variables) or if variable is not defined then will use the default value `1.0.0`.
 
-You can customize all this information with the [Info option](#info-(object)).
+You can customize all this information with the [Info option](#info-object).
 
-For info about how to setup the `contact` and `license` properties have a look to section [License and Contact configuration](#license-and-contact-configuration).
+For info about how to setup the `contact` and `license` properties have a look to section [Pass data as postman collection variables](#pass-data-as-postman-collection-variables).
 
 Have a look to the [SimplePost collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/v21/SimplePost.json) file for an example of how to use this feature.
 
@@ -413,7 +411,7 @@ The OpenAPI root [security](http://spec.openapis.org/oas/v3.0.3.html#openapi-obj
 
 Only types 'Basic Auth' and 'Bearer Token' are supported by now. If you define an authorization at postman request level this will overwrite the global defined for this OpenAPI operation.
 
-You can customize the global authorization definition using the [Auth option](#auth-(object)).
+You can customize the global authorization definition using the [Auth option](#auth-object).
 
 Have a look to the collections [AuthBasic](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/AuthBasic.json), [AuthBearer](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/AuthBearer.json) and [AuthMultiple](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/AuthMultiple.json) for examples of how to use this feature.
 
@@ -439,7 +437,7 @@ Is as easy as define the values in the "Edit Collection" form page inside the ta
 
 The variables names will be in dot notation, for example for `contact` fields will be as `contact.name`, `contact.url`... Take into account that fields that are required by OpenAPI specs, as `contact.name`, if not provided then all the section will be ignored.
 
-You can also customize this information using the [Info option](#info-(object)), note that info provided by options will overwrite the variables inside the Postman collection (has more priority) but values will be merged from both sources (postman variables and options).
+You can also customize this information using the [Info option](#info-object), note that info provided by options will overwrite the variables inside the Postman collection (has more priority) but values will be merged from both sources (postman variables and options).
 
 ## Pass Meta-information as markdown
 
