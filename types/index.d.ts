@@ -70,6 +70,13 @@ export interface FoldersOption {
     separator: string
 }
 
+export interface DisabledParamsOptions {
+    // Default to `false`
+    includeQuery?: boolean,
+    // Default to `false`
+    includeHeader?: boolean
+}
+
 export interface Options {
     info?: InfoObject,
     defaultTag?: string,
@@ -84,7 +91,8 @@ export interface Options {
     replaceVars?: boolean,
     additionalVars?: { [key: string]: string },
     // Default value 'yaml'
-    outputFormat?: 'json' | 'yaml'
+    outputFormat?: 'json' | 'yaml',
+    disabledParams?: DisabledParamsOptions
 }
 
 export default function postmanToOpenApi (input: string, output?: string, options?: Options) : Promise<string>
