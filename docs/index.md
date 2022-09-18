@@ -124,7 +124,7 @@ The third parameter used in the library method is an `options` object containing
 |------------------|------------------------------------------------------------------------------------|
 | [info](#info-object) | Basic API information |
 | [defaultTag](#defaulttag-string) | Values of the default tag object. |
-| [pathDepth](#pathdepth-number) | Number of subpaths that should be part of the operation path.  |
+| [pathDepth](#pathdepth-number) | Number of sub-paths that should be part of the operation path.  |
 | [auth](#auth-object) | Global authorization definition object. |
 | [servers](#servers-array) | Server list for the OpenApi specs. |
 | [externalDocs](#externaldocs-object) | Info about the API external documentation. |
@@ -349,19 +349,19 @@ Take into account that variable values provided in the `additionalVars` Object s
 
 ### outputFormat (string)
 
-Indicates the resulting format of the OpenAPI document between `json` and `yaml`, the resulting file will be writte using this format and also the result value fo the method `postmanToOpenApi(...)` will use this format.
+Indicates the resulting format of the OpenAPI document between `json` and `yaml`, the resulting file will be write using this format and also the result value fo the method `postmanToOpenApi(...)` will use this format.
 
 Default value is `yaml`, if you use a unknown value `yaml` will be used.
 
 ### disabledParams (object)
 
-By default all parameters in the postman collection that has the field `"disabled": true` are ignored and not included in the resulting OpenAPI doc, you can customize this behaviour with this options
+By default all parameters in the postman collection that has the field `"disabled": true` are ignored and not included in the resulting OpenAPI doc, you can customize this behavior with this options
 | Param            | Description                                                                        |
 |------------------|------------------------------------------------------------------------------------|
-| `includeQuery`   | Boolean. Indicates if the "query" paraneters disabled should be included into the OpenAPI spec. |
-| `includeHeader`  | Boolean. Indicates if the "header" paraneters disabled should be included into the OpenAPI spec. |
+| `includeQuery`   | Boolean. Indicates if the "query" parameters disabled should be included into the OpenAPI spec. |
+| `includeHeader`  | Boolean. Indicates if the "header" parameters disabled should be included into the OpenAPI spec. |
 
-> Note: If you have duplicated Headers or Query parameters names with and without disabled flag and activate the inclusion of disabled parameters this will cause that parameter in OpenAPI spec will be duplicated, this is something not allowed in OpenAPI spec in this moment as parameters should be unique by the combination of "name" and location (expressed by field "in").
+Please have a look to the [Parameters parsing](#parameters-parsing) section about duplicated parameters names in Headers and Query, this will apply also to the disabled parameters when using this feature.
 
 # Features
 
@@ -404,6 +404,8 @@ This library now support the definition of path parameters using the postman not
 For headers and query fields you can indicate that this parameter is mandatory/required adding into the description the literal `[required]`. The library use a case insensitive regexp so all variations are supported (`[REQUIRED]`, `[Required]`...) and never mind the location inside the description (at the beginning, at the end...).
 
 Have a look to the [GetMethods collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/GetMethods.json), [Headers collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/Headers.json) and [PathParams collection](https://github.com/joolfe/postman-to-openapi/blob/master/test/resources/input/v21/PathParams.json) files for examples of how to use this features.
+
+> **Note about duplications:** In Postman is possible to define multiples parameters with the same name/key in Query and Headers sections but in OpenAPI spec the combination of "name" and location (expressed by field "in") in parameters should be unique, to avoid generate invalid OpenAPI spec files the library will only use the first apparition of the parameters and discard the repeated ones, so take into consideration when you define your postman collection.
 
 ## Postman authorization
 
@@ -498,9 +500,9 @@ A "form-data" request body will be describe as a `multipart/form-data` content w
 
 ## Postman raw body
 
-When using the `raw` mode in Postman a select box appear to choose the language, please ensure that you select a language manually, even if you see that select box have "Text" as default in some verison of postman if you choose one manually this will be saved as empty.
+When using the `raw` mode in Postman a select box appear to choose the language, please ensure that you select a language manually, even if you see that select box have "Text" as default in some version of postman if you choose one manually this will be saved as empty.
 
-The default behaviour of the library when no language is choosed in the `raw` body type is to use the content type `*/*` with schema type `string`.
+The default behavior of the library when no language is selected in the `raw` body type is to use the content type `*/*` with schema type `string`.
 
 </div></div>
 <div class="tilted-section"><div markdown="1">
