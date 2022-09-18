@@ -62,6 +62,10 @@ const EXPECTED_RAW_BODY = readFileSync('./test/resources/output/RawBody.yml', 'u
 const EXPECTED_NULL_HEADER = readFileSync('./test/resources/output/NullHeader.yml', 'utf8')
 const EXPECTED_COLLECTION_WRAPPER = readFileSync('./test/resources/output/CollectionWrapper.yml', 'utf8')
 const EXPECTED_COLLECTION_JSON_COMMENTS = readFileSync('./test/resources/output/JsonComments.yml', 'utf8')
+const EXPECTED_DISABLED_PARAMS_DEFAULT = readFileSync('./test/resources/output/DisabledParamsDefault.yml', 'utf8')
+const EXPECTED_DISABLED_PARAMS_ALL = readFileSync('./test/resources/output/DisabledParamsAll.yml', 'utf8')
+const EXPECTED_DISABLED_PARAMS_QUERY = readFileSync('./test/resources/output/DisabledParamsQuery.yml', 'utf8')
+const EXPECTED_DISABLED_PARAMS_HEADER = readFileSync('./test/resources/output/DisabledParamsHeader.yml', 'utf8')
 
 const AUTH_DEFINITIONS = {
   myCustomAuth: {
@@ -125,6 +129,7 @@ describe('Library specs', function () {
       const COLLECTION_RESPONSES_JSON_ERROR = `./test/resources/input/${version}/ResponsesJsonError.json`
       const COLLECTION_RESPONSES_EMPTY = `./test/resources/input/${version}/ResponsesEmpty.json`
       const COLLECTION_JSON_COMMENTS = `./test/resources/input/${version}/JsonComments.json`
+      const COLLECTION_DISABLED = `./test/resources/input/${version}/DisabledParams.json`
 
       it('should work with a basic transform', async function () {
         const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {})
@@ -496,6 +501,39 @@ describe('Library specs', function () {
       it('should return "json" format is requested', async function () {
         const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, { outputFormat: 'json' })
         equal(result, EXPECTED_BASIC_JSON)
+      })
+
+      it('should not parse `disabled` parameters', async function () {
+        const result = await postmanToOpenApi(COLLECTION_DISABLED, OUTPUT_PATH)
+        equal(result, EXPECTED_DISABLED_PARAMS_DEFAULT)
+      })
+
+      it('should parse `disabled` parameters if option is used', async function () {
+        const result = await postmanToOpenApi(COLLECTION_DISABLED, OUTPUT_PATH, {
+          disabledParams: {
+            includeQuery: true,
+            includeHeader: true
+          }
+        })
+        equal(result, EXPECTED_DISABLED_PARAMS_ALL)
+      })
+
+      it('should include `disable` query but not header', async function () {
+        const result = await postmanToOpenApi(COLLECTION_DISABLED, OUTPUT_PATH, {
+          disabledParams: {
+            includeQuery: true
+          }
+        })
+        equal(result, EXPECTED_DISABLED_PARAMS_QUERY)
+      })
+
+      it('should include `disable` headers but not query', async function () {
+        const result = await postmanToOpenApi(COLLECTION_DISABLED, OUTPUT_PATH, {
+          disabledParams: {
+            includeHeader: true
+          }
+        })
+        equal(result, EXPECTED_DISABLED_PARAMS_HEADER)
       })
     })
   })

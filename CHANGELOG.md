@@ -1,3 +1,23 @@
+## [2.7.0](https://github.com/joolfe/postman-to-openapi/compare/2.6.2...2.7.0) (2022-09-18)
+
+
+### Features
+
+* disabled but duplicating params (not supported by OpenAPI) ([4310197](https://github.com/joolfe/postman-to-openapi/commit/4310197386afcdd61aa2d640fa7935eda6f44f41))
+* transform disabled option WIP ([b4858a2](https://github.com/joolfe/postman-to-openapi/commit/b4858a2d82beefe72f41d5debf95028711bb041d))
+
+
+### Bug Fixes
+
+* incorrect conflict in previous merge ([9face89](https://github.com/joolfe/postman-to-openapi/commit/9face89b85d5a77f07743c7ab3355077c300a40e))
+
+
+### Documentation
+
+* update docs about new feature ([d6c1141](https://github.com/joolfe/postman-to-openapi/commit/d6c1141970ac902304f83d116d95c5923635cee0))
+* update typescript definition ([253dec7](https://github.com/joolfe/postman-to-openapi/commit/253dec7bb470a14dc1af6fb323aaae92d6b103c6))
+* updates and links ([5e92c6d](https://github.com/joolfe/postman-to-openapi/commit/5e92c6d83cb61a6d628eb844bb649eafc189c41b))
+
 ### [2.6.2](https://github.com/joolfe/postman-to-openapi/compare/2.6.1...2.6.2) (2022-09-17)
 
 
