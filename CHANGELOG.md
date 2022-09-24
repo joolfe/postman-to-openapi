@@ -1,3 +1,11 @@
+### [2.7.1](https://github.com/joolfe/postman-to-openapi/compare/2.7.0...2.7.1) (2022-09-24)
+
+
+### Bug Fixes
+
+* check the url can be undefined Close [#224](https://github.com/joolfe/postman-to-openapi/issues/224) ([cb6e53b](https://github.com/joolfe/postman-to-openapi/commit/cb6e53b8db7e2c93b0ddd6f71486ca72383681fd))
+* docs table add some spaces ([099eb73](https://github.com/joolfe/postman-to-openapi/commit/099eb7306c689844a80ef627e8dc70bb154bfeec))
+
 ## [2.7.0](https://github.com/joolfe/postman-to-openapi/compare/2.6.2...2.7.0) (2022-09-18)
 
 
