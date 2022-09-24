@@ -356,6 +356,7 @@ Default value is `yaml`, if you use a unknown value `yaml` will be used.
 ### disabledParams (object)
 
 By default all parameters in the postman collection that has the field `"disabled": true` are ignored and not included in the resulting OpenAPI doc, you can customize this behavior with this options
+
 | Param            | Description                                                                        |
 |------------------|------------------------------------------------------------------------------------|
 | `includeQuery`   | Boolean. Indicates if the "query" parameters disabled should be included into the OpenAPI spec. |
