@@ -61,6 +61,14 @@
 				"description": "Just an example of text raw body"
 			},
 			"response": []
+		},
+		{
+			"name": "No url request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	],
 	"event": [
