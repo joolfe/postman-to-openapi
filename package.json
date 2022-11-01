@@ -90,7 +90,6 @@
     "commander": "^8.3.0",
     "generate-schema": "^2.6.0",
     "js-yaml": "^4.1.0",
-    "json-easy-strip": "^1.0.6",
     "jsonc-parser": "3.2.0",
     "marked": "^4.1.0",
     "mustache": "^4.2.0"
