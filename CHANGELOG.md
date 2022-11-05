@@ -1,3 +1,15 @@
+### [2.7.2](https://github.com/joolfe/postman-to-openapi/compare/2.7.1...2.7.2) (2022-11-05)
+
+
+### Features
+
+* support example body undefined ([2e7b31d](https://github.com/joolfe/postman-to-openapi/commit/2e7b31dd2c5e547c51663596ac0eba9459fc7b8a))
+
+
+### Documentation
+
+* fix sections ([195b472](https://github.com/joolfe/postman-to-openapi/commit/195b472ead6298473a380362c2fc061c2106b453))
+
 ### [2.7.1](https://github.com/joolfe/postman-to-openapi/compare/2.7.0...2.7.1) (2022-09-24)
 
 
