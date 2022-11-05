@@ -311,9 +311,6 @@ Avoid concatenation
 }
 ```
 
-</div></div>
-<div class="tilted-section"><div markdown="1">
-
 ### responseHeaders (Boolean)
 
 This flag indicates if the headers that are saved as part of the postman collection examples (see feature [Responses parsed from Postman collection examples](#responses-parsed-from-postman-collection-examples)) should be used in the OpenApi specification. This headers normally contain lot of unused headers but are automatically saved by postman when create an example, a better approach is to define response headers in a common way.
@@ -363,6 +360,9 @@ By default all parameters in the postman collection that has the field `"disable
 | `includeHeader`  | Boolean. Indicates if the "header" parameters disabled should be included into the OpenAPI spec. |
 
 Please have a look to the [Parameters parsing](#parameters-parsing) section about duplicated parameters names in Headers and Query, this will apply also to the disabled parameters when using this feature.
+
+</div></div>
+<div class="tilted-section"><div markdown="1">
 
 # Features
 

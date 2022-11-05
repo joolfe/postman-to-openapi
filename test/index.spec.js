@@ -557,4 +557,13 @@ describe('Library specs', function () {
     const result = await postmanToOpenApi(collectionString, OUTPUT_PATH, {})
     equal(result, EXPECTED_BASIC_NO_OPTS)
   })
+
+  /* we keep this because im using all the time to resolve issues
+  it('issue233', async function () {
+    const collectionString = await readFile('./test/resources/input/issue233.json', 'utf8')
+    const result = await postmanToOpenApi(collectionString, OUTPUT_PATH, {})
+    console.log(result)
+    // equal(result, EXPECTED_BASIC_NO_OPTS)
+  })
+  */
 })
