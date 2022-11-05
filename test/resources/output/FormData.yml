@@ -16,6 +16,9 @@ paths:
           multipart/form-data:
             schema:
               type: object
+              required:
+                - name
+                - email
               properties:
                 name:
                   type: string
