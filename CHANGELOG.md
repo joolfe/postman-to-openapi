@@ -1,3 +1,10 @@
+## [2.9.0](https://github.com/joolfe/postman-to-openapi/compare/2.8.0...2.9.0) (2022-11-06)
+
+
+### Features
+
+* allow add operation id to the request ([3f86a19](https://github.com/joolfe/postman-to-openapi/commit/3f86a19b3b1bca7816141cd02022a370c6c8c81d))
+
 ### [2.7.2](https://github.com/joolfe/postman-to-openapi/compare/2.7.1...2.7.2) (2022-11-05)
 
 
