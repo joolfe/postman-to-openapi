@@ -133,6 +133,7 @@ The third parameter used in the library method is an `options` object containing
 | [replaceVars](#replacevars-boolean) | Boolean value to indicate if postman variables should be replaced.|
 | [additionalVars](#additionalvars-object) |  Object to provide additional values for variables replacement.|
 | [outputFormat](#outputformat-string) | Indicate the format of the output document. |
+| [operationId](#operationid-string) | Indicate how to provide the value for `operationId` field. |
 
 ### info (Object)
 
@@ -360,6 +361,22 @@ By default all parameters in the postman collection that has the field `"disable
 | `includeHeader`  | Boolean. Indicates if the "header" parameters disabled should be included into the OpenAPI spec. |
 
 Please have a look to the [Parameters parsing](#parameters-parsing) section about duplicated parameters names in Headers and Query, this will apply also to the disabled parameters when using this feature.
+
+### operationId (string)
+
+In OpenAPI the [operationId](https://swagger.io/specification/#operation-object) is a unique id that is used mainly for Tools and libraries to uniquely identify an operation, with this option you can indicate the strategy to provide this value for each request operation, the possible values are:
+
+| Option            | Description                                                                        |
+|------------------|------------------------------------------------------------------------------------|
+| `off`   | Default. No `operationId` will be added. |
+| `auto`  | The field `name` of the request will transformed as [Camel case](https://es.wikipedia.org/wiki/Camel_ca) and used as `operationId`. |
+| `brackets` | Will look for a name between brackets in the fields `name` of the request and use this as `operationId`. |
+
+As an example of option `auto` if you have in a postman collection a request with name `Create new User` the resulting operation id will be `createNewUser`.
+
+To use option `brackets` you should add the desired operation id between brackets in the name of the request, so for example if you use as request name `Create new User [newUser]`, the text `newUser` will be used as operation id, the library automatically will remove the literal `[newUser]` from the name and will no appear in the `summary` field in the OpenAPI yaml.
+
+> **Note about duplications:** As described in OpenAPI about the operationId, "The id MUST be unique among all operations described in the API." but the library does not ensure the uniqueness, so before do the conversion check that you are using unique operations ids for each request in your collection.
 
 </div></div>
 <div class="tilted-section"><div markdown="1">
