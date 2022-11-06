@@ -92,7 +92,9 @@ export interface Options {
     additionalVars?: { [key: string]: string },
     // Default value 'yaml'
     outputFormat?: 'json' | 'yaml',
-    disabledParams?: DisabledParamsOptions
+    disabledParams?: DisabledParamsOptions,
+    // Default value 'off'
+    operationId?: 'off' | 'auto' | 'brackets'
 }
 
 export default function postmanToOpenApi (input: string, output?: string, options?: Options) : Promise<string>
