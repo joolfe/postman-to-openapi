@@ -66,6 +66,9 @@ const EXPECTED_DISABLED_PARAMS_DEFAULT = readFileSync('./test/resources/output/D
 const EXPECTED_DISABLED_PARAMS_ALL = readFileSync('./test/resources/output/DisabledParamsAll.yml', 'utf8')
 const EXPECTED_DISABLED_PARAMS_QUERY = readFileSync('./test/resources/output/DisabledParamsQuery.yml', 'utf8')
 const EXPECTED_DISABLED_PARAMS_HEADER = readFileSync('./test/resources/output/DisabledParamsHeader.yml', 'utf8')
+const EXPECTED_OPERATIONS_IDS = readFileSync('./test/resources/output/OperationIds.yml', 'utf8')
+const EXPECTED_OPERATIONS_IDS_AUTO = readFileSync('./test/resources/output/OperationIdsAuto.yml', 'utf8')
+const EXPECTED_OPERATIONS_IDS_BRACKETS = readFileSync('./test/resources/output/OperationIdsBrackets.yml', 'utf8')
 
 const AUTH_DEFINITIONS = {
   myCustomAuth: {
@@ -130,6 +133,7 @@ describe('Library specs', function () {
       const COLLECTION_RESPONSES_EMPTY = `./test/resources/input/${version}/ResponsesEmpty.json`
       const COLLECTION_JSON_COMMENTS = `./test/resources/input/${version}/JsonComments.json`
       const COLLECTION_DISABLED = `./test/resources/input/${version}/DisabledParams.json`
+      const COLLECTION_OPERATION_IDS = `./test/resources/input/${version}/OperationIds.json`
 
       it('should work with a basic transform', async function () {
         const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {})
@@ -535,6 +539,26 @@ describe('Library specs', function () {
         })
         equal(result, EXPECTED_DISABLED_PARAMS_HEADER)
       })
+
+      it('should not add `operationId` by default', async function () {
+        const result = await postmanToOpenApi(COLLECTION_OPERATION_IDS, OUTPUT_PATH)
+        equal(result, EXPECTED_OPERATIONS_IDS)
+      })
+
+      it('should include `operationId` when `auto` is selected', async function () {
+        const result = await postmanToOpenApi(COLLECTION_OPERATION_IDS, OUTPUT_PATH, { operationId: 'auto' })
+        equal(result, EXPECTED_OPERATIONS_IDS_AUTO)
+      })
+
+      it('should include `operationId` when `brackets` is selected', async function () {
+        const result = await postmanToOpenApi(COLLECTION_OPERATION_IDS, OUTPUT_PATH, { operationId: 'brackets' })
+        equal(result, EXPECTED_OPERATIONS_IDS_BRACKETS)
+      })
+
+      it('should not add `operationId` if option is unknown', async function () {
+        const result = await postmanToOpenApi(COLLECTION_OPERATION_IDS, OUTPUT_PATH, { operationId: 'banana' })
+        equal(result, EXPECTED_OPERATIONS_IDS)
+      })
     })
   })
 
@@ -557,4 +581,13 @@ describe('Library specs', function () {
     const result = await postmanToOpenApi(collectionString, OUTPUT_PATH, {})
     equal(result, EXPECTED_BASIC_NO_OPTS)
   })
+
+  /* we keep this because im using all the time to resolve issues
+  it('issue233', async function () {
+    const collectionString = await readFile('./test/resources/input/issue233.json', 'utf8')
+    const result = await postmanToOpenApi(collectionString, OUTPUT_PATH, {})
+    console.log(result)
+    // equal(result, EXPECTED_BASIC_NO_OPTS)
+  })
+  */
 })

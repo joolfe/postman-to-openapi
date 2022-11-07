@@ -100,6 +100,9 @@ paths:
                 example-2:
                   summary: Create new User automatic id (null)
                   value: {}
+                example-3:
+                  summary: Create new User automatic id (undefined)
+                  value: {}
   /users/{user_id}:
     get:
       tags:
