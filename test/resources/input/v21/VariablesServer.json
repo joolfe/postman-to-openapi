@@ -1,0 +1,29 @@
+{
+  "info": {
+    "_postman_id": "ab6665f4-8c75-4cc8-9d9b-53c2c17979aa",
+    "name": "Server Variables",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Server Variables",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://{{name}}.example.com/anything",
+          "protocol": "https",
+          "host": ["{{name}}", "example"],
+          "path": ["anything"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "name",
+      "value": "demo"
+    }
+  ]
+}

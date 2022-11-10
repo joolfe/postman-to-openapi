@@ -57,6 +57,7 @@ const EXPECTED_FORM_DATA = readFileSync('./test/resources/output/FormData.yml', 
 const EXPECTED_FORM_URLENCODED = readFileSync('./test/resources/output/FormUrlencoded.yml', 'utf8')
 const EXPECTED_VARIABLES = readFileSync('./test/resources/output/Variables.yml', 'utf8')
 const EXPECTED_VARIABLES_ADDITIONAL = readFileSync('./test/resources/output/VariablesAdditional.yml', 'utf8')
+const EXPECTED_VARIABLES_SERVER = readFileSync('./test/resources/output/VariablesServer.yml', 'utf8')
 const EXPECTED_BASEPATH_VAR = readFileSync('./test/resources/output/BasepathVar.yml', 'utf8')
 const EXPECTED_RAW_BODY = readFileSync('./test/resources/output/RawBody.yml', 'utf8')
 const EXPECTED_NULL_HEADER = readFileSync('./test/resources/output/NullHeader.yml', 'utf8')
@@ -126,6 +127,7 @@ describe('Library specs', function () {
       const COLLECTION_FORM_DATA = `./test/resources/input/${version}/FormData.json`
       const COLLECTION_FORM_URLENCODED = `./test/resources/input/${version}/FormUrlencoded.json`
       const COLLECTION_VARIABLES = `./test/resources/input/${version}/Variables.json`
+      const COLLECTION_VARIABLES_SERVER = `./test/resources/input/${version}/VariablesServer.json`
       const COLLECTION_BASEURL_VAR = `./test/resources/input/${version}/BasepathVar.json`
       const COLLECTION_RAW_BODY = `./test/resources/input/${version}/RawBody.json`
       const COLLECTION_COLLECTION_WRAPPER = `./test/resources/input/${version}/CollectionWrapper.json`
@@ -200,6 +202,11 @@ describe('Library specs', function () {
       it('should parse servers from existing host in postman collection', async function () {
         const result = await postmanToOpenApi(COLLECTION_MULTIPLE_SERVERS, OUTPUT_PATH)
         equal(result, EXPECTED_MULTIPLE_SERVERS)
+      })
+
+      it('should parse servers that are set up as variables', async function () {
+        const result = await postmanToOpenApi(COLLECTION_VARIABLES_SERVER, OUTPUT_PATH)
+        equal(result, EXPECTED_VARIABLES_SERVER)
       })
 
       it('should use servers from options', async function () {

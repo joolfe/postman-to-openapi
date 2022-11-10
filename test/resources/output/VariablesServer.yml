@@ -1,0 +1,20 @@
+openapi: 3.0.0
+info:
+  title: Server Variables
+  version: 1.0.0
+servers:
+  - url: https://{{name}}.example.com
+    variables:
+      name:
+        default: demo
+paths:
+  /anything:
+    get:
+      tags:
+        - default
+      summary: Server Variables
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

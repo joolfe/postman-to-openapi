@@ -4,6 +4,7 @@ info:
   version: 1.0.0
 servers:
   - url: http://{{url}}
+    variables: {}
   - url: https://api.io
 tags:
   - name: Authentification
