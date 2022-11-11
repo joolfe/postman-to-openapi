@@ -1,0 +1,10 @@
+{
+  "info.x-summary": "This is a very basic example of an API Documentation",
+  "paths./note.post.x-code-samples": [
+    {
+      "lang": "NodeJs",
+      "label": "Axios",
+      "source": "var axios = require('axios');\nvar data = 'This is an example Note';\n\naxios.post('https://api.io/note/', data).then(function (response) {\nconsole.log(JSON.stringify(response.data));\n})\n.catch(function (error) {\nconsole.log(error);\n});"
+    }
+  ]
+}

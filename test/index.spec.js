@@ -13,6 +13,8 @@ const OUTPUT_PATH = path.join(__dirname, '/openAPIRes.yml')
 const COLLECTION_NO_OPTIONS = './test/resources/input/NoOptionsInBody.json'
 const COLLECTION_NULL_HEADERS = './test/resources/input/NullHeaders.json'
 
+const CUSTOM_JSON_INJECTION = './test/resources/input/CustomJsonInjection.json'
+
 const EXPECTED_BASIC = readFileSync('./test/resources/output/Basic.yml', 'utf8')
 const EXPECTED_BASIC_JSON = readFileSync('./test/resources/output/Basic.json', 'utf8')
 const EXPECTED_BASIC_NO_OPTS = readFileSync('./test/resources/output/BasicNoOptions.yml', 'utf8')
@@ -69,6 +71,7 @@ const EXPECTED_DISABLED_PARAMS_HEADER = readFileSync('./test/resources/output/Di
 const EXPECTED_OPERATIONS_IDS = readFileSync('./test/resources/output/OperationIds.yml', 'utf8')
 const EXPECTED_OPERATIONS_IDS_AUTO = readFileSync('./test/resources/output/OperationIdsAuto.yml', 'utf8')
 const EXPECTED_OPERATIONS_IDS_BRACKETS = readFileSync('./test/resources/output/OperationIdsBrackets.yml', 'utf8')
+const EXPECTED_BASIC_WITH_JSON_INJECTION = readFileSync('./test/resources/output/BasicWithInjectedJson.yml', 'utf8')
 
 const AUTH_DEFINITIONS = {
   myCustomAuth: {
@@ -559,7 +562,13 @@ describe('Library specs', function () {
         const result = await postmanToOpenApi(COLLECTION_OPERATION_IDS, OUTPUT_PATH, { operationId: 'banana' })
         equal(result, EXPECTED_OPERATIONS_IDS)
       })
+
+      it('should inject custom JSON', async function () {
+        const result = await postmanToOpenApi(COLLECTION_BASIC, OUTPUT_PATH, {jsonInjectionFile: CUSTOM_JSON_INJECTION})
+        equal(result, EXPECTED_BASIC_WITH_JSON_INJECTION)
+      })
     })
+
   })
 
   it('should work if no options in request body', async function () {
