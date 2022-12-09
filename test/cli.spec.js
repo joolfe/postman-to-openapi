@@ -75,7 +75,9 @@ describe('Cli specs', function () {
   it('should print an error when options file is not a valid json', async function () {
     await rejects(execa('node', [cliPath, COLLECTION_SIMPLE, '-o', INVALID_OPTIONS_INFO]), {
       name: 'Error',
-      stderr: 'Error: invalid "options" parameter -> Unexpected token i in JSON at position 6',
+      stderr: process.version.split('v')[1].startsWith('19')
+        ? 'Error: invalid "options" parameter -> Expected property name or \'}\' in JSON at position 6'
+        : 'Error: invalid "options" parameter -> Unexpected token i in JSON at position 6',
       exitCode: 1
     })
   })

@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x, 17.x]
+        node-version: [14.x, 16.x, 17.x, 18.x, 19.x]
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
@@ -20,7 +20,7 @@ jobs:
     - run: npm run lint
     - run: npm run lint:ts
     - run: npm test
-    - name: Upload coverage to Codecov  
+    - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
@@ -36,7 +36,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
-        node-version: '12.x'
+        node-version: '16.x'
         registry-url: 'https://registry.npmjs.org'
     - run: npm install
     - run: npm publish --access public
