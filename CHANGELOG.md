@@ -1,3 +1,25 @@
+## [3.0.0](https://github.com/joolfe/postman-to-openapi/compare/2.9.0...3.0.0) (2022-12-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* update version because node.js 12 is not supported anymore
+
+### Features
+
+* add node 19 in pipelines ([dfd74cf](https://github.com/joolfe/postman-to-openapi/commit/dfd74cf334ab0b8920595df0de1494ecf11bf7a8))
+
+
+### Build System
+
+* support node.js 18.x ([1b202d9](https://github.com/joolfe/postman-to-openapi/commit/1b202d95776fe0616dfc4e9a63321fff82cbd2f1))
+* update version because node.js 12 is not supported anymore ([b1a46a6](https://github.com/joolfe/postman-to-openapi/commit/b1a46a67340f3cc4a75b50088e1efee0517aab02))
+
+
+### Tests
+
+* in Node 19 one of the errors has change so fixed in the test ([e4e07f9](https://github.com/joolfe/postman-to-openapi/commit/e4e07f9644bcb099d9ea91a48c9ac29ef6ed6b1a))
+
 ## [2.9.0](https://github.com/joolfe/postman-to-openapi/compare/2.8.0...2.9.0) (2022-11-06)
 
 
