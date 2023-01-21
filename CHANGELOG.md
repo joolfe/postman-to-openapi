@@ -1,3 +1,10 @@
+### [3.0.1](https://github.com/joolfe/postman-to-openapi/compare/3.0.0...3.0.1) (2023-01-21)
+
+
+### Build System
+
+* **deps:** fix dependency vulnerability ([859c35c](https://github.com/joolfe/postman-to-openapi/commit/859c35cf6ffbb07e3e72ef920f32a55d685789a2))
+
 ## [3.0.0](https://github.com/joolfe/postman-to-openapi/compare/2.9.0...3.0.0) (2022-12-26)
 
 
