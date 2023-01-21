@@ -29,6 +29,20 @@ paths:
             application/json:
               schema:
                 type: object
+                properties:
+                  id:
+                    type: string
+                  createdAt:
+                    type: string
+                  name:
+                    type: string
+                  avatar:
+                    type: string
+                required:
+                  - id
+                  - createdAt
+                  - name
+                  - avatar
               examples:
                 example-0:
                   summary: Create new User example
@@ -65,6 +79,15 @@ paths:
             application/json:
               schema:
                 type: object
+                properties:
+                  id:
+                    type: string
+                  createdAt:
+                    type: string
+                  name:
+                    type: string
+                  avatar:
+                    type: string
               example:
                 id: '50'
                 createdAt: '2021-06-04T23:41:02.287Z'

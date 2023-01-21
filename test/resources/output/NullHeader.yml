@@ -43,6 +43,16 @@ paths:
             application/json:
               schema:
                 type: object
+                properties:
+                  erreur:
+                    type: 'null'
+                  codeErreur:
+                    type: number
+                  contenu:
+                    type: object
+                    properties:
+                      token:
+                        type: string
               example:
                 erreur: null
                 codeErreur: 0
