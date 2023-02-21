@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "7f7ad829-6db0-4229-9c38-5e9f341ec7bb",
+		"name": "Responses",
+		"description": "Postman collection with saved responses that don't have an HTTP Status Code",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create new User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"100\",\n    \"createdAt\": \"2021-06-04T15:50:38.568Z\",\n    \"name\": \"Carol\",\n    \"avatar\": \"https://cdn.fakercloud.com/avatars/nelsonjoyce_128.jpg\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://60bb37ab42e1d000176206c3.mockapi.io/api/v1/users",
+					"protocol": "https",
+					"host": [
+						"60bb37ab42e1d000176206c3",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				},
+				"description": "Create a new user into your amazing API"
+			},
+			"response": [
+				{
+					"name": "Create new User example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"100\",\n    \"createdAt\": \"2021-06-04T15:50:38.568Z\",\n    \"name\": \"Carol\",\n    \"avatar\": \"https://cdn.fakercloud.com/avatars/nelsonjoyce_128.jpg\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://60bb37ab42e1d000176206c3.mockapi.io/api/v1/users",
+							"protocol": "https",
+							"host": [
+								"60bb37ab42e1d000176206c3",
+								"mockapi",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET,PUT,POST,DELETE,OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "X-Requested-With,Content-Type,Cache-Control,access_token"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "131"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 05 Jun 2021 08:42:32 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"51\",\n    \"createdAt\": \"2021-06-04T15:50:38.568Z\",\n    \"name\": \"Carol\",\n    \"avatar\": \"https://cdn.fakercloud.com/avatars/nelsonjoyce_128.jpg\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "version",
+			"value": "1.2.0"
+		},
+		{
+			"key": "user_id",
+			"value": "50"
+		}
+	]
+}
