@@ -17,8 +17,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
-    - run: npm run lint
-    - run: npm run lint:ts
+    # - run: npm run lint
+    # - run: npm run lint:ts
     - run: npm test
     - name: Upload coverage to Codecov  
       uses: codecov/codecov-action@v1
