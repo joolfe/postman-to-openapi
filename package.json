@@ -1,5 +1,5 @@
 {
-  "name": "@cunkz/postman-to-openapi",
+  "name": "postman-ke-openapi",
   "version": "1.0.0",
   "description": "Convert postman collection to OpenAPI spec",
   "main": "lib/index.js",

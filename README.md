@@ -65,6 +65,10 @@ p2o ./path/to/PostmantoCollection.json -f ./path/to/result.yml -o ./path/to/opti
 
 All features, usage instructions and help can be found in the [Documentation page](https://joolfe.github.io/postman-to-openapi/)
 
+## Credits
+
+All credits goes to [joolfe](https://github.com/joolfe). I re-publish this package because my PR didnt get any response.
+
 ## Tags
 
 `Nodejs` `Javascript` `OpenAPI` `Postman` `Newman` `Collection` `Transform` `Convert`
