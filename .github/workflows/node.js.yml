@@ -27,7 +27,8 @@ jobs:
         file: ./coverage/lcov.info
         flags: unittests
         name: codecov-upload
-        fail_ci_if_error: true
+        # fail_ci_if_error: true
+        fail_ci_if_error: false
   publish:
     if: ${{ github.ref == 'refs/heads/master' }}
     needs: build
