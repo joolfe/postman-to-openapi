@@ -3,19 +3,19 @@
 Using `npm`:
 
 ```bash
-npm i @cunkz/postman-to-openapi
+npm i postman-ke-openapi
 ```
 
 Using `yarn`:
 
 ```bash
-yarn add @cunkz/postman-to-openapi
+yarn add postman-ke-openapi
 ```
 
 To install as a `cli` just
 
 ```bash
-npm i @cunkz/postman-to-openapi -g
+npm i postman-ke-openapi -g
 ```
 
 ## Quick Usage
