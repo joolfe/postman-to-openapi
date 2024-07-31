@@ -74,6 +74,8 @@ describe('Cli specs', function () {
 
   it('should print an error when options file is not a valid json', async function () {
     await rejects(execa('node', [cliPath, COLLECTION_SIMPLE, '-o', INVALID_OPTIONS_INFO]), (err) => {
+      console.log(err);
+      console.log(JSON.stringify(err));
       equal(err.name, 'Error')
       equal(err.exitCode, 1)
       ok(err.stderr === 'Error: invalid "options" parameter -> Expected property name or \'}\' in JSON at position 6' ||
