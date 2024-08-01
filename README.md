@@ -24,7 +24,7 @@ As a library
 
 ```js
 // Require Package
-const postmanToOpenApi = require('postman-to-openapi')
+const postmanToOpenApi = require('postman-ke-openapi')
 
 // Postman Collection Path
 const postmanCollection = './path/to/postman/collection.json'
