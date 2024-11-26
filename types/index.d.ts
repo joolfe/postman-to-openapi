@@ -1,5 +1,5 @@
 
-/** 
+/**
  * Object that contain the license information as defined in
  * https://spec.openapis.org/oas/v3.0.3.html#contactObject
  */
@@ -9,7 +9,7 @@ export interface ContactObject {
     email?: string
 }
 
-/** 
+/**
  * Object that contain the license information as defined in
  * https://spec.openapis.org/oas/v3.0.3.html#licenseObject
  */
@@ -18,7 +18,7 @@ export interface LicenseObject {
     url?: string
 }
 
-/** 
+/**
  * Object that contain the api information as defined in
  * https://spec.openapis.org/oas/v3.0.3.html#info-object
  */
@@ -89,6 +89,7 @@ export interface Options {
     responseHeaders?: boolean,
     // Default value false
     replaceVars?: boolean,
+    itemServers?: boolean,
     additionalVars?: { [key: string]: string },
     // Default value 'yaml'
     outputFormat?: 'json' | 'yaml',
