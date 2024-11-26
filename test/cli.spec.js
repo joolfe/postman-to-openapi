@@ -48,7 +48,7 @@ describe('Cli specs', function () {
   it('should print an error when result file cannot be created', async function () {
     await rejects(execa('node', [cliPath, COLLECTION_BASIC, '-f', './no_exist/result.yml']), {
       name: 'Error',
-      stderr: "Error: ENOENT: no such file or directory, open './no_exist/result.yml'",
+      stderr: 'Invalid item ignored: No url request GET default\n' + "Error: ENOENT: no such file or directory, open './no_exist/result.yml'",
       exitCode: 1
     })
   })
