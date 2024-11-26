@@ -1,6 +1,6 @@
 {
-  "name": "@pond918/postman-to-openapi",
-  "version": "3.0.2",
+  "name": "postman-to-openapi",
+  "version": "3.0.1",
   "description": "Convert postman collection to OpenAPI spec",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
