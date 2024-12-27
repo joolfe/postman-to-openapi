@@ -1,3 +1,16 @@
+# Repository Archived
+
+This project was developed as part of a larger initiative at a company I previously worked with. While it served its purpose during its active phase, it is no longer used or maintained.
+
+Unfortunately, I no longer have the time to maintain or update this repository. However, to preserve the work and make it available to the community, this repository is being archived.
+
+If you find it useful or wish to build upon it, feel free to fork the project and continue development on your own.
+
+Thank you for your interest and support!
+
+
+
+
 ![logo](./docs/assets/img/logoBanner.png)
 
 # [postman-to-openapi](https://joolfe.github.io/postman-to-openapi/)
